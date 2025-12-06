@@ -11,8 +11,12 @@ console.log("Loaded SENDGRID_API_KEY:", process.env.SENDGRID_API_KEY);
 const app = express();
 
 // Middleware
-app.use(cors());
 app.use(express.json());
+
+app.use(cors({
+  origin: ["http://127.0.0.1:3000", "http://localhost:3000"],
+  credentials: true
+}));
 
 // DB Connection
 connectDB();
