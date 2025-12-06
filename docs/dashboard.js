@@ -230,3 +230,13 @@ document.addEventListener("DOMContentLoaded", () => {
   renderShows();
   refreshDashboard();
 });
+
+document.getElementById("logoutBtn").addEventListener("click", () => {
+    
+    // Remove token or any stored user data
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    // Redirect back to main page
+    window.location.href = "index.html";  
+});
