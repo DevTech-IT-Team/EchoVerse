@@ -5,7 +5,13 @@ const userSchema = new mongoose.Schema({
   lastName: String,
   email: { type: String, required: true, unique: true, lowercase: true },
   password: { type: String, required: true },
-  dob:Date,contactNumber:String
+  isAdmin: {
+        type: Boolean,
+        default: false
+    },
+  dob:Date,contactNumber:String,
+   role: { type: String, default: "user" }
+
 }, { timestamps: true });
 
 module.exports = mongoose.model('User', userSchema);

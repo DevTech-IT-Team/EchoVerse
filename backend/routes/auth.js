@@ -3,73 +3,21 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
-const router = express.Router();  // <-- declare router before using it
+const router = express.Router();
 
-// POST /api/auth/signup
-router.post("/signup", async (req, res) => {
-  try {
-    const { firstName, lastName, email, dob, password, contactNumber } =
-      req.body;
-
-    if (!firstName || !lastName || !email || !dob || !password || !contactNumber) {
-      return res
-        .status(400)
-        .json({
-          message:
-            "Name, email, password, dob, and contact number are required",
-        });
-    }
-
-    const existing = await User.findOne({ email: email.toLowerCase() });
-    if (existing)
-      return res.status(409).json({ message: "Email already in use" });
-
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(password, salt);
-
-    const user = new User({
-      firstName,
-      lastName,
-      email: email.toLowerCase(),
-      password: hash,
-      dob,
-      contactNumber,
-    });
-
-    await user.save();
-
-    const token = jwt.sign(
-      { id: user._id, email: user.email },
-      process.env.JWT_SECRET || "default",
-      { expiresIn: "7d" }
-    );
-
-    res
-      .status(201)
-      .json({
-        token,
-        user: {
-          id: user._id,
-          firstName: user.firstName,
-          lastName: user.lastName,
-          email: user.email,
-        },
-      });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Server error" });
-  }
-});
-
-// LOGIN
+// =========================
+// USER SIGNUP
+// =========================
+// =========================
+// USER / ADMIN LOGIN
+// =========================
 router.post("/login", async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const { email, password, loginAs } = req.body;
+    // loginAs = "user" or "admin"
 
     if (!email || !password)
-      return res
-        .status(400)
-        .json({ message: "Email and password required" });
+      return res.status(400).json({ message: "Email and password required" });
 
     const user = await User.findOne({ email: email.toLowerCase() });
     if (!user)
@@ -79,8 +27,27 @@ router.post("/login", async (req, res) => {
     if (!match)
       return res.status(401).json({ message: "Invalid credentials" });
 
+    // BLOCK ADMIN FROM LOGGING IN AS USER
+    if (loginAs === "user" && user.isAdmin) {
+      return res.status(403).json({
+        message: "Admins cannot log in from the user portal",
+      });
+    }
+
+    // BLOCK USER FROM LOGGING IN AS ADMIN
+    if (loginAs === "admin" && !user.isAdmin) {
+      return res.status(403).json({
+        message: "You are not authorized to access the admin dashboard",
+      });
+    }
+
     const token = jwt.sign(
-      { id: user._id, email: user.email },
+      {
+        id: user._id,
+        email: user.email,
+        role: user.role,
+        isAdmin: user.isAdmin,
+      },
       process.env.JWT_SECRET || "default",
       { expiresIn: "7d" }
     );
@@ -92,6 +59,8 @@ router.post("/login", async (req, res) => {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
+        role: user.role,
+        isAdmin: user.isAdmin,
       },
     });
   } catch (err) {
@@ -99,5 +68,6 @@ router.post("/login", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
 
 module.exports = router;

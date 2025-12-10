@@ -1,13 +1,14 @@
- require("dotenv").config();
- const express = require("express");
+require("dotenv").config();
+const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
+const path = require("path");
 
 const authRoutes = require("./routes/auth");
-const contactRoutes = require("./routes/contactRoutes"); // FIXED
+const contactRoutes = require("./routes/contactRoutes");
+const adminRoutes = require("./routes/adminRoutes");
+const eventsRoutes = require("./routes/events");
 
-
-console.log("Loaded SENDGRID_API_KEY:", process.env.SENDGRID_API_KEY);
 const app = express();
 
 // Middleware
@@ -18,13 +19,22 @@ app.use(cors({
   credentials: true
 }));
 
-// DB Connection
+// ⭐ Serve Admin Static Files (MUST be above routes)
+app.use(
+  "/admin",
+  express.static(path.join(__dirname, "..", "docs", "admin"))
+);
+
+// Database
 connectDB();
 
-// Routes
+// API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/admin", adminRoutes);
+app.use("/api/events", eventsRoutes);
 
+// Root
 app.get("/", (req, res) => {
   res.send("API is running...");
 });
