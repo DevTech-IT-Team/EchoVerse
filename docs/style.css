@@ -1970,18 +1970,26 @@ body {
 
 
 /* ======== Responsive ======== */
-@media (max-width: 768px) {
-  .slider {
-    height: 260px;
+@media (max-width: 600px) {
+  .act-image {
+    height: 240px;
+    border-radius: 10px;
+  }
+
+  .slides img {
+    object-fit: contain;  /* FIX: show full image */
+    object-position: center;
+    background-color: #000;  /* Makes black letterbox */
+  }
+
+  .slides4 img,
+  .slides5 img,
+  .slides6 img {
+    object-fit: contain;  
+    object-position: center;
+    background-color: #000;
   }
 }
-
-@media (max-width: 480px) {
-  .slider {
-    height: 200px;
-  }
-}
-
 
 
 
@@ -2129,82 +2137,122 @@ body {
 /* =========================================================
    YOUTUBE VIDEO EMBED SECTION
    ========================================================= */
+ .video-section {
+            background-color: #121212;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.youtube-section {
-  padding: 80px 5%;
-  padding-top: 10px;
-  text-align: center;
-  background: #0c0c0c;
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-}
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-.youtube-title {
-  font-size: 54px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-}
+        .section-title {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
 
-.youtube-title span {
-  color: #1ed760;
-  position: relative;
-}
+        .section-title span {
+            color: #1DB954;
+        }
 
-.youtube-title span::after {
-  content: "";
-  width: 0%;
-  height: 4px;
-  background: #1ed760;
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  transition: 0.4s ease;
-}
+        .section-subtitle {
+            color: #b3b3b3;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
 
-.youtube-title:hover span::after {
-  width: 100%;
-}
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
 
-.youtube-sub {
-  max-width: 600px;
-  margin: 0 auto 50px;
-  font-size: 16px;
-  opacity: 0.8;
-}
+        .video-card {
+            background-color: #181818;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
 
-/* GRID */
-.youtube-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-}
+        .video-card:hover {
+            transform: translateY(-8px);
+            background-color: #282828;
+        }
 
-/* CARD */
-.yt-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: 0.3s ease;
-  box-shadow: 0 0 20px rgba(30, 215, 96, 0.1);
-}
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            overflow: hidden;
+        }
 
-.yt-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 0 30px rgba(30, 215, 96, 0.4);
-}
+        .video-thumbnail iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
 
-/* IFRAME */
-.yt-thumb iframe {
-  width: 100%;
-  height: 300px;
-  border: none;
-  display: block;
-  border-radius: 20px;
-}
+        .video-title {
+            padding: 20px;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.4;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 80px;
+        }
 
+        .video-counter {
+            text-align: center;
+            color: #b3b3b3;
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+
+        .video-counter span {
+            color: #1DB954;
+            font-weight: 600;
+        }
+
+        /* Responsive design */
+        @media (max-width: 992px) {
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
 
 
 /*-------------------------------------------------- songs list -------------------------------------------*/
