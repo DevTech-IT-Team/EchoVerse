@@ -1,0 +1,1429 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Girl & Guy Song List</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="assets/logooo.png" alt="Collin Freestone Entertainment" id="logoimage">
+            <img src="assets/col.png" alt="Collin Freestone Entertainment" id="headerimage">
+        </div>
+        <nav class="nav-links" id="navLinks">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">About</a></li>
+                <li><a href="index.html">Events</a></li>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a href="Songs.html">Song List</a></li>
+                <li><a href="index.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" onclick="toggleMenu()">Home</a>
+        <a href="index.html" onclick="toggleMenu()">About</a>
+        <a href="index.html" onclick="toggleMenu()">Events</a>
+        <a href="gallery.html" onclick="toggleMenu()">Gallery</a>
+        <a href="Songs.html" onclick="toggleMenu()">Song List</a>
+        <a href="index.html" onclick="toggleMenu()">Contact</a>
+        <a href="login.html" class="mobile-login" onclick="toggleMenu()">Login</a>
+    </div>
+
+    <!-- WRAPPER -->
+    <div id="girlandguysonglist">
+
+        <main class="wrap" role="main" aria-label="Girl & Guy Song List">
+
+            <div class="controls" aria-hidden="false">
+                <div class="left">
+
+                    <div class="search" title="Search songs (type and press enter or wait)">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                            <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" />
+                        </svg>
+
+                        <input id="girlGuySearchInput" type="search" placeholder="Search songs (title / artist)..."
+                            aria-label="Search songs" />
+                    </div>
+
+                    <button id="girlGuyClearBtn" class="btn" title="Clear search">Clear</button>
+                    <button id="girlGuyShowAllBtn" class="btn primary" title="Show all songs">Show All</button>
+
+                </div>
+                <section class="gg-section">
+                    <div class="gg-image">
+                        <img src="/docs/assets/GirlGuyyellow.png" alt="Girl and Guy Live Band" />
+                    </div>
+
+
+
+                    <div class="gg-content">
+                        <h2>Girl & Guy</h2>
+                        <p>
+                            Pick your favorite song and send us the title. Quick, easy, and fun — choose it, send it,
+                            and enjoy the music!
+                        </p>
+                    </div>
+                </section>
+
+
+                <!-- <div class="alpha" aria-hidden="false" id="girlGuyAlphaBar" title="Filter by first letter"> -->
+                <!-- A–Z buttons rendered by JS -->
+                <!-- </div> -->
+            </div>
+
+            <div class="list-wrap" id="girlGuyListWrap" tabindex="0" aria-live="polite">
+                <ul id="girlGuySongList" class="song-list" aria-label="Songs">
+                    <!-- JS will insert songs here -->
+                </ul>
+            </div>
+
+            <div id="girlGuyToast" class="toast" role="status" aria-live="polite"></div>
+
+        </main>
+
+    </div> <!-- END WRAPPER -->
+
+    <script src="girlandguyscript.js" defer></script>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+
+            <div class="footer-logo">
+                <img src="assets/footerlogo.jpg" alt="Logo" id="footerimage">
+                <h3>Collin Freestone Entertainment</h3>
+                <p>Top-tier live-music performances nationwide.</p>
+            </div>
+
+            <div class="footer-services">
+                <h4>Our Services</h4>
+                <ul>
+                    <li>Dueling Pianos</li>
+                    <li>Solo Performances</li>
+                    <li>Live Band Karaoke</li>
+                    <li>Wedding & Corporate Events</li>
+                    <li>Custom Live-Music Experiences</li>
+                </ul>
+            </div>
+
+            <div class="footer-socials">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://instagram.com/collinfreestoneentertainment" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@collinfreestone" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://facebook.com/collinfreestoneentertainment" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="mailto:collin@collinfreestoneentertainment.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-subscribe">
+                <h4>Subscribe</h4>
+                <p>Get the latest drops & event updates.</p>
+                <form>
+                    <input type="email" placeholder="Your Email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Collin Freestone Entertainment. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+
+    <script>
+        // ---------------- SONG LIST (from your ODT file) ----------------
+        const songs = [
+            "3 Doors Down - Loser",
+            "3 Doors Down – Here Without You",
+            "3 Doors Down – Kryptonite",
+            "3 Doors Down – When I’m Gone",
+            "311 - Beautiful Disaster",
+            "311 - Champagne",
+            "311 - Down",
+            "311 – All Mixed Up",
+            "50 Cent – Candy Shop (feat. Olivia)",
+            "50 Cent – In Da Club",
+            "50 Cent – Just A Lil Bit",
+            "50 Cent – P.I.M.P.",
+            "5th Dimension - Age of Aquarius",
+            "ABBA - Dancing Queen",
+            "ABBA - Fernando",
+            "ABBA – Dancing Queen",
+            "ABBA – Gimme! Gimme! Gimme! (A Man After Midnight)",
+            "ABBA – Mama Mia",
+            "ABBA – SOS",
+            "ABBA – Take A Chance On Me",
+            "ACDC - Back In Black",
+            "ACDC – Big Balls",
+            "ACDC – Dirty Deeds",
+            "ACDC – Hell’s Bells",
+            "ACDC – Highway To Hell",
+            "ACDC – Shoot To Thrill",
+            "ACDC – T.N.T.",
+            "ACDC – The Jack",
+            "ACDC – Thunderstruck",
+            "ACDC – You Shook Me All Night Long",
+            "Ace Of Base – All That She Wants",
+            "Ace Of Base – Beautiful Life",
+            "Ace Of Base – Cruel Summer",
+            "Ace Of Base – Don’t Turn Around",
+            "Ace Of Base – The Sign",
+            "Aerosmith - Jaded",
+            "Aerosmith – Crazy",
+            "Aerosmith – Dream On",
+            "Aerosmith – Dude (Looks Like A Lady)",
+            "Aerosmith – I Don’t Want to Miss a Thing",
+            "Aerosmith – Jamie’s Got a Gun",
+            "Aerosmith – Sweet Emotion",
+            "Aerosmith – Walk This Way",
+            "Afroman - Colt 45",
+            "Afroman – Because I Got High",
+            "Al Green – Here I Am",
+            "Al Green – How Can You Mend a Broken Heart",
+            "Al Green – Let’s Stay Together",
+            "Al Green – Love and Happiness",
+            "Alabama - Dixieland Delight",
+            "Alanis Morissette – Hand in My Pocket",
+            "Alanis Morissette – Head Over Feet",
+            "Alanis Morissette – Ironic",
+            "Alanis Morissette – Thank U",
+            "Alanis Morissette – Uninvited",
+            "Alanis Morissette – You Learn",
+            "Alanis Morissette – You Oughta Know",
+            "Alicia Keys – A Woman’s Worth",
+            "Alicia Keys – Fallin’",
+            "Alicia Keys – Girl on Fire",
+            "Alicia Keys – If I Ain’t Got You",
+            "Alicia Keys – No One",
+            "Alicia Keys – You Don’t Know My Name",
+            "Alphaville – Forever Young",
+            "Amy Winehouse – Rehab",
+            "Amy Winehouse – Valerie",
+            "Amy Winehouse – You Know I’m No Good",
+            "Andrew Sisters - Boogie Woogie Bugle Boy",
+            "Audioslave - Cochise",
+            "Audioslave – I Am The Highway",
+            "Audioslave – Like A Stone",
+            "Audioslave – Show Me How To Live",
+            "Avicii – Wake Me Up",
+            "Avril Lavigne – Complicated",
+            "Avril Lavigne – Sk8er Boi",
+            "Avril Lavigne – When You’re Gone",
+            "AWOLNATION - Sail",
+            "B-52’s – Love Shack",
+            "B-52’s – Rock",
+            "B.O.B. – Nothin’ On You (feat. Bruno Mars)",
+            "Bachman-Turner Overdrive – Let It Ride",
+            "Bachman-Turner Overdrive – Takin’ Care Of Business",
+            "Bachman-Turner Overdrive – You Ain’t Seen Nothing Yet",
+            "Backstreet Boys - As Long As You Love Me",
+            "Backstreet Boys - Everybody",
+            "Backstreet Boys – I Want It That Way",
+            "Bad Religion - 21st Century (Digital Boy)",
+            "Bad Religion – Sorrow",
+            "Barenaked Ladies – If I Had $1,000,000",
+            "Barenaked Ladies – One Week",
+            "Barenaked Ladies – Pinch Me",
+            "BB Mack - Back Here Baby",
+            "Beastie Boys - Sabotage",
+            "Beastie Boys – Brass Monkey",
+            "Beastie Boys – Fight For Your Right",
+            "Beastie Boys – Girls",
+            "Beastie Boys – Intergalactic",
+            "Beastie Boys – No Sleep Till Brooklyn",
+            "Beastie Boys – Paul Revere",
+            "Beastie Boys – Sure Shot",
+            "Beck – Devil’s Haircut",
+            "Beck – E-Pro",
+            "Beck – Loser",
+            "Beck – Where It’s At",
+            "Bee Gees – How Deep Is Your Love",
+            "Bee Gees – Stayin’ Alive",
+            "Bee Gees – You Should Be Dancing",
+            "Bell Biv DeVoe – Poison",
+            "Ben Folds Five – Brick",
+            "Ben Folds Five – Song for the Dumped",
+            "Ben Folds Five – The Luckiest",
+            "Big & Rich – Save a Horse (Ride a Cowboy)",
+            "Bill Medley & Jennifer Warnes – (I’ve Had) The Time Of My Life",
+            "Bill Withers - Ain't No Sunshine",
+            "Bill Withers – Lovely Day",
+            "Bill Withers – Use Me Up",
+            "Billy Idol – Dancing With Myself",
+            "Billy Idol – Rebel Yell",
+            "Billy Idol – White Wedding",
+            "Billy Joel - Allentown",
+            "Billy Joel - Movin' Out (Anthony’s Song)",
+            "Billy Joel - My Life",
+            "Billy Joel - New York State of Mind",
+            "Billy Joel - Piano Man",
+            "Billy Joel - Scenes From An Italian Restaurant",
+            "Billy Joel - Vienna",
+            "Billy Joel – Big Shot",
+            "Billy Joel – Captain Jack",
+            "Billy Joel – It’s Still Rock and Roll To Me",
+            "Billy Joel – Just The Way You Are",
+            "Billy Joel – Only The Good Die Young",
+            "Billy Joel – Rootbeer Rag",
+            "Billy Joel – She’s Always A Woman",
+            "Billy Joel – The Downeaster ‘Alexa’",
+            "Billy Joel – The Longest Time",
+            "Billy Joel – Uptown Girl",
+            "Billy Joel – We Didn’t Start The Fire",
+            "Billy Joel – You May Be Right",
+            "Black Eyed Peas – I Gotta Feeling",
+            "Black Eyed Peas – Let Get It Started",
+            "Black Eyed Peas – My Humps",
+            "Black Sabbath – Black Sabbath",
+            "Black Sabbath – Iron Man",
+            "Black Sabbath – War Pigs",
+            "Blackstreet – No Diggity",
+            "Blind Melon – No Rain",
+            "Blink 182 - All The Small Things",
+            "Blink 182 – Adam’s Song",
+            "Blink 182 – Aliens Exist",
+            "Blink 182 – Dammit",
+            "Blink 182 – Feeling This",
+            "Blink 182 – First Date",
+            "Blink 182 – I Miss You",
+            "Blink 182 – The Rock Show",
+            "Blink 182 – What’s My Age Again",
+            "Blondie – Call Me",
+            "Blondie – Heart Of Glass",
+            "Blondie – One Way Or Another",
+            "Blondie – The Tide Is High",
+            "Bloodhound Gang - The Bad Touch",
+            "Bloodhound Gang – The Ballad Of Chasey Lain",
+            "Blue Oyster Cult - Burnin' For You",
+            "Blue Oyster Cult – Don’t Fear (The Reaper)",
+            "Blue Swede & Bjorn Skifs – Hooked On A Feeling",
+            "Blur – Song 2",
+            "Bob Marley – Buffalo Soldier",
+            "Bob Marley – Could You Be Loved",
+            "Bob Marley – I Shot The Sheriff",
+            "Bob Marley – Is This Love",
+            "Bob Marley – Jammin",
+            "Bob Marley – No Woman, No Cry",
+            "Bob Marley – One Love / People Get Ready",
+            "Bob Marley – Redemption Song",
+            "Bob Marley – Roots, Rock, Reggae",
+            "Bob Marley – Stir It Up",
+            "Bob Marley – Three Little Birds",
+            "Bob Marley – Waiting In Vain",
+            "Bob Seger – Against The Wind",
+            "Bob Seger – Hollywood Nights",
+            "Bob Seger – Katmandu",
+            "Bob Seger – Mainstreet",
+            "Bob Seger – Night Moves",
+            "Bob Seger – Old Time Rock & Roll",
+            "Bob Seger – Rock And Roll Never Forgets",
+            "Bob Seger – Still The Same",
+            "Bob Seger – Turn The Page",
+            "Bobby Darin – Mack the Knife",
+            "Bobby Darin – Splish Splash",
+            "Bon Jovi - Dead Or Alive",
+            "Bon Jovi - Runaway",
+            "Bon Jovi – Livin’ On A Prayer",
+            "Bon Jovi – You Give Love A Bad Name",
+            "Bone Thugs & Harmony - East 1999",
+            "Bowling For Soup - 1985",
+            "Brian Setzer Orchestra – Jump, Jive An’ Wail",
+            "Brian Setzer Orchestra – Rock This Town",
+            "Britney Spears - Womanizer",
+            "Britney Spears – Hit Me Baby One More Time",
+            "Britney Spears – I Love Rock ‘N’ Roll",
+            "Britney Spears – I’m a Slave 4 U",
+            "Britney Spears – Lucky",
+            "Britney Spears – Oops I Did It Again",
+            "Britney Spears – Toxic",
+            "Brooks & Dunn - Boot Scootin' Boogie",
+            "Brooks & Dunn – Neon Moon",
+            "Bruno Mars - Grenade",
+            "Bruno Mars - Locked out of Heaven",
+            "Bruno Mars - Treasure",
+            "Bruno Mars – 24K Magic",
+            "Bruno Mars – Just The Way You Are",
+            "Bruno Mars – Marry You",
+            "Bruno Mars – That’s What I Like",
+            "Bruno Mars – When I Was Your Man",
+            "Bryan Adams – (Everything I Do) I Do It For You",
+            "Bryan Adams – Heaven",
+            "Bryan Adams – Run To You",
+            "Bryan Adams – Summer Of 69",
+            "Buffalo Springfield – What’s Goin’ Round",
+            "Cake - Going The Distance",
+            "Cake - I Will Survive",
+            "Cake - Never There",
+            "Cake – Short Skirt Long Jacket",
+            "Cake – War Pigs",
+            "Carly Rae Jepsen - Call Me Maybe",
+            "Carly Simon – You’re So Vain",
+            "Carrie Underwood - Before He Cheats",
+            "Carrie Underwood – Jesus Take The Wheel",
+            "Chappell Roan - Pink Pony Club",
+            "Chappell Roan – HOT TO GO!",
+            "Cheap Trick – I Want You To Want Me",
+            "Cheap Trick – Surrender",
+            "Cher - Believe",
+            "Cher – I Got You Babe",
+            "Cherry Poppin’ Daddies – Zoot Suit Riot",
+            "Chicago - Saturday In The Park",
+            "Chicago - You're The Inspiration",
+            "Chicago – 25 or 6 to 4",
+            "Chicago – Does Anybody Really Know What Time It Is?",
+            "Chicago – It’s Hard To Say I’m Sorry",
+            "Chicago – Will You Still Love Me",
+            "Childish Gambino - Redbone",
+            "Chris Cornell – Billie Jean",
+            "Chuck Berry – Johnny Be Goode",
+            "Chuck Berry – My Ding A Ling",
+            "Cindi Lauper – All Through the Night",
+            "Cindi Lauper – Girls Just Want To Have Fun",
+            "Cindi Lauper – Time After Time",
+            "Citizen Cope – Bullet and a Target",
+            "Citizen Cope – Hurricane Waters",
+            "Citizen Cope – Penitentiary",
+            "Citizen Cope – Son’s Gonna Rise (feat. Carlos Santana)",
+            "Coldplay – Amsterdam",
+            "Coldplay – Clocks",
+            "Coldplay – Don’t Panic",
+            "Coldplay – Everything’s Not Lost",
+            "Coldplay – Fix You",
+            "Coldplay – For You",
+            "Coldplay – In My Place",
+            "Coldplay – Speed Of Sound",
+            "Coldplay – The Scientist",
+            "Coldplay – Till Kingdom Come",
+            "Coldplay – Trouble",
+            "Coldplay – Viva La Vida",
+            "Coldplay – What If",
+            "Coldplay – Yellow",
+            "Collective Soul - Shine",
+            "Collective Soul – December",
+            "Collective Soul – The World I Know",
+            "Collin Freestone - Badly Baby",
+            "Collin Freestone - Dosido",
+            "Collin Freestone - Everyday",
+            "Collin Freestone – Dirty Hands",
+            "Collin Freestone – Good As Dead",
+            "Collin Freestone – Slim 2 None",
+            "Collin Freestone – Start Again",
+            "Coolio – Fantastic Voyage",
+            "Coolio – Gangsta’s Paradise",
+            "Crazytown - Butterfly",
+            "Creedence Clearwater Revival – Bad Moon Rising",
+            "Creedence Clearwater Revival – Born On The Bayou",
+            "Creedence Clearwater Revival – Down On The Corner",
+            "Creedence Clearwater Revival – Fortunate Son",
+            "Creedence Clearwater Revival – Green River",
+            "Creedence Clearwater Revival – Have You Ever Seen The Rain",
+            "Creedence Clearwater Revival – Hey Tonight",
+            "Creedence Clearwater Revival – I Heard It Through The Grapevine",
+            "Creedence Clearwater Revival – Lodi",
+            "Creedence Clearwater Revival – Looking Out My Back Door",
+            "Creedence Clearwater Revival – Proud Mary",
+            "Creedence Clearwater Revival – Run Through The Jungle",
+            "Creedence Clearwater Revival – Susie Q",
+            "Creedence Clearwater Revival – Travelin’ Band",
+            "Creedence Clearwater Revival – Up Around The Bend",
+            "Creedence Clearwater Revival – Who’ll Stop The Rain",
+            "Cyndi Lauper - Girls Just Wanna Have Fun",
+            "Cyndi Lauper – Time After Time",
+            "Daft Punk - Around The World",
+            "Daft Punk - Get Lucky",
+            "Daniel Powter – Bad Day",
+            "Darius Rucker – Wagon Wheel",
+            "Daryl Hall & John Oates - You Make My Dreams",
+            "Daryl Hall & John Oates – I Can’t Go For That",
+            "Daryl Hall & John Oates – Kiss On My List",
+            "Daryl Hall & John Oates – Maneater",
+            "Daryl Hall & John Oates – Private Eyes",
+            "Daryl Hall & John Oates – Rich Girl",
+            "Daryl Hall & John Oates – Sara Smile",
+            "Daryl Hall & John Oates – You Make My Dreams (Come True)",
+            "Dave Matthews Band - Crash Into Me",
+            "Dave Matthews Band - Crush",
+            "Dave Matthews Band – Ants Marching",
+            "Dave Matthews Band – Too Much",
+            "David Allen Coe – You Never Even Call Me by My Name",
+            "David Bowie - Heroes",
+            "David Bowie – Changes",
+            "David Bowie – Let’s Dance",
+            "David Bowie – Space Oddity",
+            "David Bowie – Under Pressure",
+            "David Guetta – Titanium (feat. Sia)",
+            "Dead Or Alive - You Spin Me Round",
+            "Def Leppard – Hysteria",
+            "Def Leppard – Love Bites",
+            "Def Leppard – Photograph",
+            "Def Leppard – Pour Some Sugar On Me",
+            "Def Leppard – Rock Of Ages",
+            "Destiny's Child - Say My Name",
+            "Dexys Midnight Runners - Come On Eileen",
+            "Dierks Bentley – Come A Little Closer",
+            "Dierks Bentley – Drunk On A Plane",
+            "Dierks Bentley – Lot Of Leavin’ Left To Do",
+            "Dierks Bentley – So So Long",
+            "Dierks Bentley – What Was I Thinkin’",
+            "Dire Straits – Money For Nothing",
+            "Dire Straits – Sultans Of Swing",
+            "Divinyls – I Touch Myself",
+            "Dixie Chicks – Cowboy Take Me Away",
+            "Dixie Chicks – Goodbye Earl",
+            "Dixie Chicks – Landslide",
+            "Dobie Gray - Drift Away",
+            "Don Henley - Dirty Laundry",
+            "Don Henley – All She Wants To Do Is Dance",
+            "Don Henley – The Boys Of Summer",
+            "Don McLean - American Pie",
+            "Dr. Dre – Forgot About Dre",
+            "Dr. Dre – Next Episode (feat Snoop Dogg)",
+            "Dr. Dre – Still D.R.E.",
+            "Dropkick Murphys – I’m Shipping Up To Boston",
+            "Drowning Pool - Bodies",
+            "Duran Duran – Hungry Like the Wolf",
+            "Duran Duran – Ordinary World",
+            "Eagles - Desperado",
+            "Eagles – Already Gone",
+            "Eagles – Heartache Tonight",
+            "Eagles – Hotel California",
+            "Eagles – I Can’t Tell You Why",
+            "Eagles – Lyin’ Eyes",
+            "Eagles – One Of These Nights",
+            "Eagles – Peaceful Easy Feeling",
+            "Eagles – Seven Bridges Road",
+            "Eagles – Take It Easy",
+            "Eagles – Take It To The Limit",
+            "Eagles – Witchy Woman",
+            "Earth, Wind & Fire – Boogie Wonderland",
+            "Earth, Wind & Fire – Let’s Groove",
+            "Earth, Wind & Fire – September",
+            "Eddie Money – Take Me Home Tonight",
+            "Eddie Money – Two Tickets to Paradise",
+            "Edwin McCain – I’ll Be",
+            "Edwin McCain – I Could Not Ask For More",
+            "Eiffel 65 – Blue (Da Ba Dee)",
+            "Electric Six - Danger! High Voltage",
+            "Electric Six – Gay Bar",
+            "Elton John - Benny and The Jets",
+            "Elton John - Crocodile Rock",
+            "Elton John – Candle In The Wind",
+            "Elton John – Daniel",
+            "Elton John – Don’t Go Breaking My Heart",
+            "Elton John – Don’t Let The Sun Go Down On Me",
+            "Elton John – Goodbye Yellow Brick Road",
+            "Elton John – I’m Still Standing",
+            "Elton John – Rocket Man",
+            "Elton John – Saturday Night’s Alright (For Fighting)",
+            "Elton John – Tiny Dancer",
+            "Elton John – Your Song",
+            "Elvis Presley – A Little Less Conversation",
+            "Elvis Presley – All Shook Up",
+            "Elvis Presley – Always On My Mind",
+            "Elvis Presley – Blue Christmas",
+            "Elvis Presley – Can’t Help Falling In Love",
+            "Elvis Presley – Heartbreak Hotel",
+            "Elvis Presley – Hound Dog",
+            "Elvis Presley – Jailhouse Rock",
+            "Elvis Presley – Suspicious Minds",
+            "Emerson, Lake & Palmer – Lucky Man",
+            "Eric Clapton – Change the World",
+            "Eric Clapton – Last Will and Testament",
+            "Eric Clapton – Lay Down Sally",
+            "Eric Clapton – Layla",
+            "Eric Clapton – My Father’s Eyes",
+            "Eric Clapton – Sunshine Of Your Love",
+            "Eric Clapton – Tears in Heaven",
+            "Eric Clapton – Wonderful Tonight",
+            "Etta James - At Last",
+            "Eurythmics – Sweet Dreams",
+            "Eve 6 - Promise",
+            "Eve 6 – Here’s to the Night",
+            "Eve 6 – Inside Out",
+            "Eve 6 – On The Roof Again",
+            "Everclear – Father Of Mine",
+            "Everclear – I Will Buy You A New Life",
+            "Everclear – Santa Monica",
+            "Everclear – Wonderful",
+            "Extreme – More Than Words",
+            "Fall Out Boy – Dance, Dance",
+            "Fall Out Boy – Sugar, We’re Goin Down",
+            "Fastball – Out Of My Head",
+            "Fastball – The Way",
+            "Fenix TX – Flight 601 (All I’ve Got Is Time)",
+            "Fenix TX – Threesome",
+            "Finger Eleven – Paralyzer",
+            "Five For Fighting – 100 Years",
+            "Five For Fighting – Superman (It’s Not Easy)",
+            "Fleetwood Mac – Don’t Stop",
+            "Fleetwood Mac – Dreams",
+            "Fleetwood Mac – Everywhere",
+            "Fleetwood Mac – Go Your Own Way",
+            "Fleetwood Mac – Rhiannon",
+            "Fleetwood Mac – The Chain",
+            "Flogging Molly – Drunken Lullabies",
+            "Flogging Molly – What’s Left of the Flag",
+            "Foo Fighters - Everlong",
+            "Foo Fighters – All My Life",
+            "Foo Fighters – Best of You",
+            "Foo Fighters – Learn To Fly",
+            "Foo Fighters – My Hero",
+            "Foo Fighters – The Pretender",
+            "Foo Fighters – Times Like These",
+            "Foster the People – Helena Beat",
+            "Foster the People – Pumped Up Kicks",
+            "Frank Sinatra – Fly Me To The Moon",
+            "Frank Sinatra – My Way",
+            "Frank Sinatra – New York, New York",
+            "Frank Sinatra – That’s Life",
+            "Frank Sinatra – The Way You Look Tonight",
+            "Frankie Goes To Hollywood – Relax",
+            "Frankie Valli & The Four Seasons – Big Girls Don’t Cry",
+            "Frankie Valli & The Four Seasons – Can’t Take My Eyes off You",
+            "Frankie Valli & The Four Seasons – December, 1963",
+            "Frankie Valli & The Four Seasons – Grease",
+            "Frankie Valli & The Four Seasons – Sherry",
+            "Franz Ferdinand – Take Me Out",
+            "Free – All Right Now",
+            "Fuel – Bad Day",
+            "Fuel – Hemorrhage (In My Hands)",
+            "Fuel – Shimmer",
+            "Garth Brooks – Ain’t Goin’ Down (Till The Sun Comes Up)",
+            "Garth Brooks – Callin’ Baton Rouge",
+            "Garth Brooks – Friends In Low Places",
+            "Garth Brooks – Rodeo",
+            "Garth Brooks – The Dance",
+            "Garth Brooks – Two Pina Coladas",
+            "Gary Allen – Life Ain’t Always Beautiful",
+            "Gary Allen – Right Where I Need To Be",
+            "Gary Allen – Smoke Rings In The Dark",
+            "Gary Numan – Cars",
+            "Gary Wright – Dreamweaver",
+            "Gavin DeGraw – Chariot",
+            "Gavin DeGraw – I Don’t Wanna Be",
+            "Georgia Satellites – Keep Your Hands to Yourself",
+            "Ginuwine - Pony",
+            "Glen Miller Band – A String of Pearls",
+            "Glen Miller Band – Chattanooga Choo-Choo",
+            "Glen Miller Band – In The Mood",
+            "Glen Miller Band – Little Brown Jug",
+            "Glen Miller Band – Moonlight Serenade",
+            "Glen Miller Band – Pennsylvania 6-5000",
+            "Gnarls Barkley - Crazy",
+            "Go West – King of Wishful Thinking",
+            "Gogol Bordello – American Wedding",
+            "Gogol Bordello – Start Wearing Purple",
+            "Gogol Bordello – Wonderlust King",
+            "Goldfinger - Superman",
+            "Goldfinger – 99 Red Balloons",
+            "Good Charlotte – Girls & Boys",
+            "Good Charlotte – I Don’t Wanna Be In Love",
+            "Good Charlotte – I Just Wanna Live",
+            "Good Charlotte – Lifestyles of the Rich & Famous",
+            "Good Charlotte – Little Things",
+            "Good Charlotte – The Anthem",
+            "Gorillaz – Clint Eastwood",
+            "Gorillaz – Dare",
+            "Gorillaz – Feel Good Inc",
+            "Gorillaz – Kids With Guns",
+            "Gorillaz – Last Living Souls",
+            "Gorillaz – New Gold (feat. Tame Impala)",
+            "Green Day - Basket Case",
+            "Green Day - Good Riddance (Time Of Your Life)",
+            "Green Day - Holiday",
+            "Green Day – All By Myself",
+            "Green Day – American Idiot",
+            "Green Day – Boulevard of Broken Dreams",
+            "Green Day – Brainstew",
+            "Green Day – Longview",
+            "Green Day – Minority",
+            "Green Day – She",
+            "Green Day – Wake Me Up When September Ends",
+            "Green Day – Welcome To Paradise",
+            "Green Day – When I Come Around",
+            "Gretchen Wilson – Redneck Woman",
+            "Guns N' Roses - Sweet Child O' Mine",
+            "Guns N' Roses – Knockin’ On Heaven’s Door",
+            "Guns N' Roses – November Rain",
+            "Guns N' Roses – Paradise City",
+            "Guns N' Roses – Welcome To The Jungle",
+            "Hank Williams Jr. - A Country Boy Can Survive",
+            "Hank Williams Jr. – Family Tradition",
+            "Hank Williams Jr. – Whiskey Bent And Hell Bound",
+            "Heart – Alone",
+            "Heart – Barracuda",
+            "Heart – These Dreams",
+            "Hinder – Lips Of An Angel",
+            "Hoobastank – Crawling In The Dark",
+            "Hoobastank – The Reason",
+            "Hootie & The Blowfish - Only Wanna Be With You",
+            "House Of Pain - Jump Around",
+            "Huey Lewis and the News – Heart And Soul",
+            "Huey Lewis and the News – If This Is It",
+            "Huey Lewis and the News – The Power of Love",
+            "Ice Cube – Check Yo Self",
+            "Ice Cube – Down For Whatever",
+            "Ice Cube – It Was A Good Day",
+            "Iggy Pop - Lust For Life",
+            "Illiterate Light – Better Than I Used To",
+            "Illiterate Light – Sweet Beast",
+            "Incubus – Are You In?",
+            "Incubus – Drive",
+            "Incubus – Nice To Know You",
+            "Incubus – Pardon Me",
+            "Incubus – Stellar",
+            "Incubus – The Warmth",
+            "Incubus – Wish You Were Here",
+            "INXS – By My Side",
+            "INXS – Devil Inside",
+            "INXS – Never Tear Us Apart",
+            "Jackson 5 - I Want You Back",
+            "Jackson 5 – ABC",
+            "Jackson 5 – I’ll Be There",
+            "James Brown - I Feel Good",
+            "Jamiroquai – Canned Heat",
+            "Jamiroquai – Cosmic Girl",
+            "Jamiroquai – Virtual Insanity",
+            "JAY-Z – 99 Problems",
+            "JAY-Z – Big Pimpin’",
+            "JAY-Z – Dirt Off Your Shoulder",
+            "JAY-Z – Empire State Of Mind",
+            "JAY-Z – Hard Knock Life",
+            "Jeff Buckley - Hallelujah",
+            "Jerry Lee Lewis – Great Balls Of Fire",
+            "Jerry Lee Lewis – Whole Lotta Shakin’ Goin’ On",
+            "Jet – Are You Gonna Be My Girl",
+            "Jet – Cold Hard Bitch",
+            "Jet – Look What You’ve Done",
+            "Jewel – Foolish Games",
+            "Jewel – Who Will Save Your Soul",
+            "Jewel – You Were Meant For Me",
+            "Jim Croce – Bad Bad Leroy Brown",
+            "Jim Croce – You Don’t Mess Around With Jim",
+            "Jimmy Eat World – Bleed American",
+            "Jimmy Eat World – Sweetness",
+            "Jimmy Eat World – The Middle",
+            "Joan Jett - Bad Reputation",
+            "Jodi Benson – Part Of Your World",
+            "Joe Cocker – Feelin’ Alright",
+            "Joe Cocker – With A Little Help From My Friends",
+            "Joe Cocker – You Are So Beautiful",
+            "Joe Cocker – You Can Leave Your Hat On",
+            "Joe Jackson – Steppin’ Out",
+            "Joe Walsh – Funk #49",
+            "Joe Walsh – In The City",
+            "Joe Walsh – Life’s Been Good",
+            "Joe Walsh – Rocky Mountain Way",
+            "John Denver – Country Roads",
+            "John Denver – Thank God I’m a Country Boy",
+            "John Mellencamp – Hurts So Good",
+            "John Mellencamp – Jack & Diane",
+            "John Mellencamp – Pink Houses",
+            "John Mellencamp – Small Town",
+            "John Parr – St. Elmo’s Fire",
+            "Johnny Cash - Jackson",
+            "Johnny Cash – A Boy Named Sue",
+            "Johnny Cash – Folsom Prison Blues",
+            "Johnny Cash – Hurt",
+            "Johnny Cash – I Walk The Line",
+            "Johnny Cash – Ring of Fire",
+            "Journey - Any Way You Want It",
+            "Journey - Don't Stop Believin'",
+            "Journey - Lights",
+            "Journey – Faithfully",
+            "Journey – Lovin’, Touchin’, Squeezin’",
+            "Journey – Open Arms",
+            "Journey – Separate Ways",
+            "Journey – Wheel In The Sky",
+            "Jungle - Casio",
+            "Justin Timberlake - Can't Stop The Feeling",
+            "Justin Timberlake – Cry Me a River",
+            "Justin Timberlake – My Love",
+            "Justin Timberlake – Rock Your Body",
+            "Justin Timberlake – SexyBack",
+            "Justin Timberlake – What Goes Around",
+            "K-Ci & JoJo - All My Life",
+            "Kansas – Carry On Wayward Son",
+            "Kansas – Dust In The Wind",
+            "Katy Perry – California Gurls",
+            "Katy Perry – Firework",
+            "Katy Perry – Hot N Cold",
+            "Katy Perry – Roar",
+            "Katy Perry – Teenage Dream",
+            "Keane – Everybody’s Changing",
+            "Keane – Somewhere Only We Know",
+            "Kelly Clarkson – Since U Been Gone",
+            "Kenny Loggins - Footloose",
+            "Kenny Loggins – Danger Zone",
+            "Kings Of Leon - Use Somebody",
+            "Kings Of Leon – Sex On Fire",
+            "Kool & The Gang - Celebration",
+            "Kool & The Gang – Get Down On It",
+            "Korn – A.D.I.D.A.S.",
+            "Korn – Alone I Break",
+            "Korn – Beg for Me",
+            "Korn – Blind",
+            "Korn – Falling Away From Me",
+            "Korn – Freak On a Leash",
+            "Korn – Here To Stay",
+            "Korn – Make Me Bad",
+            "Korn – Thoughtless",
+            "Korn – Trash",
+            "La Bouche – Be My Lover",
+            "Lady Gaga - Bad Romance",
+            "Lady Gaga - Just Dance",
+            "Lady Gaga – Born This Way",
+            "Lady Gaga – Paparazzi",
+            "Lady Gaga – Poker Face",
+            "Lady Gaga – Shallow",
+            "Lady Gaga – You And I",
+            "Led Zeppelin – All Of My Love",
+            "Led Zeppelin – Black Dog",
+            "Led Zeppelin – Dazed and Confused",
+            "Led Zeppelin – D’yer Mak’er",
+            "Led Zeppelin – Going To California",
+            "Led Zeppelin – Good Times Bad Times",
+            "Led Zeppelin – Immigrant Song",
+            "Led Zeppelin – In My Time Of Dying",
+            "Led Zeppelin – Kashmir",
+            "Led Zeppelin – Misty Mountain Hop",
+            "Led Zeppelin – Stairway To Heaven",
+            "Led Zeppelin – The Ocean",
+            "Led Zeppelin – Whole Lotta Love",
+            "Lenny Kravitz – American Woman",
+            "Lenny Kravitz – Fly Away",
+            "Lenny Kravitz – It Ain’t Over Till It’s Over",
+            "Lenny Kravitz – Mama Said",
+            "Level 42 - Something About You",
+            "Lil Nas X – Old Town Road",
+            "Lil Troy – Wanna Be A Baller",
+            "Limp Bizkit - Faith",
+            "Limp Bizkit – Break Stuff",
+            "Limp Bizkit – Hot Dog",
+            "Limp Bizkit – My Generation",
+            "Limp Bizkit – My Way",
+            "Limp Bizkit – N 2 Gether Now",
+            "Limp Bizkit – Nookie",
+            "Limp Bizkit – Re-Arranged",
+            "Limp Bizkit – Rollin’",
+            "Linkin Park – Breaking The Habit",
+            "Linkin Park – Crawling",
+            "Linkin Park – In The End",
+            "Linkin Park – One Step Closer",
+            "Linkin Park – Papercut",
+            "Lit - My Own Worst Enemy",
+            "Little Big Town - Boondocks",
+            "Little Big Town – Girl Crush",
+            "Little Big Town – Pontoon",
+            "Lizzo - Juice",
+            "Lizzo – About Damn Time",
+            "Lizzo – Good as Hell",
+            "Lizzo – Truth Hurts",
+            "LMFAO - Party Rock Anthem",
+            "LMFAO – I’m Sexy and I Know It",
+            "Lonestar – Baby I’m Amazed By You",
+            "Looking Glass - Brandy",
+            "Los Del Rio - Macarena",
+            "Louis Armstrong – La vie en rose",
+            "Louis Armstrong – What A Wonderful World",
+            "Luke Bryan – Country Girl",
+            "Luke Combs – Beautiful Crazy",
+            "Luke Combs – Fast Car",
+            "Lynyrd Skynyrd - Sweet Home Alabama",
+            "Lynyrd Skynyrd – Call Me The Breeze",
+            "Lynyrd Skynyrd – Free Bird",
+            "Lynyrd Skynyrd – Gimme Three Steps",
+            "Lynyrd Skynyrd – Simple Man",
+            "Lynyrd Skynyrd – That Smell",
+            "Lynyrd Skynyrd – Tuesday’s Gone",
+            "Lynyrd Skynyrd – What’s Your Name",
+            "Macklemore – Downtown",
+            "Macklemore – Thrift Shop",
+            "Macy Gray – I Try",
+            "Manu Chao – Bongo",
+            "Manu Chao – Me Gusta",
+            "Marc Anthony – I Need To Know",
+            "Marc Anthony – You Sang To Me",
+            "Marcy Playground – Sex and Candy",
+            "Marilyn Manson – Beautiful People",
+            "Marilyn Manson – Disposable Teens",
+            "Marilyn Manson – Rock Is Dead",
+            "Marilyn Manson – Sweet Dreams",
+            "Marilyn Manson – Tainted Love",
+            "Marilyn Manson – The Dope Show",
+            "Mark Ronson – Uptown Funk",
+            "Mark Morrison – Return of the Mack",
+            "Maroon 5 - Moves Like Jagger",
+            "Maroon 5 – Girls Like You",
+            "Maroon 5 – Harder To Breathe",
+            "Maroon 5 – Memories",
+            "Maroon 5 – She Will Be Loved",
+            "Maroon 5 – Sugar",
+            "Maroon 5 – Sunday Morning",
+            "Maroon 5 – This Love",
+            "Marvin Gaye – Ain’t No Mountain High Enough",
+            "Marvin Gaye – I Heard It Through The Grapevine",
+            "Marvin Gaye – Let’s Get It On",
+            "Marvin Gaye – Sexual Healing",
+            "Marvin Gaye – What’s Going On",
+            "Mary J. Blige – Family Affair",
+            "Matchbox 20 – 3AM",
+            "Matchbox 20 – Back 2 Good",
+            "Matchbox 20 – Bent",
+            "Matchbox 20 – Bright Lights",
+            "Matchbox 20 – If You’re Gone",
+            "Matchbox 20 – Push",
+            "Matchbox 20 – Real World",
+            "Matisyahu – King Without a Crown",
+            "Matisyahu – One Day",
+            "Matthew Wilder – Break My Stride",
+            "Meatloaf – I’d Do Anything For Love",
+            "Meatloaf – Paradise By the Dashboard Light",
+            "Metallica - The Struggle Within",
+            "Metallica – Don’t Tread On Me",
+            "Metallica – Enter Sandman",
+            "Metallica – Fuel",
+            "Metallica – Master of Puppets",
+            "Metallica – Nothing Else Matters",
+            "Metallica – Sad But True",
+            "Metallica – The Unforgiven",
+            "Metallica – The Unforgiven II",
+            "Metallica – Through The Never",
+            "Metallica – Wherever I May Roam",
+            "MGMT – Electric Feel",
+            "MGMT – Kids",
+            "MGMT – Time To Pretend",
+            "Michael Andrews – Mad World",
+            "Michael Jackson - Billie Jean",
+            "Michael Jackson - Thriller",
+            "Michael Jackson – Beat It",
+            "Michael Jackson – Don’t Stop Till You Get Enough",
+            "Michael Jackson – Man In The Mirror",
+            "Michael Jackson – Rock With You",
+            "Michael Jackson – Smooth Criminal",
+            "Michael Jackson – The Way You Make Me Feel",
+            "Michelle Branch – Everywhere",
+            "Miley Cyrus – Flowers",
+            "Miley Cyrus – Party In The U.S.A.",
+            "Miley Cyrus – Wrecking Ball",
+            "Moby – Extreme Ways",
+            "Moby – Porcelain",
+            "Modest Mouse – Float On",
+            "Montell Jordan - This Is How We Do It",
+            "Morgan Wallen – Last Night",
+            "Morgan Wallen – Wasted On You",
+            "Morgan Wallen – Whiskey Glasses",
+            "Mötley Crüe – Girls, Girls, Girls",
+            "Mötley Crüe – Home Sweet Home",
+            "Mötley Crüe – Kickstart My Heart",
+            "Motörhead - Ace Of Spades",
+            "My Chemical Romance - Teenagers",
+            "My Chemical Romance – Welcome to the Black Parade",
+            "Nat King Cole – L-O-V-E",
+            "Nat King Cole – Unforgettable",
+            "Natasha Bedingfield – Pocketful of Sunshine",
+            "Natasha Bedingfield – Unwritten",
+            "Nathaniel Rateliff – S.O.B.",
+            "Neon Trees – Animal",
+            "Neon Trees – Everybody Talks",
+            "Nena – 99 Luftballons",
+            "Nelly - Hot In Herre",
+            "Nelly – Country Grammar",
+            "Nelly – Ride Wit Me",
+            "Nelly – Shake Ya Tailfeather",
+            "Nelly – Just A Dream",
+            "Nelly & Tim McGraw – Over & Over",
+            "Nelly Furtado – I'm Like A Bird",
+            "New Order – Blue Monday",
+            "New Radicals – You Get What You Give",
+            "Nickelback - How You Remind Me",
+            "Nickelback – Photograph",
+            "Nickelback – Rockstar",
+            "Nico & Vinz – Am I Wrong",
+            "Nirvana - Come As You Are",
+            "Nirvana - Heart Shaped Box",
+            "Nirvana – About A Girl",
+            "Nirvana – All Apologies",
+            "Nirvana – Breed",
+            "Nirvana – In Bloom",
+            "Nirvana – Lithium",
+            "Nirvana – Polly",
+            "Nirvana – Rape Me",
+            "Nirvana – Smells Like Teen Spirit",
+            "Nirvana – The Man Who Sold The World",
+            "No Doubt - Just A Girl",
+            "No Doubt - Spiderwebs",
+            "No Doubt – Don’t Speak",
+            "No Doubt – Hella Good",
+            "No Doubt – It’s My Life",
+            "Notorious B.I.G. - Big Poppa",
+            "Notorious B.I.G. – Hypnotize",
+            "Notorious B.I.G. – Juicy",
+            "Notorious B.I.G. – Mo Money Mo Problems",
+            "Oasis - Champagne Supernova",
+            "Oasis - Don't Look Back in Anger",
+            "Oasis - Wonderwall",
+            "Of Monsters and Men – Little Talks",
+            "Offspring – Come Out And Play",
+            "Offspring – Pretty Fly (For A White Guy)",
+            "Offspring – Self Esteem",
+            "Old Crow Medicine Show – Wagon Wheel",
+            "Olivia Rodrigo – Drivers License",
+            "Olivia Rodrigo – Good 4 U",
+            "One Direction – Best Song Ever",
+            "One Direction – What Makes You Beautiful",
+            "OneRepublic – Apologize",
+            "OneRepublic – Counting Stars",
+            "OneRepublic – Stop And Stare",
+            "Otis Redding – (Sittin’ On) The Dock of the Bay",
+            "OutKast - Hey Ya",
+            "OutKast – Ms. Jackson",
+            "Owl City – Fireflies",
+            "Papa Roach - Last Resort",
+            "Pat Benatar - Hit Me With Your Best Shot",
+            "Pat Benatar – Heartbreaker",
+            "Pat Benatar – Love Is A Battlefield",
+            "Passenger – Let Her Go",
+            "Paul Simon – Kodachrome",
+            "Paul Simon – Me And Julio Down By The Schoolyard",
+            "Paula Abdul – Straight Up",
+            "Pearl Jam - Alive",
+            "Pearl Jam - Black",
+            "Pearl Jam – Daughter",
+            "Pearl Jam – Even Flow",
+            "Pearl Jam – Jeremy",
+            "Pearl Jam – Yellow Ledbetter",
+            "Pharrell Williams - Happy",
+            "Phil Collins – Against All Odds",
+            "Phil Collins – In The Air Tonight",
+            "Phil Collins – You Can’t Hurry Love",
+            "Phoenix – 1901",
+            "Pink - Get The Party Started",
+            "Pink - Raise Your Glass",
+            "Pink – Just Give Me A Reason",
+            "Pink Floyd – Another Brick in the Wall",
+            "Pink Floyd – Comfortably Numb",
+            "Pink Floyd – Wish You Were Here",
+            "Pitbull – Fireball",
+            "Pitbull – Give Me Everything",
+            "Pitbull – Timber",
+            "Pixies – Here Comes Your Man",
+            "Pixies – Where Is My Mind",
+            "Plain White T’s – Hey There Delilah",
+            "Poison – Every Rose Has Its Thorn",
+            "Poison – Nothin’ But A Good Time",
+            "Poison – Talk Dirty To Me",
+            "Post Malone – Circles",
+            "Post Malone – Congratulations",
+            "Post Malone – Sunflower",
+            "Prince - Kiss",
+            "Prince – 1999",
+            "Prince – I Wanna Be Your Lover",
+            "Prince – Let’s Go Crazy",
+            "Prince – Little Red Corvette",
+            "Prince – Purple Rain",
+            "Prince – Raspberry Beret",
+            "Queen - Bohemian Rhapsody",
+            "Queen - Don’t Stop Me Now",
+            "Queen - Killer Queen",
+            "Queen - Somebody to Love",
+            "Queen - Under Pressure",
+            "Queen - We Are The Champions",
+            "Queen - We Will Rock You",
+            "Queen – Another One Bites The Dust",
+            "R.E.M. - Losing My Religion",
+            "R.E.M. – It’s The End Of The World",
+            "R.E.M. – Man on the Moon",
+            "R.E.M. – Shiny Happy People",
+            "Radiohead – Creep",
+            "Radiohead – High and Dry",
+            "Radiohead – Karma Police",
+            "Rage Against The Machine – Bulls On Parade",
+            "Rage Against The Machine – Guerrilla Radio",
+            "Rage Against The Machine – Killing In The Name",
+            "Rag’n’Bone Man – Human",
+            "Rascal Flatts – Bless The Broken Road",
+            "Rascal Flatts – Life Is A Highway",
+            "Ray Charles – Georgia On My Mind",
+            "Red Hot Chili Peppers - Under The Bridge",
+            "Red Hot Chili Peppers – Around The World",
+            "Red Hot Chili Peppers – Californication",
+            "Red Hot Chili Peppers – Can’t Stop",
+            "Red Hot Chili Peppers – Dani California",
+            "Red Hot Chili Peppers – Otherside",
+            "Red Hot Chili Peppers – Scar Tissue",
+            "Redbone – Come And Get Your Love",
+            "Reel Big Fish – Beer",
+            "Reel Big Fish – Sell Out",
+            "Ricky Martin – Livin’ La Vida Loca",
+            "Rihanna - Umbrella",
+            "Rihanna – Diamonds",
+            "Rihanna – Don’t Stop The Music",
+            "Rihanna – Only Girl In The World",
+            "Rihanna – Rude Boy",
+            "Rihanna – Stay",
+            "Rihanna – We Found Love",
+            "Rise Against – Give It All",
+            "Rise Against – Prayer of the Refugee",
+            "Rob Zombie – Dragula",
+            "Rob Zombie – Living Dead Girl",
+            "Robbie Williams – Angels",
+            "Robin Thicke – Blurred Lines",
+            "Rod Stewart – Do Ya Think I’m Sexy",
+            "Rod Stewart – Maggie May",
+            "Rolling Stones - Paint It Black",
+            "Rolling Stones – Angie",
+            "Rolling Stones – Brown Sugar",
+            "Rolling Stones – Gimme Shelter",
+            "Rolling Stones – Honky Tonk Women",
+            "Rolling Stones – (I Can’t Get No) Satisfaction",
+            "Rolling Stones – Start Me Up",
+            "Roxette – Listen To Your Heart",
+            "Rush – Limelight",
+            "Rush – Spirit Of Radio",
+            "Rush – Tom Sawyer",
+            "Sam Cooke – A Change Is Gonna Come",
+            "Sam Cooke – Bring It On Home To Me",
+            "Sam Cooke – Wonderful World",
+            "Sam Smith – Stay With Me",
+            "Sam Smith – Unholy",
+            "Salt-N-Pepa – Push It",
+            "Santana – Black Magic Woman",
+            "Santana – Evil Ways",
+            "Santana – Smooth",
+            "Scorpions – Rock You Like A Hurricane",
+            "Sean Paul – Temperature",
+            "Semisonic - Closing Time",
+            "Shaggy – It Wasn’t Me",
+            "Shakira - Hips Don't Lie",
+            "Shakira – Whenever Wherever",
+            "Shawn Mendes – Stitches",
+            "Shawn Mendes – There’s Nothing Holdin’ Me Back",
+            "Sheryl Crow – All I Wanna Do",
+            "Sheryl Crow – If It Makes You Happy",
+            "Shinedown – Second Chance",
+            "Simple Minds – Don’t You (Forget About Me)",
+            "Simple Plan – Perfect",
+            "Simple Plan – Welcome To My Life",
+            "Sisqó – Thong Song",
+            "Sixpence None the Richer – Kiss Me",
+            "Skeeter Davis – The End Of The World",
+            "Smash Mouth - All Star",
+            "Smash Mouth - I'm A Believer",
+            "Smashing Pumpkins – 1979",
+            "Smashing Pumpkins – Bullet With Butterfly Wings",
+            "Smashing Pumpkins – Tonight Tonight",
+            "Snow Patrol – Chasing Cars",
+            "Snoop Dogg - Drop It Like It’s Hot",
+            "Snoop Dogg – Gin and Juice",
+            "Snoop Dogg – Who Am I (What’s My Name?)",
+            "Soft Cell – Tainted Love",
+            "Soundgarden - Black Hole Sun",
+            "Spice Girls – Wannabe",
+            "Spin Doctors – Two Princes",
+            "Staind – It’s Been A While",
+            "Starship – We Built This City",
+            "Stealers Wheel – Stuck In The Middle With You",
+            "Stevie Wonder - Superstition",
+            "Stevie Wonder – I Just Called To Say I Love You",
+            "Stevie Wonder – Isn’t She Lovely",
+            "Stone Temple Pilots – Interstate Love Song",
+            "Stone Temple Pilots – Plush",
+            "Styx – Come Sail Away",
+            "Styx – Renegade",
+            "Sublime – April 29 1992",
+            "Sublime – Badfish",
+            "Sublime – Doin’ Time",
+            "Sublime – Pawn Shop",
+            "Sublime – Santeria",
+            "Sublime – What I Got",
+            "Sublime – Wrong Way",
+            "Sum 41 - Fat Lip",
+            "Sum 41 – In Too Deep",
+            "Suzanne Vega – Tom’s Diner",
+            "System Of A Down – Aerials",
+            "System Of A Down – B.Y.O.B.",
+            "System Of A Down – Chop Suey!",
+            "System Of A Down – Toxicity",
+            "T-Pain – Buy U A Drank",
+            "T-Pain – I’m Sprung",
+            "T-Pain – I’m N Luv (Wit A Stripper)",
+            "Taio Cruz – Dynamite",
+            "Talking Heads - Burning Down The House",
+            "Talking Heads – And She Was",
+            "Talking Heads – Once In A Lifetime",
+            "Taylor Swift - Shake It Off",
+            "Taylor Swift – Anti-Hero",
+            "Taylor Swift – Blank Space",
+            "Taylor Swift – Cruel Summer",
+            "Taylor Swift – Love Story",
+            "Tears For Fears - Everybody Wants To Rule The World",
+            "Tears For Fears – Head Over Heels",
+            "Tears For Fears – Shout",
+            "Technotronic – Pump Up The Jam",
+            "Temple of the Dog – Hunger Strike",
+            "Tenacious D – Tribute",
+            "Terence Trent D’Arby – Wishing Well",
+            "The Band – The Weight",
+            "The Beach Boys - Kokomo",
+            "The Beach Boys – Good Vibrations",
+            "The Beatles - Come Together",
+            "The Beatles - Hey Jude",
+            "The Beatles - Yesterday",
+            "The Beatles – A Day In The Life",
+            "The Beatles – Blackbird",
+            "The Beatles – Help",
+            "The Beatles – Here Comes The Sun",
+            "The Beatles – I Want To Hold Your Hand",
+            "The Beatles – Let It Be",
+            "The Beatles – Penny Lane",
+            "The Beatles – Twist And Shout",
+            "The Black Keys – Gold On The Ceiling",
+            "The Black Keys – Lonely Boy",
+            "The Black Keys – Tighten Up",
+            "The Bloodhound Gang – Bad Touch",
+            "The Cars – Drive",
+            "The Cars – Good Times Roll",
+            "The Cars – Just What I Needed",
+            "The Cars – Let’s Go",
+            "The Cranberries – Dreams",
+            "The Cranberries – Linger",
+            "The Cranberries – Zombie",
+            "The Cure – Boys Don’t Cry",
+            "The Cure – Friday I’m In Love",
+            "The Cure – Just Like Heaven",
+            "The Darkness – I Believe In A Thing Called Love",
+            "The Doors - Break On Through",
+            "The Doors – Light My Fire",
+            "The Doors – People Are Strange",
+            "The Eagles – Hotel California",
+            "The Fray – How To Save A Life",
+            "The Fray – Over My Head",
+            "The Killers - Mr. Brightside",
+            "The Killers - Somebody Told Me",
+            "The Killers – All These Things That I’ve Done",
+            "The Lumineers – Ho Hey",
+            "The Lumineers – Ophelia",
+            "The Lumineers – Stubborn Love",
+            "The Offspring – Self Esteem",
+            "The Police – Every Breath You Take",
+            "The Police – Message In A Bottle",
+            "The Police – Roxanne",
+            "The Proclaimers – I’m Gonna Be (500 Miles)",
+            "The Ramones – Blitzkrieg Bop",
+            "The Ramones – I Wanna Be Sedated",
+            "The Rolling Stones – Satisfaction",
+            "The Smiths – There Is A Light That Never Goes Out",
+            "The Smiths – This Charming Man",
+            "The Temptations – My Girl",
+            "The Verve – Bitter Sweet Symphony",
+            "The Weeknd - Blinding Lights",
+            "The Weeknd – Can’t Feel My Face",
+            "The Weeknd – Starboy",
+            "The White Stripes - Seven Nation Army",
+            "The Who – Baba O’Riley",
+            "The Who – My Generation",
+            "The Who – Pinball Wizard",
+            "The Who – Won’t Get Fooled Again",
+            "Third Eye Blind – Jumper",
+            "Third Eye Blind – Never Let You Go",
+            "Third Eye Blind – Semi-Charmed Life",
+            "Thirty Seconds To Mars – The Kill",
+            "Three Days Grace – Animal I Have Become",
+            "Tim McGraw – Live Like You Were Dying",
+            "Tina Turner – Proud Mary",
+            "Tina Turner – The Best",
+            "TLC – No Scrubs",
+            "TLC – Waterfalls",
+            "Toto - Africa",
+            "Toto – Hold the Line",
+            "Train - Drops of Jupiter",
+            "Train – Hey Soul Sister",
+            "Travis Tritt – It’s a Great Day to Be Alive",
+            "Twisted Sister – We’re Not Gonna Take It",
+            "U2 - Beautiful Day",
+            "U2 - With Or Without You",
+            "U2 – I Still Haven’t Found What I’m Looking For",
+            "UB40 - Red Red Wine",
+            "Usher - DJ Got Us Fallin' In Love",
+            "Usher – Yeah!",
+            "Van Halen - Jump",
+            "Van Halen – Panama",
+            "Van Morrison – Brown Eyed Girl",
+            "Van Morrison – Into The Mystic",
+            "Village People - YMCA",
+            "Walk The Moon – Shut Up And Dance",
+            "Warrant – Cherry Pie",
+            "Weezer – Beverly Hills",
+            "Weezer – Buddy Holly",
+            "Weezer – Hash Pipe",
+            "Weezer – Island In The Sun",
+            "Weezer – Say It Ain’t So",
+            "Wham! – Wake Me Up Before You Go-Go",
+            "Whitney Houston – I Wanna Dance With Somebody",
+            "Whitney Houston – I Will Always Love You",
+            "Will Smith – Gettin’ Jiggy Wit It",
+            "Will Smith – Miami",
+            "Zac Brown Band – Chicken Fried",
+            "Zac Brown Band – Toes",
+            "ZZ Top – Gimme All Your Lovin",
+            "ZZ Top – La Grange",
+            "ZZ Top – Sharp Dressed Man"
+        ];
+
+
+        // ---------------- UI REFERENCES ----------------
+        const listEl = document.getElementById('girlGuySongList');
+        const searchInput = document.getElementById('girlGuySearchInput');
+        const alphaBar = document.getElementById('girlGuyAlphaBar');
+        const clearBtn = document.getElementById('girlGuyClearBtn');
+        const showAllBtn = document.getElementById('girlGuyShowAllBtn');
+        const toastEl = document.getElementById('girlGuyToast');
+        const listWrap = document.getElementById('girlGuyListWrap');
+
+        // ---------------- RENDER LIST ----------------
+        function makeList(items) {
+            listEl.innerHTML = '';
+            const frag = document.createDocumentFragment();
+
+            items.forEach((s, i) => {
+                const li = document.createElement('li');
+                li.tabIndex = 0;
+                li.dataset.index = i;
+
+                const span = document.createElement('div');
+                span.className = 'title';
+                span.textContent = s;
+
+                const copy = document.createElement('div');
+                copy.className = 'copy';
+                copy.textContent = 'Copy';
+
+                li.appendChild(span);
+                li.appendChild(copy);
+                frag.appendChild(li);
+            });
+
+            listEl.appendChild(frag);
+        }
+
+        // Initial list load
+        makeList(songs);
+
+        // ---------------- ALPHABET BAR ----------------
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+        letters.forEach(l => {
+            const btn = document.createElement('button');
+            btn.textContent = l;
+
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('#girlGuyAlphaBar button').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                filterByLetter(l);
+
+                listWrap.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            alphaBar.appendChild(btn);
+        });
+
+        function filterByLetter(letter) {
+            const filtered = songs.filter(s => s.trim().charAt(0).toUpperCase() === letter);
+            makeList(filtered.length ? filtered : ["(no matches)"]);
+        }
+
+        // ---------------- SEARCH ----------------
+        let searchTimer = null;
+
+        searchInput.addEventListener('input', (e) => {
+            const q = e.target.value.trim().toLowerCase();
+
+            clearTimeout(searchTimer);
+            searchTimer = setTimeout(() => applySearch(q), 180);
+        });
+
+        function applySearch(q) {
+            document.querySelectorAll('#girlGuyAlphaBar button').forEach(b => b.classList.remove('active'));
+
+            if (!q) return makeList(songs);
+
+            const filtered = songs.filter(s => s.toLowerCase().includes(q));
+            makeList(filtered.length ? filtered : ["(no matches)"]);
+
+            showToast(filtered.length + (filtered.length === 1 ? " match" : " matches"));
+        }
+
+        // ---------------- CLEAR BUTTON ----------------
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = "";
+            makeList(songs);
+            showToast("Search cleared");
+        });
+
+        // ---------------- SHOW ALL BUTTON ----------------
+        showAllBtn.addEventListener('click', () => {
+            searchInput.value = "";
+            makeList(songs);
+            listWrap.scrollTo({ top: 0, behavior: "smooth" });
+            showToast("Showing all songs");
+        });
+
+        // ---------------- COPY ON CLICK ----------------
+        listEl.addEventListener('click', async (ev) => {
+            const li = ev.target.closest('li');
+            if (!li) return;
+
+            const title = li.querySelector('.title').textContent;
+
+            try {
+                await navigator.clipboard.writeText(title);
+                li.classList.add('flash');
+                setTimeout(() => li.classList.remove('flash'), 900);
+                showToast(`Copied: ${title}`);
+            } catch {
+                showToast("Copied (fallback)");
+            }
+        });
+
+        // ---------------- TOAST ----------------
+        let toastTimer = null;
+
+        function showToast(msg, ms = 1800) {
+            toastEl.textContent = msg;
+            toastEl.classList.add("show");
+
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => toastEl.classList.remove("show"), ms);
+        }
+
+        // ---------------- ACCESSIBILITY ----------------
+        document.addEventListener("DOMContentLoaded", () => {
+            listWrap.scrollTop = 0;
+            searchInput.focus();
+        });
+
+    </script>
+</body>
+
+</html>
