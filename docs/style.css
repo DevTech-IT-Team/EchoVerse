@@ -2601,7 +2601,8 @@ body {
 .songbtn {
   padding: 10px 20px;
   font-size: 12px;
-  margin-left: 150px;
+  margin-left: 120px;
+  color: white;
 }
 
 
@@ -2616,7 +2617,14 @@ body {
 .songbtn2 {
   padding: 10px 20px;
   font-size: 12px;
-  margin-left: 100px;
+  margin-left: 80px;
+    color: white;
+
+}
+
+.songbtn:hover,
+.songbtn2:hover {
+  color: rgb(128, 210, 128);
 }
 
 
@@ -3850,5 +3858,88 @@ body {
 
   #cfSonglist .icons i {
     font-size: 18px !important;
+  }
+}
+
+
+/* ===== Girl & Guy Section ===== */
+.gg-section {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  align-items: flex-start;     /* align top */
+  gap: 20px;
+
+  width: 100%;
+  max-width: 100%;
+
+  background: linear-gradient(180deg, #181818, #121212);
+  border-radius: 24px;
+  padding: 28px;
+  margin: 20px 0;
+
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* ===== Image wrapper ===== */
+.gg-image {
+  width: 180px;               /* ✅ SMALL IMAGE */
+  aspect-ratio: 1 / 1;
+  border-radius: 22px;
+  overflow: hidden;
+  background: #ffd84d;
+  margin-left: 100px;
+}
+
+/* Image */
+.gg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== Content ===== */
+.gg-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  padding-top: 4px;           /* tiny visual alignment */
+}
+
+/* Title */
+.gg-content h2 {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 0;
+  color: #ffffff;
+}
+
+/* Description */
+.gg-content p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+  max-width: 640px;
+  color: #c7c7c7;
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .gg-section {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .gg-image {
+    margin: 0 auto;
+  }
+
+  .gg-content {
+    text-align: center;
+    align-items: center;
+    padding-top: 0;
   }
 }
