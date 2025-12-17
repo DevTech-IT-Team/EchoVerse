@@ -1,55 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Collin Freestone Entertainment</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Collin Freestone Entertainment</title>
+    <!-- Force no favicon -->
+    <link rel="icon" href="data:," />
 
-  <!-- Force no favicon -->
-  <link rel="icon" href="data:,">
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <body>
+    <!-- HEADER -->
+    <header class="navbar">
+      <div class="logo">
+        <img
+          src="assets/logooo.png"
+          alt="Collin Freestone Entertainment"
+          id="logoimage"
+        />
+        <img
+          src="assets/col.png"
+          alt="Collin Freestone Entertainment"
+          id="headerimage"
+        />
+      </div>
+      <nav class="nav-links" id="navLinks">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <!-- <li><a href="#artists">Artists</a></li> -->
+          <li><a href="#artists">Events</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li><a href="Songs.html">Song List</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </header>
 
-
-<body>
-
-  <!-- HEADER -->
-  <header class="navbar">
-    <div class="logo">
-      <img src="assets/logooo.png" alt="Collin Freestone Entertainment" id="logoimage">
-      <img src="assets/col.png" alt="Collin Freestone Entertainment" id="headerimage">
+    <!-- Mobile Menu (for smaller screens) -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#home" onclick="toggleMenu()">Home</a>
+      <a href="#about" onclick="toggleMenu()">About</a>
+      <!-- <a href="#artists" onclick="toggleMenu()">Artists</a> -->
+      <a href="#artists" onclick="toggleMenu()">Events</a>
+      <a href="Gallery.html" onclick="toggleMenu()">Gallery</a>
+      <a href="Songs.html" onclick="toggleMenu()">Song List</a>
+      <a href="#contact" onclick="toggleMenu()">Contact</a>
+      <a href="login.html" class="mobile-login" onclick="toggleMenu()">Login</a>
     </div>
-    <nav class="nav-links" id="navLinks">
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <!-- <li><a href="#artists">Artists</a></li> -->
-        <li><a href="#artists">Events</a></li>
-        <li><a href="Gallery.html">Gallery</a></li>
-        <li><a href="Songs.html">Song List</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="login.html">Login</a></li>
-      </ul>
-    </nav>
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
-  </header>
-
-
-  <!-- Mobile Menu (for smaller screens) -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#home" onclick="toggleMenu()">Home</a>
-    <a href="#about" onclick="toggleMenu()">About</a>
-    <!-- <a href="#artists" onclick="toggleMenu()">Artists</a> -->
-    <a href="#artists" onclick="toggleMenu()">Events</a>
-    <a href="Gallery.html" onclick="toggleMenu()">Gallery</a>
-    <a href="Songs.html" onclick="toggleMenu()">Song List</a>
-    <a href="#contact" onclick="toggleMenu()">Contact</a>
-    <a href="login.html" class="mobile-login" onclick="toggleMenu()">Login</a>
-  </div>
 
   <!-- HERO SECTION -->
   <section class="hero" id="home">
@@ -64,120 +71,144 @@
       <!-- <img src="assets/collinbluehat.jpeg" alt="Collin Freestone Entertainment" class="slide" />  -->
       <div class="image-overlay"></div>
 
-      <!-- Floating Music Notes -->
-      <div class="floating-notes">
-        <span class="note">♪</span>
-        <span class="note">♫</span>
-        <span class="note">♪</span>
-        <span class="note">♬</span>
-        <span class="note">♪</span>
-        <span class="note">♫</span>
-        <span class="note">♪</span>
-        <span class="note">♬</span>
+        <!-- Floating Music Notes -->
+        <div class="floating-notes">
+          <span class="note">♪</span>
+          <span class="note">♫</span>
+          <span class="note">♪</span>
+          <span class="note">♬</span>
+          <span class="note">♪</span>
+          <span class="note">♫</span>
+          <span class="note">♪</span>
+          <span class="note">♬</span>
+        </div>
+
+        <!-- Slide Navigation Arrows -->
+        <button class="slide-nav prev" onclick="changeSlide(-1)">‹</button>
+        <button class="slide-nav next" onclick="changeSlide(1)">›</button>
+
+        <!-- Slide Indicators -->
+        <div class="slide-indicators">
+          <span class="indicator active" onclick="goToSlide(0)"></span>
+          <span class="indicator" onclick="goToSlide(1)"></span>
+          <span class="indicator" onclick="goToSlide(2)"></span>
+          <span class="indicator" onclick="goToSlide(3)"></span>
+          <span class="indicator" onclick="goToSlide(4)"></span>
+          <span class="indicator" onclick="goToSlide(5)"></span>
+          <span class="indicator" onclick="goToSlide(6)"></span>
+          <!-- <span class="indicator" onclick="goToSlide(7)"></span> -->
+        </div>
       </div>
 
-      <!-- Slide Navigation Arrows -->
-      <button class="slide-nav prev" onclick="changeSlide(-1)">‹</button>
-      <button class="slide-nav next" onclick="changeSlide(1)">›</button>
-
-      <!-- Slide Indicators -->
-      <div class="slide-indicators">
-        <span class="indicator active" onclick="goToSlide(0)"></span>
-        <span class="indicator" onclick="goToSlide(1)"></span>
-        <span class="indicator" onclick="goToSlide(2)"></span>
-        <span class="indicator" onclick="goToSlide(3)"></span>
-        <span class="indicator" onclick="goToSlide(4)"></span>
-        <span class="indicator" onclick="goToSlide(5)"></span>
-        <span class="indicator" onclick="goToSlide(6)"></span>
-        <!-- <span class="indicator" onclick="goToSlide(7)"></span> -->
-      </div>
-    </div>
-
-    <div class="hero-overlay">
-      <div class="hero-content">
-        <h1 class="hero-title">
-          <span class="title-line gradient-text">Collin Freestone Entertainment</span>
-        </h1>
-        <p class="hero-subtitle typing-text">
-          Collin Freestone Entertainment produces top-tier live-music performances nationwide, blending professionalism,
-          energy, and versatility across multiple acts.
-        </p>
-        <div class="hero-buttons">
-          <a href="#artists" class="btn btn-primary">
-            <span>Explore the Shows</span>
-            <i class="fas fa-arrow-right"></i>
-          </a>
-          <!-- <a href="login.html" class="btn btn-outline">
+      <div class="hero-overlay">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            <span class="title-line gradient-text"
+              >Collin Freestone Entertainment</span
+            >
+          </h1>
+          <p class="hero-subtitle typing-text">
+            Collin Freestone Entertainment produces top-tier live-music
+            performances nationwide, blending professionalism, energy, and
+            versatility across multiple acts.
+          </p>
+          <div class="hero-buttons">
+            <a href="#artists" class="btn btn-primary">
+              <span>Explore the Shows</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <!-- <a href="login.html" class="btn btn-outline">
             <span>Login</span>
             <i class="fas fa-user"></i>
           </a> -->
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT SECTION -->
-  <section class="about-section" id="about">
-    <div class="about-bg-pattern"></div>
-
-    <div class="about-container">
-      <!-- Left: Image + feature chips -->
-      <div class="about-image-wrapper">
-        <div class="about-image about-slideshow">
-          <!-- Slides -->
-          <img src="assets/Aboutcollin3.jpg" alt="About Collin Freestone Entertainment" class="about-slide active">
-
-          <img src="assets/Aboutcollin7.jpg" alt="Collin performing live" class="about-slide">
-
-          <img src="assets/Aboutcollin8.jpg" alt="Collin at the piano" class="about-slide">
-
-          <img src="assets/Aboutcollin6.jpg" alt="Collin at picnic table" class="about-slide">
-          <img src="assets/collinbluehat.jpeg" alt="Collin smiling" class="about-slide">
-
-          <!-- existing overlay + badge -->
-          <div class="image-overlay-effect"></div>
-
-          <div class="floating-badge">
-            <div class="floating-icon">
-              <i class="fas fa-music"></i>
-            </div>
-            <div class="floating-text">
-              <span>Live Music</span>
-              <small>Nationwide Performances</small>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="about-features">
-          <div class="feature-item">
-            <div class="feature-icon"><i class="fas fa-microphone-alt"></i></div>
-            <h4>Dueling Pianos</h4>
-            <p>Interactive, request-driven piano-bar shows.</p>
-          </div>
-          <div class="feature-item">
-            <div class="feature-icon"><i class="fas fa-headphones"></i></div>
-            <h4>Multiple Acts</h4>
-            <p>Solo, duo, and full-production options.</p>
           </div>
         </div>
       </div>
+    </section>
 
-      <!-- Right: Text content -->
-      <div class="about-content">
-        <div class="section-label">About</div>
+    <!-- ABOUT SECTION -->
+    <section class="about-section" id="about">
+      <div class="about-bg-pattern"></div>
 
-        <h2 class="about-title">
-          <span class="title-icon">🎧</span>
-          <span class="title-text">Collin Freestone Entertainment</span>
-        </h2>
+      <div class="about-container">
+        <!-- Left: Image + feature chips -->
+        <div class="about-image-wrapper">
+          <div class="about-image about-slideshow">
+            <!-- Slides -->
+            <img
+              src="assets/Aboutcollin3.jpg"
+              alt="About Collin Freestone Entertainment"
+              class="about-slide active"
+            />
 
-        <!-- small meta pills -->
-        <div class="about-meta">
-          <span class="about-pill">Live Music Production</span>
-          <span class="about-pill">Touring Experience</span>
-          <span class="about-pill">Weddings &amp; Events</span>
+            <img
+              src="assets/Aboutcollin7.jpg"
+              alt="Collin performing live"
+              class="about-slide"
+            />
+
+            <img
+              src="assets/Aboutcollin8.jpg"
+              alt="Collin at the piano"
+              class="about-slide"
+            />
+
+            <img
+              src="assets/Aboutcollin6.jpg"
+              alt="Collin at picnic table"
+              class="about-slide"
+            />
+            <img
+              src="assets/collinbluehat.jpeg"
+              alt="Collin smiling"
+              class="about-slide"
+            />
+
+            <!-- existing overlay + badge -->
+            <div class="image-overlay-effect"></div>
+
+            <div class="floating-badge">
+              <div class="floating-icon">
+                <i class="fas fa-music"></i>
+              </div>
+              <div class="floating-text">
+                <span>Live Music</span>
+                <small>Nationwide Performances</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-features">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-microphone-alt"></i>
+              </div>
+              <h4>Dueling Pianos</h4>
+              <p>Interactive, request-driven piano-bar shows.</p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon"><i class="fas fa-headphones"></i></div>
+              <h4>Multiple Acts</h4>
+              <p>Solo, duo, and full-production options.</p>
+            </div>
+          </div>
         </div>
+
+        <!-- Right: Text content -->
+        <div class="about-content">
+          <div class="section-label">About</div>
+
+          <h2 class="about-title">
+            <span class="title-icon">🎧</span>
+            <span class="title-text">Collin Freestone Entertainment</span>
+          </h2>
+
+          <!-- small meta pills -->
+          <div class="about-meta">
+            <span class="about-pill">Live Music Production</span>
+            <span class="about-pill">Touring Experience</span>
+            <span class="about-pill">Weddings &amp; Events</span>
+          </div>
 
         <div class="about-text">
           <p class="about-tagline fade-in-text">
@@ -190,47 +221,50 @@
             celebrations, and clients across the United States and internationally.
           </p>
 
-          <div class="about-mission fade-in-text">
-            <h3>Our Mission</h3>
-            <p>
-              From elegant weddings to high-energy dueling-piano nights, the mission is simple:
-              to create unforgettable live-music experiences that move people — one song at a time.
-            </p>
+            <div class="about-mission fade-in-text">
+              <h3>Our Mission</h3>
+              <p>
+                From elegant weddings to high-energy dueling-piano nights, the
+                mission is simple: to create unforgettable live-music
+                experiences that move people — one song at a time.
+              </p>
+            </div>
           </div>
+
+          <a href="event-booking.html" class="btn btn-primary about-btn">
+            <span>Book Your Event</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
         </div>
-
-        <a href="#contact" class="btn btn-primary about-btn">
-          <span>Book Your Event</span>
-          <i class="fas fa-arrow-right"></i>
-        </a>
       </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- ACTS OVERVIEW -->
+    <section class="acts-overview" id="artists">
+      <div class="acts-header">
+        <h2 class="section-title">Acts &amp; Performance Options</h2>
+        <p class="section-subtitle">
+          Collin Freestone Entertainment produces top-tier live-music
+          performances nationwide, featuring four core acts suitable for a wide
+          range of events and venues.
+        </p>
+      </div>
 
-  <!-- ACTS OVERVIEW -->
-  <section class="acts-overview" id="artists">
-    <div class="acts-header">
-      <h2 class="section-title">Acts &amp; Performance Options</h2>
-      <p class="section-subtitle">
-        Collin Freestone Entertainment produces top-tier live-music performances nationwide, featuring four core acts
-        suitable for a wide range of events and venues.
-      </p>
-    </div>
+      <!-- quick links to each act section -->
+      <div class="acts-nav">
+        <a href="#girl-and-guy" class="acts-nav-item">💍🎶 Girl and a Guy</a>
+        <a href="#yoga-pants-karaoke" class="acts-nav-item"
+          >🎤🎵 Live Band Karaoke</a
+        >
+        <a href="#yoga-pants" class="acts-nav-item"
+          >🥁🎹 Yoga Pants (The Duo)</a
+        >
+        <a href="#freestone-keys" class="acts-nav-item">🎹 Freestone Keys</a>
+        <a href="#collin-solo" class="acts-nav-item">🎤🎸 Collin Solo</a>
+      </div>
+    </section>
 
-    <!-- quick links to each act section -->
-    <div class="acts-nav">
-      <a href="#girl-and-guy" class="acts-nav-item">💍🎶 Girl and a Guy</a>
-      <a href="#yoga-pants-karaoke" class="acts-nav-item">🎤🎵 Live Band Karaoke</a>
-      <a href="#yoga-pants" class="acts-nav-item">🥁🎹 Yoga Pants (The Duo)</a>
-      <a href="#freestone-keys" class="acts-nav-item">🎹 Freestone Keys</a>
-      <a href="#collin-solo" class="acts-nav-item">🎤🎸 Collin Solo</a>
-    </div>
-  </section>
-
-
-
-  <!-- 💍🎶 Girl and a Guy -->
+    <!-- 💍🎶 Girl and a Guy -->
 
   <section class="act-section act-alt" id="girl-and-guy">
     <div class="act-inner">
@@ -250,14 +284,17 @@
       <div class="act-content">
         <h3 class="act-title">Girl and a Guy – Featuring Collin Freestone &amp; Kaylee Leatherwood</h3>
 
-        <p class="act-text">
-          Girl and a Guy is an elegant duo featuring piano and vocal performances by Collin Freestone and Kaylee
-          Leatherwood. The act is ideally suited to wedding ceremonies, cocktail hours, and upscale corporate events.
-        </p>
-        <p class="act-text">
-          Repertoire can be tailored to match the tone of the occasion, from contemporary ballads and classics to subtle
-          background music that complements formal gatherings.
-        </p>
+          <p class="act-text">
+            Girl and a Guy is an elegant duo featuring piano and vocal
+            performances by Collin Freestone and Kaylee Leatherwood. The act is
+            ideally suited to wedding ceremonies, cocktail hours, and upscale
+            corporate events.
+          </p>
+          <p class="act-text">
+            Repertoire can be tailored to match the tone of the occasion, from
+            contemporary ballads and classics to subtle background music that
+            complements formal gatherings.
+          </p>
 
 
         <a href="#contact" class="btn btn-primary act-btn"> Book Girl and a Guy</a>
@@ -290,18 +327,21 @@
       <div class="act-content">
         <h3 class="act-title">Live Band Karaoke with Yoga Pants (The Duo)</h3>
 
-        <p class="act-text">
-          Live Band Karaoke with Yoga Pants (The Duo) turns the audience into the lead singers. Guests select their
-          favorite songs from the karaoke menu and perform live with the band.
-        </p>
-        <p class="act-text">
-          This format is designed for maximum crowd participation and is ideal for corporate events, parties, and venues
-          looking for a signature interactive experience.
-        </p>
-        <p class="act-text">
-          The show keeps the same upbeat, lighthearted personality as the standard Yoga Pants Duo, with an added focus
-          on guest performances and shared moments on stage.
-        </p>
+          <p class="act-text">
+            Live Band Karaoke with Yoga Pants (The Duo) turns the audience into
+            the lead singers. Guests select their favorite songs from the
+            karaoke menu and perform live with the band.
+          </p>
+          <p class="act-text">
+            This format is designed for maximum crowd participation and is ideal
+            for corporate events, parties, and venues looking for a signature
+            interactive experience.
+          </p>
+          <p class="act-text">
+            The show keeps the same upbeat, lighthearted personality as the
+            standard Yoga Pants Duo, with an added focus on guest performances
+            and shared moments on stage.
+          </p>
 
         <a href="#contact" class="btn btn-primary act-btn"> Book Live Band Karaoke</a>
         <a href="Songs.html" class="btn  act-btn songbtn songbtn2">Songs <i class="fas fa-arrow-right"></i>
@@ -409,14 +449,14 @@
       <div class="act-content">
         <h3 class="act-title">Collin Freestone – Solo Keyboard, Acoustic Guitar & Vocal Performances</h3>
 
-        <p class="act-text">
-          Live vocals alongside keyboard and acoustic guitar, tailored for weddings, corporate functions, and private
-          events.
-        </p>
-        <p class="act-text">
-          Includes popular covers across genres, with optional original music. Can be an engaging focal point or gentle
-          ambience.
-        </p>
+          <p class="act-text">
+            Live vocals alongside keyboard and acoustic guitar, tailored for
+            weddings, corporate functions, and private events.
+          </p>
+          <p class="act-text">
+            Includes popular covers across genres, with optional original music.
+            Can be an engaging focal point or gentle ambience.
+          </p>
 
         <a href="#contact" class="btn btn-primary act-btn">Book Solo Performance</a>
         <a href="Collinfreestone.html" class="btn  act-btn songbtn2">Songs <i class="fas fa-arrow-right"></i>
@@ -437,7 +477,7 @@
 
 
 
-  <!-- SPOTLIGHT ARTIST SECTION (unchanged)
+    <!-- SPOTLIGHT ARTIST SECTION (unchanged)
   <section class="spotlight-section">
     <div class="spotlight-content">
       <div class="artist-image-container">
@@ -456,8 +496,8 @@
     </div>
   </section> -->
 
-  <!-- SPOTLIGHT ARTIST SECTION - Artist 2 -->
-  <!-- <section class="spotlight-section">
+    <!-- SPOTLIGHT ARTIST SECTION - Artist 2 -->
+    <!-- <section class="spotlight-section">
     <div class="spotlight-content row-reverse">
       <div class="artist-image-container">
         <img src="assets/artist2.jpg" alt="Featured Artist">
@@ -473,8 +513,8 @@
     </div>
   </section> -->
 
-  <!-- SPOTLIGHT ARTIST SECTION - Artist 3 -->
-  <!-- <section class="spotlight-section">
+    <!-- SPOTLIGHT ARTIST SECTION - Artist 3 -->
+    <!-- <section class="spotlight-section">
     <div class="spotlight-content">
       <div class="artist-image-container">
         <img src="assets/artist3.jpg" alt="Featured Artist">
@@ -490,12 +530,12 @@
     </div>
   </section> -->
 
-  <!-- EVENTS SECTION (kept as-is; you can edit later) -->
-  <!-- <section id="events" class="events-section">
+    <!-- EVENTS SECTION (kept as-is; you can edit later) -->
+    <!-- <section id="events" class="events-section">
     <div class="events-bg-pattern"></div> -->
 
-  <!-- EVENTS BANNER -->
-  <!-- <div class="events-banner">
+    <!-- EVENTS BANNER -->
+    <!-- <div class="events-banner">
       <div class="events-banner-overlay"></div>
       <div class="events-banner-content">
         <div class="section-label-events">Events</div>
@@ -596,8 +636,8 @@
     </div>
   </section> -->
 
-  <!-- TESTIMONIALS SECTION (unchanged) -->
-  <!-- <section class="testimonials-section">
+    <!-- TESTIMONIALS SECTION (unchanged) -->
+    <!-- <section class="testimonials-section">
     <h2 class="section-title">💬 What Our Listeners Say</h2>
     <p class="section-subtitle">Real reactions from real fans around the world.</p>
 
@@ -624,8 +664,6 @@
       </div>
     </div>
   </section> -->
-
-
 
   <!-- video section -->
   <section class="video-section">
@@ -677,88 +715,139 @@
   </section>
 
 
-  <!-- CONTACT SECTION (kept as your original) -->
-  <section id="contact" class="contact-section">
-    <div class="contact-container">
-      <div class="contact-image">
-        <img src="assets/contact.jpg" alt="Contact Us">
+    <!-- CONTACT SECTION (kept as your original) -->
+    <section id="contact" class="contact-section">
+      <div class="contact-container">
+        <div class="contact-image">
+          <img src="assets/contact.jpg" alt="Contact Us" />
+        </div>
+
+        <div class="contact-form">
+          <h2>📩 Get in Touch</h2>
+          <p>
+            Have questions, feedback, or partnership ideas? Drop us a message
+            below and we’ll get back to you soon.
+          </p>
+
+          <form id="contactForm">
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            />
+            <textarea
+              name="message"
+              rows="5"
+              placeholder="Your Message"
+              required
+            ></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
       </div>
+    </section>
 
-      <div class="contact-form">
-        <h2>📩 Get in Touch</h2>
-        <p>Have questions, feedback, or partnership ideas? Drop us a message below and we’ll get back to you soon.</p>
+    <!-- FOOTER SECTION -->
+    <footer class="footer">
+      <div class="footer-content">
+        <!-- Logo & Name -->
+        <div class="footer-logo">
+          <img src="assets/footerlogo.jpg" alt="Logo" id="footerimage" />
+          <h3>Collin Freestone Entertainment</h3>
+          <p>Top-tier live-music performances nationwide.</p>
+        </div>
 
-        <form>
-          <input type="text" placeholder="Your Name" required>
-          <input type="email" placeholder="Your Email" required>
-          <textarea rows="5" placeholder="Your Message" required></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </section>
+        <!-- Services -->
+        <div class="footer-services">
+          <h4>Our Services</h4>
+          <ul>
+            <li>Dueling Pianos</li>
+            <li>Solo Performances</li>
+            <li>Live Band Karaoke</li>
+            <li>Wedding & Corporate Events</li>
+            <li>Custom Live-Music Experiences</li>
+          </ul>
+        </div>
 
-
-
-  <!-- FOOTER SECTION -->
-  <footer class="footer">
-    <div class="footer-content">
-
-      <!-- Logo & Name -->
-      <div class="footer-logo">
-        <img src="assets/footerlogo.jpg" alt="Logo" id="footerimage">
-        <h3>Collin Freestone Entertainment</h3>
-        <p>Top-tier live-music performances nationwide.</p>
-      </div>
-
-      <!-- Services -->
-      <div class="footer-services">
-        <h4>Our Services</h4>
-        <ul>
-          <li>Dueling Pianos</li>
-          <li>Solo Performances</li>
-          <li>Live Band Karaoke</li>
-          <li>Wedding & Corporate Events</li>
-          <li>Custom Live-Music Experiences</li>
-        </ul>
-      </div>
-
-      <!-- Social Media -->
-      <div class="footer-socials">
-        <h4>Follow Us</h4>
-        <div class="social-icons">
-          <a href="https://instagram.com/collinfreestoneentertainment" target="_blank" aria-label="Instagram"><i
-              class="fab fa-instagram"></i></a>
-          <a href="https://youtube.com/@collinfreestone" target="_blank" aria-label="YouTube"><i
-              class="fab fa-youtube"></i></a>
-          <a href="https://facebook.com/collinfreestoneentertainment" target="_blank" aria-label="Facebook"><i
-              class="fab fa-facebook-f"></i></a>
-          <a href="mailto:collin@collinfreestoneentertainment.com" target="_blank" aria-label="Email"><i
-              class="fas fa-envelope"></i></a>
-          <!-- <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <!-- Social Media -->
+        <div class="footer-socials">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a
+              href="https://instagram.com/collinfreestoneentertainment"
+              target="_blank"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://youtube.com/@collinfreestone"
+              target="_blank"
+              aria-label="YouTube"
+              ><i class="fab fa-youtube"></i
+            ></a>
+            <a
+              href="https://facebook.com/collinfreestoneentertainment"
+              target="_blank"
+              aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="mailto:collin@collinfreestoneentertainment.com"
+              target="_blank"
+              aria-label="Email"
+              ><i class="fas fa-envelope"></i
+            ></a>
+            <!-- <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
           <a href="#" target="_blank" aria-label="Spotify"><i class="fab fa-spotify"></i></a> -->
+          </div>
+        </div>
+
+        <!-- Subscribe -->
+        <div class="footer-subscribe">
+          <h4>Subscribe</h4>
+          <p>Get the latest drops & event updates.</p>
+          <form>
+            <input type="email" placeholder="Your Email" />
+            <button type="submit">Subscribe</button>
+          </form>
         </div>
       </div>
 
-      <!-- Subscribe -->
-      <div class="footer-subscribe">
-        <h4>Subscribe</h4>
-        <p>Get the latest drops & event updates.</p>
-        <form>
-          <input type="email" placeholder="Your Email">
-          <button type="submit">Subscribe</button>
-        </form>
+      <div class="footer-bottom">
+        <p>© 2025 Collin Freestone Entertainment. All rights reserved.</p>
       </div>
+    </footer>
 
-    </div>
+    <!-- JS -->
+    <script src="script.js"></script>
+    <script>
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-    <div class="footer-bottom">
-      <p>© 2025 Collin Freestone Entertainment. All rights reserved.</p>
-    </div>
-  </footer>
+    const formData = {
+        name: this.name.value,
+        email: this.email.value,
+        message: this.message.value
+    };
 
-  <!-- JS -->
-  <script src="script.js"></script>
-</body>
+    const response = await fetch("http://localhost:5000/api/contact/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+    });
 
+    const result = await response.json();
+
+    if (result.success) {
+        alert("Message sent successfully!");
+        this.reset();
+    } else {
+        alert("Failed to send message. Try again.");
+    }
+});
+</script>
+
+  </body>
 </html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Event</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+            background: #111;
+            color: white;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 60px auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .event-option {
+            display: flex;
+            align-items: center;
+            gap: 12px; 
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        .event-option:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Better checkbox sizing */
+        .event-option input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            background: #ff0066;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.2s ease;
+        }
+
+        button:hover {
+            background: #ff3385;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="input-group">
+            <label>Your Name</label>
+            <input type="text" id="userName" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="input-group">
+            <label>Your Email</label>
+            <input type="email" id="userEmail" placeholder="Enter your email" required>
+        </div>
+
+        <hr>
+
+        <h2>Select Events to Book</h2>
+
+        <form id="eventForm">
+
+            <label class="event-option">
+                <input type="checkbox" name="events" value="Girl and a Guy"> 
+                <span>Girl and a Guy</span>
+            </label>
+
+            <label class="event-option">
+                <input type="checkbox" name="events" value="Live Band"> 
+                <span>Live Band</span>
+            </label>
+
+            <label class="event-option">
+                <input type="checkbox" name="events" value="Karaoke"> 
+                <span>Karaoke</span>
+            </label>
+
+            <label class="event-option">
+                <input type="checkbox" name="events" value="Yoga Pants"> 
+                <span>Yoga Pants</span>
+            </label>
+
+            <label class="event-option">
+                <input type="checkbox" name="events" value="Freestone Keys"> 
+                <span>Freestone Keys</span>
+            </label>
+
+            <label class="event-option">
+                <input type="checkbox" name="events" value="Call-In Solo"> 
+                <span>Call-In Solo</span>
+            </label>
+
+            <button type="button" onclick="submitEventBooking()">Submit Booking</button>
+
+        </form>
+    </div>
+
+    <script>
+
+        const API = "http://localhost:5000/api";
+async function submitEventBooking() {
+    const name = document.getElementById("userName").value;
+    const email = document.getElementById("userEmail").value;
+
+    const selectedEvents = [...document.querySelectorAll('input[name="events"]:checked')]
+        .map(e => e.value);
+
+    if (!name || !email || selectedEvents.length === 0) {
+        alert("Please fill all fields and select events.");
+        return;
+    }
+
+    const res = await fetch(`${API}/events/book`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, events: selectedEvents })
+    });
+
+    const data = await res.json();
+    alert("Booking Submitted Successfully!");
+
+    // redirect back to index or show success message
+    window.location.href = "index.html";
+}
+</script>
+
+
+</body>
+</html>

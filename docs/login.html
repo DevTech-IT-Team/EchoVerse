@@ -309,7 +309,16 @@ button.submit:hover {
         <div class="input-group">
           <label for="login-password">Password</label>
           <input type="password" id="login-password" placeholder="••••••••" required />
+          
         </div>
+        <div class="input-group">
+  <label for="login-role">Login As</label>
+  <select id="login-role" required>
+    <option value="user">User</option>
+    <option value="admin">Admin</option>
+  </select>
+</div>
+
 
         <div class="helper-row">
           <label class="checkbox">
@@ -402,33 +411,41 @@ button.submit:hover {
         });
       });
 
-      document.getElementById('login-form').addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const email = document.getElementById('login-email').value.trim();
-        const password = document.getElementById('login-password').value;
+     document.getElementById('login-form').addEventListener('submit', async (event) => {
+  event.preventDefault();
 
-        try {
-          const response = await fetch('https://illuminantvitam.com/api/auth/login', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password }),
-            credentials: 'include'
-          });
+  const email = document.getElementById('login-email').value.trim();
+  const password = document.getElementById('login-password').value;
+  const loginAs = document.getElementById('login-role').value; // FIXED
 
-          const data = await response.json();
+  try {
+    const response = await fetch('http://localhost:5000/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password, loginAs })   // FIXED
+    });
 
-          if (response.ok) {
-            alert('Login Successful!');
-            localStorage.setItem('accessToken', data.accessToken);
-            window.location.href = 'dashboard.html';
-          } else {
-            alert(data.message || 'Login failed.');
-          }
-        } catch (error) {
-          alert('Error connecting to server.');
-          console.error(error);
-        }
-      });
+    const data = await response.json();
+
+    if (response.status !== 200) {
+      alert(data.message || "Login failed");
+      return;
+    }
+
+    // Save token and redirect
+    if (loginAs === "admin") {
+      localStorage.setItem("adminToken", data.token);
+      window.location.href = "admin/admin-login.html";
+    } else {
+      localStorage.setItem("token", data.token);
+      window.location.href = "dashboard.html";
+    }
+
+  } catch (error) {
+    console.error(error);
+    alert("Server error. Try again.");
+  }
+});
 
       document.getElementById('signup-form').addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -447,7 +464,7 @@ button.submit:hover {
         }
 
         try {
-          const response = await fetch('https://illuminantvitam.com/api/auth/signup', {
+          const response = await fetch('http://localhost:5000/api/auth/signup', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

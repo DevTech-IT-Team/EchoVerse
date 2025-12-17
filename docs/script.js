@@ -2093,35 +2093,5 @@ document.addEventListener('keydown', (e) => {
 
 
 
-//-------------------------------------------- videos javascript --------------------------------------------------
-       // Add subtle interactivity to video cards
-        document.querySelectorAll('.video-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                // Add a slight shadow on hover
-                this.style.boxShadow = '0 10px 20px rgba(29, 185, 84, 0.15)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                // Remove shadow when not hovering
-                this.style.boxShadow = 'none';
-            });
-            
-            // Click to focus on the video
-            card.addEventListener('click', function() {
-                const iframe = this.querySelector('iframe');
-                if (iframe) {
-                    // Focus on the iframe for better UX
-                    iframe.focus();
-                    
-                    // Visual feedback for click
-                    this.style.transform = 'translateY(-8px) scale(0.98)';
-                    setTimeout(() => {
-                        this.style.transform = 'translateY(-8px) scale(1)';
-                    }, 150);
-                }
-            });
-        });
-
-
-//------------------------------------ Girl and Guy songs list ---------------------------------------------
+//-------------------------------------------- dashboard javascript --------------------------------------------------
 
