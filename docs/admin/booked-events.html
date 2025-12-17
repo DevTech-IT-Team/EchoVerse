@@ -3,90 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booked Events</title>
-
+    <title>Admin | Booked Events</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-card: #161b22;
+            --spotify-green: #1db954;
+            --spotify-green-hover: #1ed760;
+            --green-glow: rgba(29, 185, 84, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --text-muted: #8b949e;
+            --border: #30363d;
+        }
+
         body {
             margin: 0;
-            padding: 40px;
-            font-family: Arial, sans-serif;
-            background: #f5f7fa;
+            padding: 40px 20px;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom, #121212, #000000);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            min-height: 100vh;
         }
 
-        h2 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #222;
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            animation: fadeIn 0.8s ease-out;
         }
 
-        .table-container {
-            max-width: 1000px;
-            margin: auto;
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Header Section */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .title-section h2 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin: 0;
+            background: linear-gradient(to right, #ffffff, var(--spotify-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .title-section p {
+            color: var(--text-muted);
+            margin: 8px 0 0;
+            font-size: 15px;
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background: rgba(29, 185, 84, 0.1);
+            border: 1px solid var(--spotify-green);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: var(--spotify-green);
+            color: #000000;
+            transform: translateX(-6px);
+            box-shadow: 0 0 20px var(--green-glow);
+        }
+
+        /* Table */
+        .table-wrapper {
+            background: var(--bg-card);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 15px;
         }
 
-        table thead {
-            background: #e9eef5;
-        }
-
-        table th {
-            padding: 14px;
-            text-align: left;
+        thead th {
+            background: var(--spotify-green);
+            color: #000000;
+            padding: 20px 24px;
+            font-size: 12px;
             font-weight: 700;
-            font-size: 16px;
-            border-bottom: 2px solid #d8dee9;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            text-align: left;
         }
 
-        table td {
-            padding: 12px 14px;
-            border-bottom: 1px solid #eee;
-            font-size: 15px;
+        tbody td {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s ease;
         }
 
-        tr:last-child td {
+        tbody tr:last-child td {
             border-bottom: none;
         }
 
-        tr:hover {
-            background: #f6f8fb;
+        tbody tr:hover {
+            background: rgba(29, 185, 84, 0.08);
         }
 
-        .back-btn {
-            display: inline-block;
-            padding: 10px 18px;
-            background: #4b6cb7;
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
+        .user-name {
+            font-weight: 600;
             font-size: 15px;
-            margin-bottom: 20px;
-            transition: 0.2s;
         }
 
-        .back-btn:hover {
-            background: #3959a4;
+        .user-email {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .event-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .booking-date {
+            color: var(--text-secondary);
+            font-family: 'SF Mono', monospace;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            .title-section h2 {
+                font-size: 2rem;
+            }
+            tbody td {
+                padding: 16px 20px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <a href="admin-dashboard.html" class="back-btn">⟵ Back to Dashboard</a>
+<div class="container">
+    <div class="header">
+        <div class="title-section">
+            <h2>Booked Events</h2>
+            <p>Total bookings: <span id="booking-count" style="color: var(--spotify-green);">0</span></p>
+        </div>
+        <a href="admin-dashboard.html" class="back-link">
+            ← Dashboard
+        </a>
+    </div>
 
-    <h2>Booked Events</h2>
-
-    <div class="table-container">
+    <div class="table-wrapper">
         <table id="events-table">
             <thead>
                 <tr>
@@ -96,14 +189,20 @@
                     <th>Date</th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+                <!-- Rows will be injected by script.js via loadBookedEvents() -->
+            </tbody>
         </table>
     </div>
+</div>
 
-    <script src="script.js"></script>
-    <script>
-        loadBookedEvents();
-    </script>
+<script src="script.js"></script>
+<script>
+    loadBookedEvents();
+
+    // Optional: If you want to update the total count after loading
+    // You can enhance your loadBookedEvents() function to also update #booking-count
+</script>
 
 </body>
 </html>

@@ -3,76 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="style.css" />
-
+    <title>Admin Dashboard | Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --spotify-green: #1DB954;
+            --spotify-light-green: #1ed760;
+            --bg-dark: #090909; /* Deeper black for more contrast */
+            --card-grey: #121212;
+            --hover-grey: #1f1f1f;
+            --text-main: #ffffff;
+            --text-muted: #a7a7a7;
+        }
+
+        * {
             margin: 0;
-            padding: 40px;
-            background: #f5f7fa;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
         }
 
-        h1 {
-            font-size: 32px;
-            margin-bottom: 20px;
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        .dashboard-container {
+        /* Spotify-style Sidebar */
+        .sidebar {
+            width: 260px;
+            background: #000;
+            padding: 24px;
             display: flex;
             flex-direction: column;
-            gap: 25px;
-            max-width: 600px;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--spotify-green);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 35px;
+            letter-spacing: -1px;
+        }
+
+        .nav-menu {
+            list-style: none;
+            flex: 1;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 0;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            transition: 0.2s ease-in-out;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: #fff;
+        }
+
+        .nav-item i { font-size: 20px; }
+
+        .logout-btn {
+            color: #b3b3b3;
+            font-size: 14px;
+            padding-top: 20px;
+            border-top: 1px solid #282828;
+            cursor: pointer;
+        }
+
+        .logout-btn:hover { color: #ff4d4d; }
+
+        /* Main Content with Mesh Gradient */
+        .main-content {
+            margin-left: 260px;
+            padding: 40px 60px;
+            width: 100%;
+            background: radial-gradient(circle at top left, #1e1e1e 0%, #090909 40%);
+        }
+
+        header {
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 16px;
+        }
+
+        /* Large Action Cards */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Only 2 items now */
+            gap: 30px;
+            max-width: 1100px;
         }
 
         .card {
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
+            background: var(--card-grey);
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             cursor: pointer;
-            border: 1px solid #ddd;
-            transition: 0.2s;
-            font-size: 20px;
-            font-weight: 600;
+            border: 1px solid transparent;
         }
 
+        /* The Glow Effect */
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(600px circle at var(--x) var(--y), rgba(29, 185, 84, 0.15), transparent 40%);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .card:hover::after { opacity: 1; }
+
         .card:hover {
-            background: #e9eef5;
-            transform: translateY(-2px);
+            background: var(--hover-grey);
+            transform: translateY(-10px);
+            border-color: rgba(29, 185, 84, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(29, 185, 84, 0.1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            color: var(--spotify-green);
+            font-size: 30px;
+            transition: 0.3s;
+        }
+
+        .card:hover .card-icon {
+            background: var(--spotify-green);
+            color: black;
+            transform: scale(1.1) rotate(-5deg);
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .card .badge {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: var(--spotify-green);
+            color: #000;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 12px;
+            box-shadow: 0 4px 10px rgba(29, 185, 84, 0.3);
+        }
+
+        @media (max-width: 900px) {
+            .dashboard-grid { grid-template-columns: 1fr; }
+            .sidebar { width: 80px; padding: 20px 10px; align-items: center; }
+            .sidebar span { display: none; }
+            .main-content { margin-left: 80px; padding: 30px; }
         }
     </style>
 </head>
 <body>
 
-    <h1>Welcome Admin</h1>
+    <nav class="sidebar">
+        <div class="logo">
+           <span>Dashboard</span>
+        </div>
+        <div class="nav-menu">
+            <a href="#" class="nav-item active"><i class="fas fa-home"></i> <span>Home</span></a>
+            <a href="users.html" class="nav-item"><i class="fas fa-users"></i> <span>Users</span></a>
+            <a href="booked-events.html" class="nav-item"><i class="fas fa-calendar"></i> <span>Events</span></a>
+        </div>
+        <div onclick="logoutAdmin()" class="nav-item logout-btn">
+            <i class="fas fa-sign-out-alt"></i> <span>Log out</span>
+        </div>
+    </nav>
 
-    <div class="dashboard-container">
-        <div class="card" onclick="goUsers()">👥 Manage Users</div>
-        <div  class="card" onclick="goEvents()">📅 View Booked Events</div>
-        <div class="card" onclick="logoutAdmin()">🚪 Logout</div>
-    </div>
+    <main class="main-content">
+        <header>
+            <h1>Welcome ,  Admin</h1>
+            <p>Control center for your platform's users and bookings.</p>
+        </header>
+
+        <div class="dashboard-grid">
+            <div class="card" onclick="location.href='users.html'">
+                <span class="badge">3 NEW</span>
+                <div class="card-icon"><i class="fas fa-user-shield"></i></div>
+                <h3>User Directory</h3>
+                <p>Manage community members, moderate profiles, and control access permissions across the system.</p>
+            </div>
+
+            <div class="card" onclick="location.href='booked-events.html'">
+                <div class="card-icon"><i class="fas fa-ticket-alt"></i></div>
+                <h3>Booking Records</h3>
+                <p>Review all upcoming reservations, track event history, and handle client scheduling requests.</p>
+            </div>
+        </div>
+    </main>
 
     <script>
-        const token = localStorage.getItem("adminToken");
-
-        if (!token) {
-            window.location.href = "admin-login.html";
-        }
-
-        function goUsers() {
-            window.location.href = "users.html";
-        }
-
-        function goEvents() {
-            window.location.href = "booked-events.html";  // you will create this page next
-        }
+        // Interactive Glow Effect Script
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.onmousemove = e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--x', `${x}px`);
+                card.style.setProperty('--y', `${y}px`);
+            };
+        });
 
         function logoutAdmin() {
             localStorage.removeItem("adminToken");
-            window.location.href = "admin-login.html";
+            window.location.href = "../index.html";
         }
     </script>
-
 </body>
 </html>
