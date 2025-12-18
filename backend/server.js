@@ -15,12 +15,20 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: ["http://127.0.0.1:5504",
-      "http://localhost:5504",
-      "http://127.0.0.1:3000",
-      "http://localhost:3000"],
+  origin: [
+    "http://127.0.0.1:5504",
+    "http://localhost:5504",
+    "http://127.0.0.1:3000",
+    "http://localhost:3000",
+    "https://prernacreditor.github.io"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
+
+app.options("*", cors());
+
 
 // ⭐ Serve Admin Static Files (MUST be above routes)
 app.use(
