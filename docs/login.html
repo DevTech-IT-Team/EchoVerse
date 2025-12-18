@@ -1,497 +1,518 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YogaPants | Account Access</title>
-    <link rel="icon" href="assets/slogo.png" type="image/png" />
-   <style>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YogaPants | Account Access</title>
+  <link rel="icon" href="assets/slogo.png" type="image/png" />
+  <style>
     /* ======================================================
    CLEAN NON-SHADOW LOGIN UI — Spotify / Minimal Modern
    ====================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-:root {
-  --primary: #1db954;
-  --primary-dark: #159a45;
-  --danger: #ff4e50;
+    :root {
+      --primary: #1db954;
+      --primary-dark: #159a45;
+      --danger: #ff4e50;
 
-  --card-bg: rgba(25, 25, 28, 0.55);
-  --card-border: rgba(255, 255, 255, 0.12);
+      --card-bg: rgba(25, 25, 28, 0.55);
+      --card-border: rgba(255, 255, 255, 0.12);
 
-  --text-main: #ffffff;
-  --text-muted: #b3b3b3;
-  --background: #000000;
-}
+      --text-main: #ffffff;
+      --text-muted: #b3b3b3;
+      --background: #000000;
+    }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 40px 16px;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(29, 185, 84, 0.15), transparent 55%),
-    radial-gradient(circle at 80% 0%, rgba(255, 78, 80, 0.15), transparent 55%),
-    linear-gradient(135deg, #0b0b0b, #000000 50%, #050505);
-  color: var(--text-main);
-}
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 16px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(29, 185, 84, 0.15), transparent 55%),
+        radial-gradient(circle at 80% 0%, rgba(255, 78, 80, 0.15), transparent 55%),
+        linear-gradient(135deg, #0b0b0b, #000000 50%, #050505);
+      color: var(--text-main);
+    }
 
-/* ==========================================
+    /* ==========================================
    CARD CONTAINER
    ========================================== */
 
-.card {
-  width: 50%;
-  max-width: 560px;
-  background: var(--card-bg);
-  padding: 40px 32px;
-  border-radius: 20px;
-  border: 1px solid var(--card-border);
-  backdrop-filter: blur(16px);
+    .card {
+      width: 50%;
+      max-width: 560px;
+      background: var(--card-bg);
+      padding: 40px 32px;
+      border-radius: 20px;
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(16px);
 
-  /* ❌ Removed heavy shadows */
-  box-shadow: none;
+      /* ❌ Removed heavy shadows */
+      box-shadow: none;
 
-  animation: fadeIn 0.5s ease forwards;
-}
+      animation: fadeIn 0.5s ease forwards;
+    }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
 
-/* ==========================================
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ==========================================
    BRAND
    ========================================== */
 
-.brand {
-  text-align: center;
-  margin-bottom: 28px;
-}
+    .brand {
+      text-align: center;
+      margin-bottom: 28px;
+    }
 
-.brand img {
-  width: 220px;
-  border-radius: 14px;
-  margin-bottom: 10px;
-}
+    .brand img {
+      width: 220px;
+      border-radius: 14px;
+      margin-bottom: 10px;
+    }
 
-.brand h1 {
-  font-size: 1.8rem;
-  font-weight: 600;
-}
+    .brand h1 {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
 
-.brand p {
-  color: var(--text-muted);
-  margin-top: 4px;
-}
+    .brand p {
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
 
-/* ==========================================
+    /* ==========================================
    TOGGLE SWITCH
    ========================================== */
 
-.form-toggle {
-  display: flex;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 6px;
-  border-radius: 12px;
-  margin-bottom: 26px;
-}
+    .form-toggle {
+      display: flex;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 6px;
+      border-radius: 12px;
+      margin-bottom: 26px;
+    }
 
-.form-toggle button {
-  flex: 1;
-  border: none;
-  padding: 12px 0;
-  border-radius: 10px;
-  background: transparent;
-  color: var(--text-muted);
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
+    .form-toggle button {
+      flex: 1;
+      border: none;
+      padding: 12px 0;
+      border-radius: 10px;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
 
-.form-toggle button.active {
-  background: rgba(29, 185, 84, 0.18);
-  color: #fff;
-  font-weight: 600;
-}
+    .form-toggle button.active {
+      background: rgba(29, 185, 84, 0.18);
+      color: #fff;
+      font-weight: 600;
+    }
 
-/* ==========================================
+    /* ==========================================
    FORMS
    ========================================== */
 
-form {
-  display: none;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: 0.3s ease;
-}
+    form {
+      display: none;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: 0.3s ease;
+    }
 
-form.active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
+    form.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-/* Inputs */
+    /* Inputs */
 
-.input-group {
-  margin-bottom: 18px;
-}
+    .input-group {
+      margin-bottom: 18px;
+    }
 
-label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: 500;
-  font-size: 0.95rem;
-}
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      font-size: 0.95rem;
 
-input,
-select {
-  width: 100%;
-  padding: 13px 15px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text-main);
-  font-size: 0.95rem;
-  transition: border 0.3s ease, background 0.3s ease;
-}
+    }
 
-input:focus {
-  border-color: var(--primary);
-  background: rgba(255, 255, 255, 0.08);
-  outline: none;
-}
 
-.helper-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.9rem;
-  margin-bottom: 20px;
-}
 
-.checkbox {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--text-muted);
-}
+    input,
+    select {
+      width: 100%;
+      padding: 13px 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+      font-size: 0.95rem;
+      transition: border 0.3s ease, background 0.3s ease;
+    }
 
-.checkbox input {
-  width: 16px;
-  height: 16px;
-  accent-color: var(--primary);
-}
+    select {
+      background-color: #121212;
+      /* dropdown closed */
+      color: #ffffff;
+    }
 
-.text-link {
-  color: var(--primary);
-  text-decoration: none;
-  font-weight: 500;
-}
+    select option {
+      background-color: #121212;
+      /* dropdown opened */
+      color: #ffffff;
+    }
 
-.text-link:hover {
-  color: var(--primary-dark);
-}
+    
 
-/* ==========================================
+    input:focus {
+      border-color: var(--primary);
+      background: rgba(255, 255, 255, 0.08);
+      outline: none;
+    }
+
+    .helper-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+    }
+
+    .checkbox input {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--primary);
+    }
+
+    .text-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .text-link:hover {
+      color: var(--primary-dark);
+    }
+
+    /* ==========================================
    SUBMIT BUTTON
    ========================================== */
 
-button.submit {
-  width: 100%;
-  padding: 15px;
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  border: none;
-  border-radius: 14px;
-  color: #000;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
+    button.submit {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border: none;
+      border-radius: 14px;
+      color: #000;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
 
-  /* ❌ Removed button shadows */
-  box-shadow: none;
+      /* ❌ Removed button shadows */
+      box-shadow: none;
 
-  transition: 0.25s ease;
-}
+      transition: 0.25s ease;
+    }
 
-button.submit:hover {
-  transform: translateY(-1px);
-}
+    button.submit:hover {
+      transform: translateY(-1px);
+    }
 
-/* Divider */
+    /* Divider */
 
-.divider {
-  text-align: center;
-  color: var(--text-muted);
-  margin: 18px 0;
-  position: relative;
-}
+    .divider {
+      text-align: center;
+      color: var(--text-muted);
+      margin: 18px 0;
+      position: relative;
+    }
 
-.divider::before,
-.divider::after {
-  content: "";
-  position: absolute;
-  width: 40%;
-  height: 1px;
-  top: 50%;
-  background: rgba(255, 255, 255, 0.1);
-}
+    .divider::before,
+    .divider::after {
+      content: "";
+      position: absolute;
+      width: 40%;
+      height: 1px;
+      top: 50%;
+      background: rgba(255, 255, 255, 0.1);
+    }
 
-.divider::before {
-  left: 0;
-}
-.divider::after {
-  right: 0;
-}
+    .divider::before {
+      left: 0;
+    }
 
-/* Footer text */
+    .divider::after {
+      right: 0;
+    }
 
-.footer-text {
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
+    /* Footer text */
 
-/* Responsive */
+    .footer-text {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
 
-@media (max-width: 600px) {
-  .card {
-    width: 100%;
-    padding: 32px 24px;
-  }
+    /* Responsive */
 
-  .brand img {
-    width: 180px;
-  }
-
-  .brand h1 {
-    font-size: 1.5rem;
-  }
-}
-
-   </style>
-  </head>
-  <body>
-    <div class="card">
-      <div class="brand">
-        <img src="assets/p5.jpg" alt="YogaPants" />
-        <h1>YogaPants Portal</h1>
-        <p>Keep the rhythm going with your personalised space.</p>
-      </div>
-
-      <div class="form-toggle">
-        <button type="button" class="toggle-btn active" data-form="login">Login</button>
-        <button type="button" class="toggle-btn" data-form="signup">Sign Up</button>
-      </div>
-
-      <form id="login-form" class="active">
-        <div class="input-group">
-          <label for="login-email">Email</label>
-          <input type="email" id="login-email" placeholder="you@email.com" required />
-        </div>
-
-        <div class="input-group">
-          <label for="login-password">Password</label>
-          <input type="password" id="login-password" placeholder="••••••••" required />
-          
-        </div>
-        <div class="input-group">
-  <label for="login-role">Login As</label>
-  <select id="login-role" required>
-    <option value="user">User</option>
-    <option value="admin">Admin</option>
-  </select>
-</div>
-
-
-        <div class="helper-row">
-          <label class="checkbox">
-            <input type="checkbox" id="remember-me" />
-            Remember me
-          </label>
-          <a href="#" class="text-link">Forgot password?</a>
-        </div>
-
-        <button type="submit" class="submit">Log in</button>
-
-        <div class="divider">or</div>
-
-        <div class="footer-text">
-          New here?
-          <a href="#" class="text-link" data-switch="signup">Create an account</a>
-        </div>
-      </form>
-
-      <form id="signup-form">
-        <div class="input-group">
-          <label for="signup-fname">First Name</label>
-          <input type="text" id="signup-fname" placeholder="John" required />
-        </div>
-
-        <div class="input-group">
-          <label for="signup-lname">Last Name</label>
-          <input type="text" id="signup-lname" placeholder="Doe" required />
-        </div>
-
-        <div class="input-group">
-          <label for="signup-email">Email</label>
-          <input type="email" id="signup-email" placeholder="you@email.com" required />
-        </div>
-
-        <div class="input-group">
-          <label for="signup-contact">Contact Number</label>
-          <input type="tel" id="signup-contact" placeholder="e.g., +1 555 555 5555" required />
-        </div>
-
-        <div class="input-group">
-          <label for="signup-dob">Date of Birth</label>
-          <input type="date" id="signup-dob" required />
-        </div>
-
-        <div class="input-group">
-          <label for="signup-password">Password</label>
-          <input type="password" id="signup-password" placeholder="Create a password" required />
-        </div>
-
-        <div class="input-group">
-          <label for="signup-confirm">Confirm Password</label>
-          <input type="password" id="signup-confirm" placeholder="Repeat password" required />
-        </div>
-
-        <button type="submit" class="submit">Create account</button>
-
-        <div class="footer-text">
-          Already registered?
-          <a href="#" class="text-link" data-switch="login">Login</a>
-        </div>
-      </form>
-    </div>
-
-    <script>
-      const toggleButtons = document.querySelectorAll('.toggle-btn');
-      const forms = {
-        login: document.getElementById('login-form'),
-        signup: document.getElementById('signup-form')
-      };
-      const switchLinks = document.querySelectorAll('[data-switch]');
-
-      function showForm(type) {
-        Object.entries(forms).forEach(([key, form]) => {
-          form.classList.toggle('active', key === type);
-        });
-        toggleButtons.forEach((btn) => {
-          btn.classList.toggle('active', btn.dataset.form === type);
-        });
+    @media (max-width: 600px) {
+      .card {
+        width: 100%;
+        padding: 32px 24px;
       }
 
+      .brand img {
+        width: 180px;
+      }
+
+      .brand h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="brand">
+      <img src="assets/p5.jpg" alt="YogaPants" />
+      <h1>YogaPants Portal</h1>
+      <p>Keep the rhythm going with your personalised space.</p>
+    </div>
+
+    <div class="form-toggle">
+      <button type="button" class="toggle-btn active" data-form="login">Login</button>
+      <button type="button" class="toggle-btn" data-form="signup">Sign Up</button>
+    </div>
+
+    <form id="login-form" class="active">
+      <div class="input-group">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" placeholder="you@email.com" required />
+      </div>
+
+      <div class="input-group">
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" placeholder="*********" required />
+
+      </div>
+      <div class="input-group">
+        <label class="labeluseradmin" for="login-role">Login As</label>
+        <select id="login-role" required>
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+
+
+      <div class="helper-row">
+        <label class="checkbox">
+          <input type="checkbox" id="remember-me" />
+          Remember me
+        </label>
+        <a href="#" class="text-link">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="submit">Log in</button>
+
+      <div class="divider">or</div>
+
+      <div class="footer-text">
+        New here?
+        <a href="#" class="text-link" data-switch="signup">Create an account</a>
+      </div>
+    </form>
+
+    <form id="signup-form">
+      <div class="input-group">
+        <label for="signup-fname">First Name</label>
+        <input type="text" id="signup-fname" placeholder="John" required />
+      </div>
+
+      <div class="input-group">
+        <label for="signup-lname">Last Name</label>
+        <input type="text" id="signup-lname" placeholder="Doe" required />
+      </div>
+
+      <div class="input-group">
+        <label for="signup-email">Email</label>
+        <input type="email" id="signup-email" placeholder="you@email.com" required />
+      </div>
+
+      <div class="input-group">
+        <label for="signup-contact">Contact Number</label>
+        <input type="tel" id="signup-contact" placeholder="e.g., +1 555 555 5555" required />
+      </div>
+
+      <div class="input-group">
+        <label for="signup-dob">Date of Birth</label>
+        <input type="date" id="signup-dob" required />
+      </div>
+
+      <div class="input-group">
+        <label for="signup-password">Password</label>
+        <input type="password" id="signup-password" placeholder="Create a password" required />
+      </div>
+
+      <div class="input-group">
+        <label for="signup-confirm">Confirm Password</label>
+        <input type="password" id="signup-confirm" placeholder="Repeat password" required />
+      </div>
+
+      <button type="submit" class="submit">Create account</button>
+
+      <div class="footer-text">
+        Already registered?
+        <a href="#" class="text-link" data-switch="login">Login</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const toggleButtons = document.querySelectorAll('.toggle-btn');
+    const forms = {
+      login: document.getElementById('login-form'),
+      signup: document.getElementById('signup-form')
+    };
+    const switchLinks = document.querySelectorAll('[data-switch]');
+
+    function showForm(type) {
+      Object.entries(forms).forEach(([key, form]) => {
+        form.classList.toggle('active', key === type);
+      });
       toggleButtons.forEach((btn) => {
-        btn.addEventListener('click', () => showForm(btn.dataset.form));
+        btn.classList.toggle('active', btn.dataset.form === type);
       });
+    }
 
-      switchLinks.forEach((link) => {
-        link.addEventListener('click', (event) => {
-          event.preventDefault();
-          showForm(link.dataset.switch);
-        });
-      });
-
-     document.getElementById('login-form').addEventListener('submit', async (event) => {
-  event.preventDefault();
-
-  const email = document.getElementById('login-email').value.trim();
-  const password = document.getElementById('login-password').value;
-  const loginAs = document.getElementById('login-role').value; // FIXED
-
-  try {
-    const response = await fetch('http://localhost:5000/api/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password, loginAs })   // FIXED
+    toggleButtons.forEach((btn) => {
+      btn.addEventListener('click', () => showForm(btn.dataset.form));
     });
 
-    const data = await response.json();
-
-    if (response.status !== 200) {
-      alert(data.message || "Login failed");
-      return;
-    }
-
-    // Save token and redirect
-    if (loginAs === "admin") {
-      localStorage.setItem("adminToken", data.token);
-      window.location.href = "admin/admin-login.html";
-    } else {
-      localStorage.setItem("token", data.token);
-      window.location.href = "dashboard.html";
-    }
-
-  } catch (error) {
-    console.error(error);
-    alert("Server error. Try again.");
-  }
-});
-
-      document.getElementById('signup-form').addEventListener('submit', async (event) => {
+    switchLinks.forEach((link) => {
+      link.addEventListener('click', (event) => {
         event.preventDefault();
+        showForm(link.dataset.switch);
+      });
+    });
 
-        const firstName = document.getElementById('signup-fname').value.trim();
-        const lastName = document.getElementById('signup-lname').value.trim();
-        const email = document.getElementById('signup-email').value.trim();
-        const dob = document.getElementById('signup-dob').value;
-        const password = document.getElementById('signup-password').value;
-        const confirmPassword = document.getElementById('signup-confirm').value;
-        const contactNumber = document.getElementById('signup-contact').value.trim();
+    document.getElementById('login-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
 
-        if (password !== confirmPassword) {
-          alert('Passwords do not match!');
+      const email = document.getElementById('login-email').value.trim();
+      const password = document.getElementById('login-password').value;
+      const loginAs = document.getElementById('login-role').value; // FIXED
+
+      try {
+        const response = await fetch('http://localhost:5000/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password, loginAs })   // FIXED
+        });
+
+        const data = await response.json();
+
+        if (response.status !== 200) {
+          alert(data.message || "Login failed");
           return;
         }
 
-        try {
-          const response = await fetch('http://localhost:5000/api/auth/signup', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              firstName,
-              lastName,
-              email,
-              dob,
-              password,
-              confirmPassword,
-              contactNumber
-            }),
-            credentials: 'include'
-          });
-
-          const data = await response.json();
-
-          if (response.ok) {
-            alert('Signup Successful!');
-            showForm('login');
-          } else {
-            alert(data.message || 'Signup failed.');
-          }
-        } catch (error) {
-          alert('Error connecting to server.');
-          console.error(error);
+        // Save token and redirect
+        if (loginAs === "admin") {
+          localStorage.setItem("adminToken", data.token);
+          window.location.href = "admin/admin-login.html";
+        } else {
+          localStorage.setItem("token", data.token);
+          window.location.href = "dashboard.html";
         }
-      });
-    </script>
-  </body>
+
+      } catch (error) {
+        console.error(error);
+        alert("Server error. Try again.");
+      }
+    });
+
+    document.getElementById('signup-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const firstName = document.getElementById('signup-fname').value.trim();
+      const lastName = document.getElementById('signup-lname').value.trim();
+      const email = document.getElementById('signup-email').value.trim();
+      const dob = document.getElementById('signup-dob').value;
+      const password = document.getElementById('signup-password').value;
+      const confirmPassword = document.getElementById('signup-confirm').value;
+      const contactNumber = document.getElementById('signup-contact').value.trim();
+
+      if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+      }
+
+      try {
+        const response = await fetch('http://localhost:5000/api/auth/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            firstName,
+            lastName,
+            email,
+            dob,
+            password,
+            confirmPassword,
+            contactNumber
+          }),
+          credentials: 'include'
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          alert('Signup Successful!');
+          showForm('login');
+        } else {
+          alert(data.message || 'Signup failed.');
+        }
+      } catch (error) {
+        alert('Error connecting to server.');
+        console.error(error);
+      }
+    });
+  </script>
+</body>
+
 </html>
