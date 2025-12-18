@@ -1,4 +1,4 @@
-const API = "http://localhost:5000/api";
+const API = "https://collinfreestone.onrender.com/api";
 let token = localStorage.getItem("adminToken");
 
 // 🔒 Redirect to login page if no token
@@ -99,7 +99,7 @@ async function loadBookedEvents() {
     if (!document.querySelector("#events-table")) return;
 
     try {
-        const res = await fetch(`http://localhost:5000/api/events/all`, {
+        const res = await fetch(`${API}/events/all`, {
             headers: {
                 "Authorization": `Bearer ${token}`
             }

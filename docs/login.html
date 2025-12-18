@@ -365,10 +365,17 @@
         <input type="text" id="signup-fname" placeholder="John" required />
       </div>
 
+
       <div class="input-group">
         <label for="signup-lname">Last Name</label>
         <input type="text" id="signup-lname" placeholder="Doe" required />
       </div>
+  try {
+    const response = await fetch('https://collinfreestone.onrender.com/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password, loginAs })   // FIXED
+    
 
       <div class="input-group">
         <label for="signup-email">Email</label>
@@ -405,87 +412,87 @@
   </div>
 
   <script>
-    const toggleButtons = document.querySelectorAll('.toggle-btn');
-    const forms = {
-      login: document.getElementById('login-form'),
-      signup: document.getElementById('signup-form')
-    };
-    const switchLinks = document.querySelectorAll('[data-switch]');
+  const toggleButtons = document.querySelectorAll('.toggle-btn');
+  const forms = {
+    login: document.getElementById('login-form'),
+    signup: document.getElementById('signup-form')
+  };
 
-    function showForm(type) {
-      Object.entries(forms).forEach(([key, form]) => {
-        form.classList.toggle('active', key === type);
-      });
-      toggleButtons.forEach((btn) => {
-        btn.classList.toggle('active', btn.dataset.form === type);
-      });
-    }
-
-    toggleButtons.forEach((btn) => {
-      btn.addEventListener('click', () => showForm(btn.dataset.form));
+  function showForm(type) {
+    Object.entries(forms).forEach(([key, form]) => {
+      form.classList.toggle('active', key === type);
     });
-
-    switchLinks.forEach((link) => {
-      link.addEventListener('click', (event) => {
-        event.preventDefault();
-        showForm(link.dataset.switch);
-      });
+    toggleButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.form === type);
     });
+  }
 
-    document.getElementById('login-form').addEventListener('submit', async (event) => {
-      event.preventDefault();
+  toggleButtons.forEach(btn => {
+    btn.addEventListener('click', () => showForm(btn.dataset.form));
+  });
 
-      const email = document.getElementById('login-email').value.trim();
-      const password = document.getElementById('login-password').value;
-      const loginAs = document.getElementById('login-role').value; // FIXED
+  /* ================= LOGIN ================= */
 
-      try {
-        const response = await fetch('http://localhost:5000/api/auth/login', {
+  document.getElementById('login-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value;
+    const loginAs = document.getElementById('login-role').value;
+
+    try {
+      const response = await fetch(
+        'https://collinfreestone.onrender.com/api/auth/login',
+        {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email, password, loginAs })   // FIXED
-        });
-
-        const data = await response.json();
-
-        if (response.status !== 200) {
-          alert(data.message || "Login failed");
-          return;
+          body: JSON.stringify({ email, password, loginAs })
         }
+      );
 
-        // Save token and redirect
-        if (loginAs === "admin") {
-          localStorage.setItem("adminToken", data.token);
-          window.location.href = "admin/admin-login.html";
-        } else {
-          localStorage.setItem("token", data.token);
-          window.location.href = "dashboard.html";
-        }
+      const data = await response.json();
 
-      } catch (error) {
-        console.error(error);
-        alert("Server error. Try again.");
-      }
-    });
-
-    document.getElementById('signup-form').addEventListener('submit', async (event) => {
-      event.preventDefault();
-
-      const firstName = document.getElementById('signup-fname').value.trim();
-      const lastName = document.getElementById('signup-lname').value.trim();
-      const email = document.getElementById('signup-email').value.trim();
-      const dob = document.getElementById('signup-dob').value;
-      const password = document.getElementById('signup-password').value;
-      const confirmPassword = document.getElementById('signup-confirm').value;
-      const contactNumber = document.getElementById('signup-contact').value.trim();
-
-      if (password !== confirmPassword) {
-        alert('Passwords do not match!');
+      if (!response.ok) {
+        alert(data.message || 'Login failed');
         return;
       }
 
-      try {
-        const response = await fetch('http://localhost:5000/api/auth/signup', {
+      if (loginAs === 'admin') {
+        localStorage.setItem('adminToken', data.token);
+        window.location.href = 'admin/admin-login.html';
+      } else {
+        localStorage.setItem('token', data.token);
+        window.location.href = 'dashboard.html';
+      }
+
+    } catch (err) {
+      console.error(err);
+      alert('Server error. Please try again.');
+    }
+  });
+
+  /* ================= SIGNUP ================= */
+
+  document.getElementById('signup-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const firstName = document.getElementById('signup-fname').value.trim();
+    const lastName = document.getElementById('signup-lname').value.trim();
+    const email = document.getElementById('signup-email').value.trim();
+    const dob = document.getElementById('signup-dob').value;
+    const password = document.getElementById('signup-password').value;
+    const confirmPassword = document.getElementById('signup-confirm').value;
+    const contactNumber = document.getElementById('signup-contact').value.trim();
+
+    if (password !== confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        'https://collinfreestone.onrender.com/api/auth/signup',
+        {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -496,24 +503,26 @@
             password,
             confirmPassword,
             contactNumber
-          }),
-          credentials: 'include'
-        });
-
-        const data = await response.json();
-
-        if (response.ok) {
-          alert('Signup Successful!');
-          showForm('login');
-        } else {
-          alert(data.message || 'Signup failed.');
+          })
         }
-      } catch (error) {
-        alert('Error connecting to server.');
-        console.error(error);
+      );
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Signup successful! Please login.');
+        showForm('login');
+      } else {
+        alert(data.message || 'Signup failed');
       }
-    });
-  </script>
+
+    } catch (err) {
+      console.error(err);
+      alert('Server error. Please try again.');
+    }
+  });
+</script>
+
 </body>
 
 </html>
