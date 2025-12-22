@@ -3943,3 +3943,54 @@ body {
     padding-top: 0;
   }
 }
+/* =========================================================
+   FOOTER LEGAL LINKS
+   ========================================================= */
+
+.footer-legal {
+  text-align: left;
+}
+
+.footer-legal h4 {
+  color: #a5a4a4;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.footer-legal ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-legal li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-legal a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-legal a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* Update footer grid to accommodate 5 columns */
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 2rem;
+  margin-bottom: 1.8rem;
+}
+
+/* For mobile */
+@media (max-width: 768px) {
+  .footer-legal {
+    text-align: center;
+  }
+}
