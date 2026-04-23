@@ -111,11 +111,21 @@ async function loadBookedEvents() {
         tbody.innerHTML = "";
 
         bookings.forEach(b => {
+            // Safety check for events field
+            let eventsShown = "";
+            if (Array.isArray(b.events) && b.events.length > 0) {
+                eventsShown = b.events.join(", ");
+            } else if (b.eventTitle) {
+                eventsShown = b.eventTitle;
+            } else {
+                eventsShown = "No acts specified";
+            }
+
             tbody.innerHTML += `
                 <tr>
                     <td>${b.name}</td>
                     <td>${b.email}</td>
-                    <td>${b.events.join(", ")}</td>
+                    <td>${eventsShown}</td>
                     <td>${new Date(b.createdAt).toLocaleString()}</td>
                 </tr>
             `;

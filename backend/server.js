@@ -20,12 +20,12 @@ app.use(cors({
   origin: [
     // Local development
     "http://127.0.0.1:5504",
-    "http://localhost:5504",
+    "http://127.0.0.1:5504",
     "http://127.0.0.1:3000",
     "http://localhost:3000",
 
     // GitHub Pages (if still used)
-    "https://prernacreditor.github.io",
+    "https://prernacreditor.github.i0",
 
     // ✅ LIVE FRONTEND DOMAINS (IMPORTANT)
     "https://collinfreestoneentertainment.com",

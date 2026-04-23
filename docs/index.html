@@ -139,22 +139,22 @@
         <div class="corner-popup-body">
           <div class="corner-popup-event">
             <div class="corner-event-date">
-              <span class="corner-date-day">23</span>
-              <span class="corner-date-month">APR</span>
+              <span class="corner-date-day">01</span>
+              <span class="corner-date-month">MAY</span>
             </div>
             <div class="corner-event-info">
-              <h4>Girl and a Guy</h4>
-              <p>Pizzacata, Mesa, AZ</p>
+              <h4>Dueling Pianos</h4>
+              <p>Low Key, Tempe, AZ</p>
             </div>
           </div>
           <div class="corner-popup-event">
             <div class="corner-event-date">
-              <span class="corner-date-day">25</span>
-              <span class="corner-date-month">APR</span>
+              <span class="corner-date-day">02</span>
+              <span class="corner-date-month">MAY</span>
             </div>
             <div class="corner-event-info">
-              <h4>Yoga Pants Trio</h4>
-              <p>Pedal Haus Brewery</p>
+              <h4>Dueling Pianos</h4>
+              <p>Low Key, Tempe, AZ</p>
             </div>
           </div>
           <a href="UpcomingShows.html" class="btn btn-primary btn-small corner-popup-btn">
@@ -932,6 +932,24 @@ document.getElementById("contactForm").addEventListener("submit", async function
 <script>
 // Event booking functionality
 const eventData = {
+  'dueling-pianos-apr22': {
+    title: 'Dueling Pianos (The Backyard)',
+    date: 'April 22, 2026',
+    time: '5:00 PM – 8:00 PM',
+    location: 'The Backyard, Gilbert, AZ'
+  },
+  'dueling-pianos-may01': {
+    title: 'Dueling Pianos (Low Key)',
+    date: 'May 1, 2026',
+    time: 'Starts at 8:00 PM',
+    location: 'Low Key Dueling Piano Bar, Tempe, AZ'
+  },
+  'dueling-pianos-may02': {
+    title: 'Dueling Pianos (Low Key)',
+    date: 'May 2, 2026',
+    time: 'Starts at 8:00 PM',
+    location: 'Low Key Dueling Piano Bar, Tempe, AZ'
+  },
   'girl-and-guy-apr23': {
     title: 'Girl and a Guy',
     date: 'April 23, 2026',
@@ -1015,8 +1033,13 @@ document.getElementById('eventBookingForm').addEventListener('submit', async fun
     specialRequests: this.specialRequests.value
   };
   
+  // Dynamic API URL
+  const API = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:") 
+      ? "http://localhost:5000/api" 
+      : "https://collinfreestone.onrender.com/api";
+
   try {
-    const response = await fetch('https://collinfreestone.onrender.com/api/events/book', {
+    const response = await fetch(`${API}/events/book`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)

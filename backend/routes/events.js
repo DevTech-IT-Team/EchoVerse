@@ -5,16 +5,20 @@ const EventBooking = require("../models/EventBooking");
 // PUBLIC BOOKING (no auth)
 router.post("/book", async (req, res) => {
     try {
+        const { events, eventType, eventTitle, eventDate, eventLocation } = req.body;
+
         const booking = new EventBooking({
             name: req.body.name,
             email: req.body.email,
             phone: req.body.phone,
-            eventType: req.body.eventType || 'upcoming-show',
+            // If events array is provided, it's likely a general inquiry
+            eventType: eventType || (events && events.length > 0 ? 'general-inquiry' : 'upcoming-show'),
+            events: events || [],
             eventId: req.body.eventId,
-            eventTitle: req.body.eventTitle,
-            eventDate: req.body.eventDate,
+            eventTitle: eventTitle,
+            eventDate: eventDate,
             eventTime: req.body.eventTime,
-            eventLocation: req.body.eventLocation,
+            eventLocation: eventLocation,
             numberOfGuests: req.body.numberOfGuests || 1,
             specialRequests: req.body.specialRequests
         });
@@ -23,7 +27,7 @@ router.post("/book", async (req, res) => {
         res.json({ message: "Booking saved successfully", booking });
 
     } catch (err) {
-        console.log(err);
+        console.log("Booking error:", err);
         res.status(500).json({ message: "Server Error", error: err.message });
     }
 });
@@ -33,6 +37,36 @@ router.get("/upcoming-shows", async (req, res) => {
     try {
         // This could be fetched from a database or returned as static data
         const upcomingShows = [
+            {
+                id: "dueling-pianos-apr22",
+                title: "Dueling Pianos",
+                date: "April 22, 2026",
+                time: "5:00 PM – 8:00 PM",
+                location: "The Backyard, Gilbert, Arizona",
+                type: "Dueling Pianos with Joe Fladung",
+                image: "assets/Freestone Keys flier .jpg",
+                description: "High-energy dueling piano show at The Backyard."
+            },
+            {
+                id: "dueling-pianos-may01",
+                title: "Dueling Pianos",
+                date: "May 1, 2026",
+                time: "Starts at 8:00 PM",
+                location: "Low Key Dueling Piano Bar, Tempe, AZ",
+                type: "Evening Performance",
+                image: "assets/Freestone Keys flier .jpg",
+                description: "Interactive, request-driven piano-bar shows."
+            },
+            {
+                id: "dueling-pianos-may02",
+                title: "Dueling Pianos",
+                date: "May 2, 2026",
+                time: "Starts at 8:00 PM",
+                location: "Low Key Dueling Piano Bar, Tempe, AZ",
+                type: "Evening Performance",
+                image: "assets/Freestone Keys flier .jpg",
+                description: "Interactive, request-driven piano-bar shows."
+            },
             {
                 id: "girl-and-guy-apr23",
                 title: "Girl and a Guy",
@@ -106,6 +140,16 @@ router.put("/update-status/:id", async (req, res) => {
         }
         
         res.json({ message: "Status updated successfully", booking });
+    } catch (err) {
+        res.status(500).json({ message: "Server Error" });
+    }
+});
+
+// GET USER BOOKINGS
+router.get("/my-bookings/:email", async (req, res) => {
+    try {
+        const bookings = await EventBooking.find({ email: req.params.email.toLowerCase() }).sort({ createdAt: -1 });
+        res.json(bookings);
     } catch (err) {
         res.status(500).json({ message: "Server Error" });
     }
