@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const EventBooking = require("../models/EventBooking");
+const Show = require("../models/Show");
 
 // PUBLIC BOOKING (no auth)
 router.post("/book", async (req, res) => {
@@ -35,82 +36,50 @@ router.post("/book", async (req, res) => {
 // GET UPCOMING SHOWS (for frontend)
 router.get("/upcoming-shows", async (req, res) => {
     try {
-        // This could be fetched from a database or returned as static data
-        const upcomingShows = [
-            {
-                id: "dueling-pianos-apr22",
-                title: "Dueling Pianos",
-                date: "April 22, 2026",
-                time: "5:00 PM – 8:00 PM",
-                location: "The Backyard, Gilbert, Arizona",
-                type: "Dueling Pianos with Joe Fladung",
-                image: "assets/Freestone Keys flier .jpg",
-                description: "High-energy dueling piano show at The Backyard."
-            },
-            {
-                id: "dueling-pianos-may01",
-                title: "Dueling Pianos",
-                date: "May 1, 2026",
-                time: "Starts at 8:00 PM",
-                location: "Low Key Dueling Piano Bar, Tempe, AZ",
-                type: "Evening Performance",
-                image: "assets/Freestone Keys flier .jpg",
-                description: "Interactive, request-driven piano-bar shows."
-            },
-            {
-                id: "dueling-pianos-may02",
-                title: "Dueling Pianos",
-                date: "May 2, 2026",
-                time: "Starts at 8:00 PM",
-                location: "Low Key Dueling Piano Bar, Tempe, AZ",
-                type: "Evening Performance",
-                image: "assets/Freestone Keys flier .jpg",
-                description: "Interactive, request-driven piano-bar shows."
-            },
-            {
-                id: "girl-and-guy-apr23",
-                title: "Girl and a Guy",
-                date: "April 23, 2026",
-                time: "6:00 PM - 9:00 PM",
-                location: "Pizzacata, Mesa, AZ",
-                type: "Featured Event",
-                image: "assets/Girl and a Guy flier .jpg",
-                description: "Elegant duo featuring piano and vocal performances by Collin Freestone and Kaylee Leatherwood."
-            },
-            {
-                id: "dueling-pianos-weekly",
-                title: "Dueling Pianos",
-                date: "Every Wednesday",
-                time: "Varies",
-                location: "Low Key Dueling Piano Bar, Tempe, AZ",
-                type: "Weekly Event",
-                image: "assets/Freestone Keys flier .jpg",
-                description: "Interactive, request-driven piano-bar shows with Freestone Keys."
-            },
-            {
-                id: "yoga-pants-apr25",
-                title: "Yoga Pants (Trio)",
-                date: "April 25, 2026",
-                time: "4:00 PM - 7:00 PM",
-                location: "Pedal Haus Brewery, Mesa, AZ",
-                type: "Special Event",
-                image: "assets/yogapantsnew2canva.png",
-                description: "High-energy trio performance featuring Kaylee Leatherwood (drums/vocals) and Max Bustamante (saxophone)."
-            },
-            {
-                id: "live-band-karaoke-sundays",
-                title: "Live Band Karaoke (Yoga Pants Trio)",
-                date: "Every Sunday",
-                time: "8:00 PM - 11:00 PM",
-                location: "The Dark Side, Tempe, AZ",
-                type: "Weekly Event",
-                image: "assets/yogapantsnew2canva.png",
-                description: "Turn the audience into lead singers with our interactive live band karaoke experience!"
-            }
-        ];
-        
+        const upcomingShows = await Show.find().sort({ order: 1, createdAt: 1 });
         res.json(upcomingShows);
     } catch (err) {
+        console.error("Fetch shows error:", err);
+        res.status(500).json({ message: "Server Error" });
+    }
+});
+
+// ADMIN: ADD SHOW
+router.post("/add-show", async (req, res) => {
+    try {
+        const newShow = new Show(req.body);
+        await newShow.save();
+        res.json({ message: "Show added successfully", show: newShow });
+    } catch (err) {
+        console.error("Add show error:", err);
+        res.status(500).json({ message: "Server Error" });
+    }
+});
+
+// ADMIN: UPDATE SHOW
+router.put("/update-show/:id", async (req, res) => {
+    try {
+        const updatedShow = await Show.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true }
+        );
+        if (!updatedShow) return res.status(404).json({ message: "Show not found" });
+        res.json({ message: "Show updated successfully", show: updatedShow });
+    } catch (err) {
+        console.error("Update show error:", err);
+        res.status(500).json({ message: "Server Error" });
+    }
+});
+
+// ADMIN: DELETE SHOW
+router.delete("/delete-show/:id", async (req, res) => {
+    try {
+        const show = await Show.findByIdAndDelete(req.params.id);
+        if (!show) return res.status(404).json({ message: "Show not found" });
+        res.json({ message: "Show deleted successfully" });
+    } catch (err) {
+        console.error("Delete show error:", err);
         res.status(500).json({ message: "Server Error" });
     }
 });

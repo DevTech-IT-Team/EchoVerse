@@ -9,11 +9,12 @@
         :root {
             --spotify-green: #1DB954;
             --spotify-light-green: #1ed760;
-            --bg-dark: #090909; /* Deeper black for more contrast */
+            --bg-dark: #090909;
             --card-grey: #121212;
             --hover-grey: #1f1f1f;
             --text-main: #ffffff;
             --text-muted: #a7a7a7;
+            --sidebar-width: 260px;
         }
 
         * {
@@ -31,16 +32,44 @@
             overflow-x: hidden;
         }
 
-        /* Spotify-style Sidebar */
+        /* ── Hamburger Button ── */
+        .hamburger {
+            display: none;
+            position: fixed;
+            top: 16px;
+            left: 16px;
+            z-index: 400;
+            background: #111;
+            border: 1px solid #282828;
+            color: var(--spotify-green);
+            font-size: 20px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+        }
+
+        /* ── Overlay ── */
+        .overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.65);
+            z-index: 150;
+        }
+        .overlay.open { display: block; }
+
+        /* ── Sidebar ── */
         .sidebar {
-            width: 260px;
+            width: var(--sidebar-width);
             background: #000;
             padding: 24px;
             display: flex;
             flex-direction: column;
             position: fixed;
             height: 100vh;
-            z-index: 100;
+            z-index: 200;
+            transition: transform 0.3s ease, width 0.3s ease;
+            overflow: hidden;
         }
 
         .logo {
@@ -52,6 +81,7 @@
             gap: 10px;
             margin-bottom: 35px;
             letter-spacing: -1px;
+            white-space: nowrap;
         }
 
         .nav-menu {
@@ -69,13 +99,11 @@
             font-weight: 700;
             font-size: 14px;
             transition: 0.2s ease-in-out;
+            white-space: nowrap;
         }
 
-        .nav-item:hover, .nav-item.active {
-            color: #fff;
-        }
-
-        .nav-item i { font-size: 20px; }
+        .nav-item:hover, .nav-item.active { color: #fff; }
+        .nav-item i { font-size: 20px; min-width: 20px; }
 
         .logout-btn {
             color: #b3b3b3;
@@ -84,20 +112,18 @@
             border-top: 1px solid #282828;
             cursor: pointer;
         }
-
         .logout-btn:hover { color: #ff4d4d; }
 
-        /* Main Content with Mesh Gradient */
+        /* ── Main Content ── */
         .main-content {
-            margin-left: 260px;
+            margin-left: var(--sidebar-width);
             padding: 40px 60px;
             width: 100%;
             background: radial-gradient(circle at top left, #1e1e1e 0%, #090909 40%);
+            transition: margin-left 0.3s ease;
         }
 
-        header {
-            margin-bottom: 50px;
-        }
+        header { margin-bottom: 50px; }
 
         header h1 {
             font-size: 36px;
@@ -111,12 +137,12 @@
             font-size: 16px;
         }
 
-        /* Large Action Cards */
+        /* ── Dashboard Grid ── */
         .dashboard-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Only 2 items now */
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
-            max-width: 1100px;
+            max-width: 1200px;
         }
 
         .card {
@@ -130,7 +156,6 @@
             border: 1px solid transparent;
         }
 
-        /* The Glow Effect */
         .card::after {
             content: '';
             position: absolute;
@@ -169,17 +194,8 @@
             transform: scale(1.1) rotate(-5deg);
         }
 
-        .card h3 {
-            font-size: 24px;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 15px;
-            line-height: 1.6;
-        }
+        .card h3 { font-size: 24px; margin-bottom: 12px; font-weight: 700; }
+        .card p { color: var(--text-muted); font-size: 15px; line-height: 1.6; }
 
         .card .badge {
             position: absolute;
@@ -194,24 +210,81 @@
             box-shadow: 0 4px 10px rgba(29, 185, 84, 0.3);
         }
 
-        @media (max-width: 900px) {
-            .dashboard-grid { grid-template-columns: 1fr; }
-            .sidebar { width: 80px; padding: 20px 10px; align-items: center; }
-            .sidebar span { display: none; }
-            .main-content { margin-left: 80px; padding: 30px; }
+        /* ── Tablet: Icon-only sidebar ── */
+        @media (max-width: 1024px) {
+            :root { --sidebar-width: 80px; }
+
+            .sidebar { padding: 20px 10px; align-items: center; }
+            .logo { justify-content: center; margin-bottom: 30px; }
+            .logo span { display: none; }
+            .nav-item { justify-content: center; padding: 14px 0; }
+            .nav-item span { display: none; }
+            .logout-btn { justify-content: center; }
+
+            .main-content { padding: 30px 30px; }
+            header h1 { font-size: 28px; }
+        }
+
+        /* ── Mobile: Hidden sidebar + hamburger ── */
+        @media (max-width: 640px) {
+            :root { --sidebar-width: 240px; }
+
+            .hamburger { display: flex; align-items: center; justify-content: center; }
+
+            .sidebar {
+                transform: translateX(-100%);
+                padding: 24px;
+                align-items: flex-start;
+            }
+            .sidebar.open { transform: translateX(0); }
+
+            /* Show labels again inside open mobile sidebar */
+            .logo span,
+            .nav-item span { display: inline; }
+            .logo { justify-content: flex-start; }
+            .nav-item { justify-content: flex-start; }
+            .logout-btn { justify-content: flex-start; }
+
+            .main-content {
+                margin-left: 0;
+                padding: 80px 20px 30px;
+            }
+
+            header { margin-bottom: 30px; }
+            header h1 { font-size: 24px; letter-spacing: -0.5px; }
+            header p { font-size: 14px; }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .card { padding: 28px 24px; border-radius: 16px; }
+            .card-icon { width: 56px; height: 56px; font-size: 24px; margin-bottom: 18px; }
+            .card h3 { font-size: 20px; }
+            .card p { font-size: 14px; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="sidebar">
+    <!-- Hamburger (mobile only) -->
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Mobile Overlay -->
+    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+
+    <nav class="sidebar" id="sidebar">
         <div class="logo">
-           <span>Dashboard</span>
+            <span>Dashboard</span>
         </div>
         <div class="nav-menu">
             <a href="#" class="nav-item active"><i class="fas fa-home"></i> <span>Home</span></a>
             <a href="users.html" class="nav-item"><i class="fas fa-users"></i> <span>Users</span></a>
-            <a href="booked-events.html" class="nav-item"><i class="fas fa-calendar"></i> <span>Events</span></a>
+            <a href="booked-events.html" class="nav-item"><i class="fas fa-calendar-check"></i> <span>Bookings</span></a>
+            <a href="manage-events.html" class="nav-item"><i class="fas fa-calendar-alt"></i> <span>Manage Shows</span></a>
         </div>
         <div onclick="logoutAdmin()" class="nav-item logout-btn">
             <i class="fas fa-sign-out-alt"></i> <span>Log out</span>
@@ -220,7 +293,7 @@
 
     <main class="main-content">
         <header>
-            <h1>Welcome ,  Admin</h1>
+            <h1>Welcome, Admin</h1>
             <p>Control center for your platform's users and bookings.</p>
         </header>
 
@@ -237,25 +310,44 @@
                 <h3>Booking Records</h3>
                 <p>Review all upcoming reservations, track event history, and handle client scheduling requests.</p>
             </div>
+
+            <div class="card" onclick="location.href='manage-events.html'">
+                <div class="card-icon"><i class="fas fa-calendar-plus"></i></div>
+                <h3>Manage Shows</h3>
+                <p>Add, edit, or remove upcoming shows from the public website and homepage popup.</p>
+            </div>
         </div>
     </main>
 
     <script>
-        // Interactive Glow Effect Script
+        // Interactive Glow Effect
         const cards = document.querySelectorAll('.card');
         cards.forEach(card => {
             card.onmousemove = e => {
                 const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--x', `${x}px`);
-                card.style.setProperty('--y', `${y}px`);
+                card.style.setProperty('--x', `${e.clientX - rect.left}px`);
+                card.style.setProperty('--y', `${e.clientY - rect.top}px`);
             };
         });
 
         function logoutAdmin() {
             localStorage.removeItem("adminToken");
             window.location.href = "../index.html";
+        }
+
+        // Mobile sidebar toggle
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+
+        hamburgerBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('open');
+        });
+
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('open');
         }
     </script>
 </body>

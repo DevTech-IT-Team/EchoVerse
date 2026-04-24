@@ -136,28 +136,12 @@
           <span class="corner-popup-title">Upcoming Shows</span>
           <button class="corner-popup-close" onclick="closeCornerPopup()">&times;</button>
         </div>
-        <div class="corner-popup-body">
-          <div class="corner-popup-event">
-            <div class="corner-event-date">
-              <span class="corner-date-day">01</span>
-              <span class="corner-date-month">MAY</span>
-            </div>
-            <div class="corner-event-info">
-              <h4>Dueling Pianos</h4>
-              <p>Low Key, Tempe, AZ</p>
-            </div>
-          </div>
-          <div class="corner-popup-event">
-            <div class="corner-event-date">
-              <span class="corner-date-day">02</span>
-              <span class="corner-date-month">MAY</span>
-            </div>
-            <div class="corner-event-info">
-              <h4>Dueling Pianos</h4>
-              <p>Low Key, Tempe, AZ</p>
-            </div>
-          </div>
-          <a href="UpcomingShows.html" class="btn btn-primary btn-small corner-popup-btn">
+        <div class="corner-popup-body" id="popupBody">
+          <!-- Events will be loaded here -->
+          <p style="font-size: 12px; color: var(--text-muted); text-align: center;">Loading upcoming shows...</p>
+        </div>
+        <div style="padding: 0 15px 15px;">
+          <a href="UpcomingShows.html" class="btn btn-primary btn-small corner-popup-btn" style="width: 100%; display: block; text-align: center;">
             View All Shows
           </a>
         </div>
@@ -931,68 +915,66 @@ document.getElementById("contactForm").addEventListener("submit", async function
 
 <script>
 // Event booking functionality
-const eventData = {
-  'dueling-pianos-apr22': {
-    title: 'Dueling Pianos (The Backyard)',
-    date: 'April 22, 2026',
-    time: '5:00 PM – 8:00 PM',
-    location: 'The Backyard, Gilbert, AZ'
-  },
-  'dueling-pianos-may01': {
-    title: 'Dueling Pianos (Low Key)',
-    date: 'May 1, 2026',
-    time: 'Starts at 8:00 PM',
-    location: 'Low Key Dueling Piano Bar, Tempe, AZ'
-  },
-  'dueling-pianos-may02': {
-    title: 'Dueling Pianos (Low Key)',
-    date: 'May 2, 2026',
-    time: 'Starts at 8:00 PM',
-    location: 'Low Key Dueling Piano Bar, Tempe, AZ'
-  },
-  'girl-and-guy-apr23': {
-    title: 'Girl and a Guy',
-    date: 'April 23, 2026',
-    time: '6:00 PM - 9:00 PM',
-    location: 'Pizzacata, Mesa, AZ'
-  },
-  'dueling-pianos-weekly': {
-    title: 'Dueling Pianos',
-    date: 'Every Wednesday',
-    time: 'Varies',
-    location: 'Low Key Dueling Piano Bar, Tempe, AZ'
-  },
-  'dueling-pianos-apr24': {
-    title: 'Dueling Pianos',
-    date: 'April 24, 2026',
-    time: 'Evening',
-    location: 'Low Key Dueling Piano Bar, Tempe, AZ'
-  },
-  'yoga-pants-apr25': {
-    title: 'Yoga Pants (Trio)',
-    date: 'April 25, 2026',
-    time: '4:00 PM - 7:00 PM',
-    location: 'Pedal Haus Brewery, Mesa, AZ'
-  },
-  'dueling-pianos-apr25-late': {
-    title: 'Dueling Pianos',
-    date: 'April 25, 2026',
-    time: 'Late Night',
-    location: 'Low Key Dueling Piano Bar, Tempe, AZ'
-  },
-  'dueling-pianos-apr27': {
-    title: 'Dueling Pianos',
-    date: 'April 27, 2026',
-    time: '6:00 PM - 9:00 PM',
-    location: 'Pizzacata, Mesa, AZ'
-  },
-  'live-band-karaoke-sundays': {
-    title: 'Live Band Karaoke (Yoga Pants Trio)',
-    date: 'Every Sunday',
-    time: '8:00 PM - 11:00 PM',
-    location: 'The Dark Side, Tempe, AZ'
+let eventData = {};
+
+// Dynamic API URL
+const API = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:") 
+    ? "http://localhost:5000/api" 
+    : "https://collinfreestone.onrender.com/api";
+
+// Load shows for popup and bookings
+async function loadPopupShows() {
+  const popupBody = document.getElementById('popupBody');
+  
+  try {
+    const response = await fetch(`${API}/events/upcoming-shows`);
+    const shows = await response.json();
+    
+    if (shows.length === 0) {
+      popupBody.innerHTML = '<p style="font-size: 12px; color: var(--text-muted); text-align: center;">No upcoming shows. Check back soon!</p>';
+      return;
+    }
+
+    // Populate eventData
+    eventData = {};
+    shows.forEach(show => {
+      eventData[show._id] = {
+        title: show.title,
+        date: show.date,
+        time: show.time,
+        location: show.location
+      };
+    });
+
+    // Populate popup (first 2 shows)
+    popupBody.innerHTML = shows.slice(0, 2).map(show => {
+      // Parse date for icon (e.g. "April 24, 2026")
+      const dateParts = show.date.split(' ');
+      const day = dateParts[1]?.replace(',', '') || '??';
+      const month = dateParts[0]?.substring(0, 3).toUpperCase() || 'EVT';
+
+      return `
+        <div class="corner-popup-event" style="cursor: pointer;" onclick="window.location.href='UpcomingShows.html'">
+          <div class="corner-event-date">
+            <span class="corner-date-day">${day}</span>
+            <span class="corner-date-month">${month}</span>
+          </div>
+          <div class="corner-event-info">
+            <h4>${show.title}</h4>
+            <p>${show.location}</p>
+          </div>
+        </div>
+      `;
+    }).join('');
+
+  } catch (error) {
+    console.error('Error loading popup shows:', error);
+    popupBody.innerHTML = '<p style="font-size: 12px; color: #ff4d4d; text-align: center;">Failed to load shows.</p>';
   }
-};
+}
+
+// Initial load
+loadPopupShows();
 
 function openBookingModal(eventId) {
   const modal = document.getElementById('bookingModal');
@@ -1033,10 +1015,7 @@ document.getElementById('eventBookingForm').addEventListener('submit', async fun
     specialRequests: this.specialRequests.value
   };
   
-  // Dynamic API URL
-  const API = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:") 
-      ? "http://localhost:5000/api" 
-      : "https://collinfreestone.onrender.com/api";
+  // Use API constant defined above
 
   try {
     const response = await fetch(`${API}/events/book`, {

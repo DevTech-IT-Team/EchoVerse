@@ -69,439 +69,12 @@
     <section id="upcoming-shows" class="events-section">
       <div class="events-bg-pattern"></div>
       
-      <div class="events-grid">
-        <!-- April 22: Dueling Pianos -->
-        <div class="event-card" style="cursor: pointer;" onclick="openBookingModal('dueling-pianos-apr22')">
-          <div class="event-image-wrapper">
-            <img src="assets/Freestone Keys flier .jpg" alt="Dueling Pianos" class="event-img" />
-            <div class="event-overlay"></div>
-            <div class="event-badge">
-              <i class="fas fa-calendar-alt"></i>
-              <span>Tuesday</span>
-            </div>
-          </div>
-          <div class="event-card-content">
-            <div class="event-date-wrapper">
-              <i class="fas fa-calendar-alt"></i>
-              <h4 class="event-date">April 22, 2026</h4>
-            </div>
-            <h3 class="event-title">Dueling Pianos</h3>
-            <p>High-energy show at The Backyard with Joe Fladung.</p>
-            <div class="event-details">
-              <div class="event-time">
-                <i class="fas fa-clock"></i>
-                <span>5:00 PM – 8:00 PM</span>
-              </div>
-              <div class="event-location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>The Backyard, Gilbert, AZ</span>
-              </div>
-            </div>
-            <div class="event-footer">
-              <div class="event-actions">
-                <button class="btn btn-primary btn-small">Book Now</button>
-              </div>
-            </div>
-          </div>
+      <div class="events-grid" id="eventsGrid">
+        <!-- Events will be loaded dynamically from the backend -->
+        <div class="loading-spinner" style="grid-column: 1/-1; text-align: center; padding: 50px;">
+          <i class="fas fa-spinner fa-spin" style="font-size: 3rem; color: var(--accent-color);"></i>
+          <p style="margin-top: 15px; font-weight: 600;">Loading upcoming shows...</p>
         </div>
-
-        <!-- May 1: Dueling Pianos -->
-        <div class="event-card" style="cursor: pointer;" onclick="openBookingModal('dueling-pianos-may01')">
-          <div class="event-image-wrapper">
-            <img src="assets/Freestone Keys flier .jpg" alt="Dueling Pianos" class="event-img" />
-            <div class="event-overlay"></div>
-            <div class="event-badge">
-              <i class="fas fa-calendar-alt"></i>
-              <span>Friday</span>
-            </div>
-          </div>
-          <div class="event-card-content">
-            <div class="event-date-wrapper">
-              <i class="fas fa-calendar-alt"></i>
-              <h4 class="event-date">May 1, 2026</h4>
-            </div>
-            <h3 class="event-title">Dueling Pianos</h3>
-            <p>Starts at 8:00 PM at Low Key Dueling Piano Bar.</p>
-            <div class="event-details">
-              <div class="event-location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Low Key Dueling Piano Bar, Tempe, AZ</span>
-              </div>
-            </div>
-            <div class="event-footer">
-              <div class="event-actions">
-                <button class="btn btn-primary btn-small">Book Now</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- May 2: Dueling Pianos -->
-        <div class="event-card" style="cursor: pointer;" onclick="openBookingModal('dueling-pianos-may02')">
-          <div class="event-image-wrapper">
-            <img src="assets/Freestone Keys flier .jpg" alt="Dueling Pianos" class="event-img" />
-            <div class="event-overlay"></div>
-            <div class="event-badge">
-              <i class="fas fa-calendar-alt"></i>
-              <span>Saturday</span>
-            </div>
-          </div>
-          <div class="event-card-content">
-            <div class="event-date-wrapper">
-              <i class="fas fa-calendar-alt"></i>
-              <h4 class="event-date">May 2, 2026</h4>
-            </div>
-            <h3 class="event-title">Dueling Pianos</h3>
-            <p>Starts at 8:00 PM at Low Key Dueling Piano Bar.</p>
-            <div class="event-details">
-              <div class="event-location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Low Key Dueling Piano Bar, Tempe, AZ</span>
-              </div>
-            </div>
-            <div class="event-footer">
-              <div class="event-actions">
-                <button class="btn btn-primary btn-small">Book Now</button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Featured Event: Girl and a Guy -->
-        <div class="event-card highlight" style="cursor: pointer;" onclick="openBookingModal('girl-and-guy-apr23')">
-          <div class="event-image-wrapper">
-            <img src="assets/Girl and a Guy flier .jpg" alt="Girl and a Guy Performance" class="event-img" />
-            <div class="event-overlay"></div>
-            <div class="event-badge featured">
-              <i class="fas fa-star"></i>
-              <span>Featured</span>
-            </div>
-            <div class="pulse-ring"></div>
-          </div>
-          <div class="event-card-content">
-            <div class="event-date-wrapper">
-              <i class="fas fa-calendar-alt"></i>
-              <h4 class="event-date">April 23, 2026</h4>
-            </div>
-            <h3 class="event-title">Girl and a Guy</h3>
-            <p>Elegant duo featuring piano and vocal performances by Collin Freestone and Kaylee Leatherwood.</p>
-            <div class="event-details">
-              <div class="event-time">
-                <i class="fas fa-clock"></i>
-                <span>6:00 PM - 9:00 PM</span>
-              </div>
-              <div class="event-location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Pizzacata, Mesa, AZ</span>
-              </div>
-            </div>
-            <div class="event-footer">
-              <div class="event-note">
-                <i class="fas fa-info-circle"></i>
-                <span>Reservations recommended</span>
-              </div>
-              <div class="event-actions">
-                <button class="btn btn-primary btn-small">Book Now</button>
-                <div class="event-arrow">
-                  <i class="fas fa-arrow-right"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Weekly: Dueling Pianos -->
-        <div class="event-card" style="cursor: pointer;" onclick="openBookingModal('dueling-pianos-weekly')">
-          <div class="event-image-wrapper">
-            <img src="assets/Freestone Keys flier .jpg" alt="Dueling Pianos" class="event-img" />
-            <div class="event-overlay"></div>
-            <div class="event-badge">
-              <i class="fas fa-calendar-alt"></i>
-              <span>Weekly</span>
-            </div>
-          </div>
-          <div class="event-card-content">
-            <div class="event-date-wrapper">
-              <i class="fas fa-redo"></i>
-              <h4 class="event-date">Every Wednesday</h4>
-            </div>
-            <h3 class="event-title">Dueling Pianos</h3>
-            <p>Interactive, request-driven piano-bar shows with Freestone Keys.</p>
-            <div class="event-details">
-              <div class="event-location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Low Key Dueling Piano Bar, Tempe, AZ</span>
-              </div>
-            </div>
-            <div class="event-footer">
-              <div class="event-actions">
-                <button class="btn btn-primary btn-small">Book Now</button>
-                <div class="event-arrow">
-                  <i class="fas fa-arrow-right"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- April 24: Dueling Pianos -->
-        <div class="event-card" style="cursor: pointer;" onclick="openBookingModal('dueling-pianos-apr24')">
-          <div class="event-image-wrapper">
-            <img src="assets/Freestone Keys flier .jpg" alt="Dueling Pianos" class="event-img" />
-            <div class="event-overlay"></div>
-            <div class="event-badge">
-              <i class="fas fa-calendar-alt"></i>
-              <span>Friday</span>
-            </div>
-          </div>
-          <div class="event-card-content">
-            <div class="event-date-wrapper">
-              <i class="fas fa-calendar-alt"></i>
-              <h4 class="event-date">April 24, 2026</h4>
-            </div>
-            <h3 class="event-title">Dueling Pianos</h3>
-            <p>High-energy dueling piano performance with Freestone Keys.</p>
-            <div class="event-details">
-              <div class="event-location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Low Key Dueling Piano Bar, Tempe, AZ</span>
-              </div>
-            </div>
-            <div class="event-footer">
-              <div class="event-actions">
-                <button class="btn btn-primary btn-small">Book Now</button>
-                <div class="event-arrow">
-                  <i class="fas fa-arrow-right"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- April 25: Yoga Pants Trio -->
-        <div class="event-card" style="cursor: pointer;" onclick="openBookingModal('yoga-pants-apr25')">
-          <div class="event-image-wrapper">
-            <img src="assets/yogapantsnew2.png" alt="Yoga Pants Trio" class="event-img" />
-            <div class="event-overlay"></div>
-            <div class="event-badge">
-              <i class="fas fa-calendar-alt"></i>
-              <span>Saturday</span>
-            </div>
-          </div>
-          <div class="event-card-content">
-            <div class="event-date-wrapper">
-              <i class="fas fa-calendar-alt"></i>
-              <h4 class="event-date">April 25, 2026</h4>
-            </div>
-            <h3 class="event-title">Yoga Pants (Trio)</h3>
-            <p>High-energy trio performance featuring Kaylee Leatherwood (drums/vocals) and Max Bustamante (saxophone).</p>
-            <div class="event-details">
-              <div class="event-time">
-                <i class="fas fa-clock"></i>
-                <span>4:00 PM - 7:00 PM</span>
-              </div>
-              <div class="event-location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Pedal Haus Brewery, Mesa, AZ</span>
-              </div>
-            </div>
-            <div class="event-footer">
-              <div class="event-actions">
-                <button class="btn btn-primary btn-small">Book Now</button>
-                <div class="event-arrow">
-                  <i class="fas fa-arrow-right"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- April 25 Late Night: Dueling Pianos -->
-        <div class="event-card" style="cursor: pointer;" onclick="openBookingModal('dueling-pianos-apr25-late')">
-          <div class="event-image-wrapper">
-            <img src="assets/Freestone Keys flier .jpg" alt="Dueling Pianos" class="event-img" />
-            <div class="event-overlay"></div>
-            <div class="event-badge">
-              <i class="fas fa-moon"></i>
-              <span>Late Night</span>
-            </div>
-          </div>
-          <div class="event-card-content">
-            <div class="event-date-wrapper">
-              <i class="fas fa-calendar-alt"></i>
-              <h4 class="event-date">April 25, 2026</h4>
-            </div>
-            <h3 class="event-title">Dueling Pianos</h3>
-            <p>Late night dueling piano show.</p>
-            <div class="event-details">
-              <div class="event-location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Low Key Dueling Piano Bar, Tempe, AZ</span>
-              </div>
-            </div>
-            <div class="event-footer">
-              <div class="event-actions">
-                <button class="btn btn-primary btn-small">Book Now</button>
-                <div class="event-arrow">
-                  <i class="fas fa-arrow-right"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- April 27: Dueling Pianos -->
-        <div class="event-card" style="cursor: pointer;" onclick="openBookingModal('dueling-pianos-apr27')">
-          <div class="event-image-wrapper">
-            <img src="assets/Freestone Keys flier .jpg" alt="Dueling Pianos" class="event-img" />
-            <div class="event-overlay"></div>
-            <div class="event-badge">
-              <i class="fas fa-calendar-alt"></i>
-              <span>Monday</span>
-            </div>
-          </div>
-          <div class="event-card-content">
-            <div class="event-date-wrapper">
-              <i class="fas fa-calendar-alt"></i>
-              <h4 class="event-date">April 27, 2026</h4>
-            </div>
-            <h3 class="event-title">Dueling Pianos</h3>
-            <p>Monday night dueling piano performance.</p>
-            <div class="event-details">
-              <div class="event-time">
-                <i class="fas fa-clock"></i>
-                <span>6:00 PM - 9:00 PM</span>
-              </div>
-              <div class="event-location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Pizzacata, Mesa, AZ</span>
-              </div>
-            </div>
-            <div class="event-footer">
-              <div class="event-actions">
-                <button class="btn btn-primary btn-small">Book Now</button>
-                <div class="event-arrow">
-                  <i class="fas fa-arrow-right"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Weekly Sundays: Live Band Karaoke -->
-        <div class="event-card" style="cursor: pointer;" onclick="openBookingModal('live-band-karaoke-sundays')">
-          <div class="event-image-wrapper">
-            <img src="assets/yogapantsnew2.png" alt="Live Band Karaoke" class="event-img" />
-            <div class="event-overlay"></div>
-            <div class="event-badge">
-              <i class="fas fa-redo"></i>
-              <span>Weekly</span>
-            </div>
-          </div>
-          <div class="event-card-content">
-            <div class="event-date-wrapper">
-              <i class="fas fa-redo"></i>
-              <h4 class="event-date">Every Sunday</h4>
-            </div>
-            <h3 class="event-title">Live Band Karaoke (Yoga Pants Trio)</h3>
-            <p>Turn the audience into lead singers with our interactive live band karaoke experience!</p>
-            <div class="event-details">
-              <div class="event-time">
-                <i class="fas fa-clock"></i>
-                <span>8:00 PM - 11:00 PM</span>
-              </div>
-              <div class="event-location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>The Dark Side, Tempe, AZ</span>
-              </div>
-            </div>
-            <div class="event-footer">
-              <div class="event-actions">
-                <button class="btn btn-primary btn-small">Book Now</button>
-                <div class="event-arrow">
-                  <i class="fas fa-arrow-right"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- May 16: Yoga Pants Trio -->
-        <div class="event-card" style="cursor: pointer;" onclick="openBookingModal('yoga-pants-may16')">
-          <div class="event-image-wrapper">
-            <img src="assets/yogapantsnew2.png" alt="Yoga Pants Trio" class="event-img" />
-            <div class="event-overlay"></div>
-            <div class="event-badge">
-              <i class="fas fa-calendar-alt"></i>
-              <span>May</span>
-            </div>
-          </div>
-          <div class="event-card-content">
-            <div class="event-date-wrapper">
-              <i class="fas fa-calendar-alt"></i>
-              <h4 class="event-date">May 16, 2026</h4>
-            </div>
-            <h3 class="event-title">Yoga Pants (Trio)</h3>
-            <p>Featuring Kaylee Leatherwood (drums/vocals) and Brandon Croft (guitar).</p>
-            <div class="event-details">
-              <div class="event-time">
-                <i class="fas fa-clock"></i>
-                <span>3:00 PM - 6:00 PM</span>
-              </div>
-              <div class="event-location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Lucky's</span>
-              </div>
-            </div>
-            <div class="event-footer">
-              <div class="event-actions">
-                <button class="btn btn-primary btn-small">Book Now</button>
-                <div class="event-arrow">
-                  <i class="fas fa-arrow-right"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- May 29-30: Dueling Pianos -->
-        <div class="event-card" style="cursor: pointer;" onclick="openBookingModal('dueling-pianos-may29-30')">
-          <div class="event-image-wrapper">
-            <img src="assets/Freestone Keys flier .jpg" alt="Dueling Pianos" class="event-img" />
-            <div class="event-overlay"></div>
-            <div class="event-badge">
-              <i class="fas fa-calendar-alt"></i>
-              <span>May</span>
-            </div>
-          </div>
-          <div class="event-card-content">
-            <div class="event-date-wrapper">
-              <i class="fas fa-calendar-alt"></i>
-              <h4 class="event-date">May 29-30, 2026</h4>
-            </div>
-            <h3 class="event-title">Dueling Pianos</h3>
-            <p>Performing at the new dueling piano venue in the Whiskey Row area!</p>
-            <div class="event-details">
-              <div class="event-location">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Whiskey & Ivory, Prescott, AZ</span>
-              </div>
-            </div>
-            <div class="event-footer">
-              <div class="event-note">
-                <i class="fas fa-star"></i>
-                <span>New Venue!</span>
-              </div>
-              <div class="event-actions">
-                <button class="btn btn-primary btn-small">Book Now</button>
-                <div class="event-arrow">
-                  <i class="fas fa-arrow-right"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -632,81 +205,92 @@
           ? "http://localhost:5000/api" 
           : "https://collinfreestone.onrender.com/api";
 
-      // Event booking functionality
-      const eventData = {
-        'dueling-pianos-apr22': {
-          title: 'Dueling Pianos (The Backyard)',
-          date: 'April 22, 2026',
-          time: '5:00 PM – 8:00 PM',
-          location: 'The Backyard, Gilbert, AZ'
-        },
-        'dueling-pianos-may01': {
-          title: 'Dueling Pianos (Low Key)',
-          date: 'May 1, 2026',
-          time: 'Starts at 8:00 PM',
-          location: 'Low Key Dueling Piano Bar, Tempe, AZ'
-        },
-        'dueling-pianos-may02': {
-          title: 'Dueling Pianos (Low Key)',
-          date: 'May 2, 2026',
-          time: 'Starts at 8:00 PM',
-          location: 'Low Key Dueling Piano Bar, Tempe, AZ'
-        },
-        'girl-and-guy-apr23': {
-          title: 'Girl and a Guy',
-          date: 'April 23, 2026',
-          time: '6:00 PM - 9:00 PM',
-          location: 'Pizzacata, Mesa, AZ'
-        },
-        'dueling-pianos-weekly': {
-          title: 'Dueling Pianos',
-          date: 'Every Wednesday',
-          time: 'Varies',
-          location: 'Low Key Dueling Piano Bar, Tempe, AZ'
-        },
-        'dueling-pianos-apr24': {
-          title: 'Dueling Pianos',
-          date: 'April 24, 2026',
-          time: 'Evening',
-          location: 'Low Key Dueling Piano Bar, Tempe, AZ'
-        },
-        'yoga-pants-apr25': {
-          title: 'Yoga Pants (Trio)',
-          date: 'April 25, 2026',
-          time: '4:00 PM - 7:00 PM',
-          location: 'Pedal Haus Brewery, Mesa, AZ'
-        },
-        'dueling-pianos-apr25-late': {
-          title: 'Dueling Pianos',
-          date: 'April 25, 2026',
-          time: 'Late Night',
-          location: 'Low Key Dueling Piano Bar, Tempe, AZ'
-        },
-        'dueling-pianos-apr27': {
-          title: 'Dueling Pianos',
-          date: 'April 27, 2026',
-          time: '6:00 PM - 9:00 PM',
-          location: 'Pizzacata, Mesa, AZ'
-        },
-        'live-band-karaoke-sundays': {
-          title: 'Live Band Karaoke (Yoga Pants Trio)',
-          date: 'Every Sunday',
-          time: '8:00 PM - 11:00 PM',
-          location: 'The Dark Side, Tempe, AZ'
-        },
-        'yoga-pants-may16': {
-          title: 'Yoga Pants (Trio)',
-          date: 'May 16, 2026',
-          time: '3:00 PM - 6:00 PM',
-          location: 'Lucky\'s'
-        },
-        'dueling-pianos-may29-30': {
-          title: 'Dueling Pianos',
-          date: 'May 29-30, 2026',
-          time: 'Multiple Shows',
-          location: 'Whiskey & Ivory, Prescott, AZ'
+      // Dynamic Event Data Store
+      let eventData = {};
+
+      // Load shows from backend
+      async function loadShows() {
+        const eventsGrid = document.getElementById('eventsGrid');
+        
+        try {
+          const response = await fetch(`${API}/events/upcoming-shows`);
+          const shows = await response.json();
+          
+          if (shows.length === 0) {
+            eventsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 50px; font-weight: 600;">No upcoming shows at the moment. Check back soon!</p>';
+            return;
+          }
+
+          // Clear grid and populate eventData
+          eventsGrid.innerHTML = '';
+          eventData = {};
+
+          shows.forEach(show => {
+            // Add to eventData for booking modal
+            eventData[show._id] = {
+              title: show.title,
+              date: show.date,
+              time: show.time,
+              location: show.location
+            };
+
+            // Create card HTML
+            const card = document.createElement('div');
+            card.className = `event-card ${show.isFeatured ? 'highlight' : ''}`;
+            card.style.cursor = 'pointer';
+            card.onclick = () => openBookingModal(show._id);
+
+            card.innerHTML = `
+              <div class="event-image-wrapper">
+                <img src="${show.image || 'assets/Freestone Keys flier .jpg'}" alt="${show.title}" class="event-img" />
+                <div class="event-overlay"></div>
+                ${show.type ? `
+                  <div class="event-badge ${show.isFeatured ? 'featured' : ''}">
+                    <i class="fas ${show.isFeatured ? 'fa-star' : 'fa-calendar-alt'}"></i>
+                    <span>${show.type}</span>
+                  </div>
+                ` : ''}
+                ${show.isFeatured ? '<div class="pulse-ring"></div>' : ''}
+              </div>
+              <div class="event-card-content">
+                <div class="event-date-wrapper">
+                  <i class="fas fa-calendar-alt"></i>
+                  <h4 class="event-date">${show.date}</h4>
+                </div>
+                <h3 class="event-title">${show.title}</h3>
+                <p>${show.description || ''}</p>
+                <div class="event-details">
+                  <div class="event-time">
+                    <i class="fas fa-clock"></i>
+                    <span>${show.time}</span>
+                  </div>
+                  <div class="event-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>${show.location}</span>
+                    ${show.address ? `<small style="display: block; font-size: 0.8em; color: var(--text-muted);">${show.address}</small>` : ''}
+                  </div>
+                </div>
+                <div class="event-footer">
+                  <div class="event-actions">
+                    <button class="btn btn-primary btn-small">Book Now</button>
+                    <div class="event-arrow">
+                      <i class="fas fa-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            `;
+            eventsGrid.appendChild(card);
+          });
+
+        } catch (error) {
+          console.error('Error loading shows:', error);
+          eventsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 50px; color: #ff4d4d; font-weight: 600;">Failed to load shows. Please try again later.</p>';
         }
-      };
+      }
+
+      // Initialize on load
+      loadShows();
 
       function openBookingModal(eventId) {
         const modal = document.getElementById('bookingModal');

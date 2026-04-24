@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Shows | EchoVerse Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --spotify-green: #1DB954;
+            --spotify-light-green: #1ed760;
+            --bg-dark: #090909;
+            --card-grey: #121212;
+            --hover-grey: #1f1f1f;
+            --text-main: #ffffff;
+            --text-muted: #a7a7a7;
+            --border: #282828;
+        }
+
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 260px;
+            background: #000;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            border-right: 1px solid var(--border);
+        }
+
+        .logo {
+            font-size: 22px; font-weight: 800; color: var(--spotify-green);
+            display: flex; align-items: center; gap: 10px; margin-bottom: 35px;
+        }
+
+        .nav-menu { list-style: none; flex: 1; }
+        .nav-item {
+            display: flex; align-items: center; gap: 16px; padding: 12px 0;
+            color: var(--text-muted); text-decoration: none; font-weight: 700; font-size: 14px;
+        }
+        .nav-item:hover, .nav-item.active { color: #fff; }
+
+        .main-content {
+            margin-left: 260px; padding: 40px 60px; width: 100%;
+            background: radial-gradient(circle at top left, #1e1e1e 0%, #090909 40%);
+        }
+
+        header { margin-bottom: 40px; display: flex; justify-content: space-between; align-items: center; }
+        h1 { font-size: 32px; font-weight: 800; }
+
+        .btn {
+            background: var(--spotify-green); color: #000; border: none;
+            padding: 10px 20px; border-radius: 30px; font-weight: 800;
+            cursor: pointer; transition: 0.3s; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+        }
+        .btn:hover { background: var(--spotify-light-green); transform: scale(1.05); }
+        .btn-outline { background: transparent; color: #fff; border: 1px solid var(--border); }
+        .btn-outline:hover { background: var(--hover-grey); }
+        .btn-danger { background: #ff4d4d; color: #fff; }
+        .btn-danger:hover { background: #ff6666; }
+
+        .shows-list { display: grid; gap: 15px; }
+        .show-item {
+            background: var(--card-grey); padding: 20px; border-radius: 12px;
+            display: flex; justify-content: space-between; align-items: center;
+            border: 1px solid var(--border); transition: 0.3s;
+        }
+        .show-item:hover { background: var(--hover-grey); }
+        .show-info h3 { margin-bottom: 5px; }
+        .show-info p { font-size: 13px; color: var(--text-muted); }
+        .show-actions { display: flex; gap: 10px; }
+
+        /* Modal */
+        .modal {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); z-index: 1000;
+            align-items: center; justify-content: center;
+        }
+        .modal-content {
+            background: #181818; padding: 30px; border-radius: 15px;
+            width: 90%; max-width: 600px; border: 1px solid var(--border);
+            max-height: 90vh; overflow-y: auto;
+        }
+        .modal-header { margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .close { cursor: pointer; font-size: 24px; color: var(--text-muted); }
+
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group.full { grid-column: span 2; }
+        label { display: block; margin-bottom: 5px; font-size: 12px; color: var(--text-muted); font-weight: 700; }
+        input, textarea, select {
+            width: 100%; background: #252525; border: 1px solid #333; padding: 12px;
+            border-radius: 8px; color: #fff; font-size: 14px;
+        }
+        input:focus { border-color: var(--spotify-green); outline: none; }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="logo"><span>Admin Panel</span></div>
+        <div class="nav-menu">
+            <a href="admin-dashboard.html" class="nav-item"><i class="fas fa-home"></i> <span>Dashboard</span></a>
+            <a href="users.html" class="nav-item"><i class="fas fa-users"></i> <span>Users</span></a>
+            <a href="booked-events.html" class="nav-item"><i class="fas fa-calendar-check"></i> <span>Bookings</span></a>
+            <a href="manage-events.html" class="nav-item active"><i class="fas fa-calendar-alt"></i> <span>Manage Shows</span></a>
+        </div>
+        <div onclick="logoutAdmin()" class="nav-item logout-btn" style="cursor:pointer; border-top: 1px solid #282828; padding-top:20px;">
+            <i class="fas fa-sign-out-alt"></i> <span>Log out</span>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <header>
+            <div>
+                <h1>Manage Upcoming Shows</h1>
+                <p style="color: var(--text-muted);">Add, edit, or remove shows from the public website.</p>
+            </div>
+            <button class="btn" onclick="openAddModal()">
+                <i class="fas fa-plus"></i> Add New Show
+            </button>
+        </header>
+
+        <div class="shows-list" id="showsList">
+            <p>Loading shows...</p>
+        </div>
+    </main>
+
+    <!-- Show Modal -->
+    <div id="showModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Show</h2>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <form id="showForm">
+                <input type="hidden" id="showId">
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label>Show Title *</label>
+                        <input type="text" id="title" required placeholder="e.g. Dueling Pianos">
+                    </div>
+                    <div class="form-group">
+                        <label>Date *</label>
+                        <input type="text" id="date" required placeholder="e.g. April 24, 2026">
+                    </div>
+                    <div class="form-group">
+                        <label>Time *</label>
+                        <input type="text" id="time" required placeholder="e.g. 8:00 PM">
+                    </div>
+                    <div class="form-group">
+                        <label>Location *</label>
+                        <input type="text" id="location" required placeholder="e.g. Low Key Dueling Piano Bar">
+                    </div>
+                    <div class="form-group">
+                        <label>Full Address</label>
+                        <input type="text" id="address" placeholder="e.g. 501 South Mill Avenue, Tempe, AZ 85281">
+                    </div>
+                    <div class="form-group">
+                        <label>Type / Badge</label>
+                        <input type="text" id="type" placeholder="e.g. Weekly, Late Night">
+                    </div>
+                    <div class="form-group">
+                        <label>Order (for sorting)</label>
+                        <input type="number" id="order" value="0">
+                    </div>
+                    <div class="form-group full">
+                        <label>Image URL</label>
+                        <input type="text" id="image" value="assets/Freestone Keys flier .jpg">
+                    </div>
+                    <div class="form-group full">
+                        <label>Description</label>
+                        <textarea id="description" rows="3"></textarea>
+                    </div>
+                    <div class="form-group" style="display: flex; align-items: center; gap: 10px; grid-column: span 2;">
+                        <input type="checkbox" id="isFeatured" style="width: auto;">
+                        <label style="margin-bottom: 0;">Mark as Featured (Pulse animation & Highlight)</label>
+                    </div>
+                </div>
+                <div style="margin-top: 20px; display: flex; gap: 10px;">
+                    <button type="submit" class="btn" style="flex: 1;">Save Show</button>
+                    <button type="button" class="btn btn-outline" onclick="closeModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="manage-events.js"></script>
+    <script>
+        function logoutAdmin() {
+            localStorage.removeItem("adminToken");
+            window.location.href = "../index.html";
+        }
+    </script>
+</body>
+</html>
