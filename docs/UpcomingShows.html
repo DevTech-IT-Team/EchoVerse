@@ -241,17 +241,6 @@
             card.onclick = () => openBookingModal(show._id);
 
             card.innerHTML = `
-              <div class="event-image-wrapper">
-                <img src="${show.image || 'assets/Freestone Keys flier .jpg'}" alt="${show.title}" class="event-img" />
-                <div class="event-overlay"></div>
-                ${show.type ? `
-                  <div class="event-badge ${show.isFeatured ? 'featured' : ''}">
-                    <i class="fas ${show.isFeatured ? 'fa-star' : 'fa-calendar-alt'}"></i>
-                    <span>${show.type}</span>
-                  </div>
-                ` : ''}
-                ${show.isFeatured ? '<div class="pulse-ring"></div>' : ''}
-              </div>
               <div class="event-card-content">
                 <div class="event-date-wrapper">
                   <i class="fas fa-calendar-alt"></i>
