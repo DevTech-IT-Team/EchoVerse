@@ -25,7 +25,8 @@ app.use(cors({
     "http://localhost:3000",
 
     // GitHub Pages (if still used)
-    "https://prernacreditor.github.i0",
+   "https://devtech-it-team.github.io",
+
 
     // ✅ LIVE FRONTEND DOMAINS (IMPORTANT)
     "https://collinfreestoneentertainment.com",
