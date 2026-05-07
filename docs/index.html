@@ -137,7 +137,7 @@
           <button class="corner-popup-close" onclick="closeCornerPopup()">&times;</button>
         </div>
         <div class="corner-popup-body" id="popupBody">
-          <!-- Events will be loaded here -->
+          <!-- Events will be loaded dynamically -->
           <p style="font-size: 12px; color: var(--text-muted); text-align: center;">Loading upcoming shows...</p>
         </div>
         <div style="padding: 0 15px 15px;">
@@ -1057,9 +1057,53 @@ function closeCornerPopup() {
   popup.style.display = 'none';
 }
 
+// Load corner popup events
+async function loadCornerPopupEvents() {
+  const popupBody = document.getElementById('popupBody');
+  
+  try {
+    const API = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:") 
+        ? "http://localhost:5000/api" 
+        : "https://collinfreestone.onrender.com/api";
+    
+    const response = await fetch(`${API}/events/upcoming-shows`);
+    const shows = await response.json();
+    
+    // Get first 2 shows for corner popup
+    const featuredShows = shows.slice(0, 2);
+    
+    let eventsHTML = '';
+    featuredShows.forEach(show => {
+      const eventDate = new Date(show.date.includes('May') ? `May ${show.date.split(' ')[1]}, 2026` : show.date);
+      const day = eventDate.getDate();
+      const month = eventDate.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
+      
+      eventsHTML += `
+        <div class="corner-popup-event">
+          <div class="corner-event-date">
+            <span class="corner-date-day">${day}</span>
+            <span class="corner-date-month">${month}</span>
+          </div>
+          <div class="corner-event-info">
+            <h4>${show.title}</h4>
+            <p>${show.location}</p>
+          </div>
+        </div>
+      `;
+    });
+    
+    popupBody.innerHTML = eventsHTML;
+    
+  } catch (error) {
+    console.error('Error loading corner popup events:', error);
+    popupBody.innerHTML = '<p style="font-size: 12px; color: var(--text-muted); text-align: center;">Failed to load events</p>';
+  }
+}
+
 // Show corner popup after delay
 window.addEventListener('load', function() {
-  setTimeout(function() {
+  setTimeout(async function() {
+    await loadCornerPopupEvents();
     showCornerPopup();
   }, 5000); // Show after 5 seconds
 });

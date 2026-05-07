@@ -11,8 +11,9 @@ let allShows = [];
 async function fetchShows() {
     try {
         const response = await fetch(`${API}/events/upcoming-shows`);
-        const shows = await response.json();
-        allShows = shows;
+        const data = await response.json();
+        // Combine upcoming and past shows for admin view
+        allShows = [...(data.upcoming || []), ...(data.past || [])];
         renderShows();
     } catch (error) {
         console.error("Error fetching shows:", error);
@@ -121,6 +122,11 @@ showForm.addEventListener('submit', async (e) => {
         });
 
         if (response.ok) {
+            const result = await response.json();
+            const action = id ? 'updated' : 'added';
+            const category = result.category || 'upcoming';
+            
+            alert(`Show ${action} successfully! Added to ${category} shows section.`);
             closeModal();
             fetchShows();
         } else {

@@ -60,8 +60,16 @@
     <!-- PAGE HEADER -->
     <section class="page-header">
       <div class="page-header-content">
-        <h1 class="page-title">Upcoming Shows</h1>
-        <p class="page-subtitle">Experience Collin Freestone Entertainment live at venues near you!</p>
+        <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+          <div>
+            <h1 class="page-title">Upcoming Shows</h1>
+            <p class="page-subtitle">Experience Collin Freestone Entertainment live at venues near you!</p>
+          </div>
+          <button class="btn btn-outline" onclick="loadShows()" style="margin-left: auto;">
+            <i class="fas fa-sync-alt"></i>
+            Refresh Shows
+          </button>
+        </div>
       </div>
     </section>
 
@@ -213,8 +221,11 @@
         const eventsGrid = document.getElementById('eventsGrid');
         
         try {
-          const response = await fetch(`${API}/events/upcoming-shows`);
-          const shows = await response.json();
+          // Use the same endpoint that admin uses to get all shows
+          // Add timestamp to prevent caching
+          const response = await fetch(`${API}/events/upcoming-shows?t=${Date.now()}`);
+          const data = await response.json();
+          const shows = data.upcoming || [];
           
           if (shows.length === 0) {
             eventsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 50px; font-weight: 600;">No upcoming shows at the moment. Check back soon!</p>';
@@ -237,11 +248,13 @@
             // Create card HTML
             const card = document.createElement('div');
             card.className = `event-card ${show.isFeatured ? 'highlight' : ''}`;
-            card.style.cursor = 'pointer';
-            card.onclick = () => openBookingModal(show._id);
 
             card.innerHTML = `
               <div class="event-card-content">
+                <div class="event-badge-inline ${show.type.toLowerCase()}">
+                  <i class="fas fa-${show.type === 'Featured' ? 'star' : show.type === 'Weekly' ? 'redo' : 'calendar-alt'}"></i>
+                  <span>${show.type}</span>
+                </div>
                 <div class="event-date-wrapper">
                   <i class="fas fa-calendar-alt"></i>
                   <h4 class="event-date">${show.date}</h4>
@@ -249,10 +262,11 @@
                 <h3 class="event-title">${show.title}</h3>
                 <p>${show.description || ''}</p>
                 <div class="event-details">
+                  ${show.time ? `
                   <div class="event-time">
                     <i class="fas fa-clock"></i>
                     <span>${show.time}</span>
-                  </div>
+                  </div>` : ''}
                   <div class="event-location">
                     <i class="fas fa-map-marker-alt"></i>
                     <span>${show.location}</span>
@@ -260,8 +274,13 @@
                   </div>
                 </div>
                 <div class="event-footer">
+                  ${show.isFeatured ? `
+                  <div class="event-note">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Reservations recommended</span>
+                  </div>` : ''}
                   <div class="event-actions">
-                    <button class="btn btn-primary btn-small">Book Now</button>
+                    <button class="btn btn-primary btn-small" onclick="openBookingModal('${show._id}')">Book Now</button>
                     <div class="event-arrow">
                       <i class="fas fa-arrow-right"></i>
                     </div>
@@ -280,6 +299,9 @@
 
       // Initialize on load
       loadShows();
+      
+      // Auto-refresh every 30 seconds to check for new shows
+      setInterval(loadShows, 30000);
 
       function openBookingModal(eventId) {
         const modal = document.getElementById('bookingModal');
