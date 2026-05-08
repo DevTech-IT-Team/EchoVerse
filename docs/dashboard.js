@@ -25,7 +25,8 @@ async function loadUpcomingShows() {
     const container = document.getElementById("shows-container");
     try {
         const res = await fetch(`${API}/events/upcoming-shows`);
-        const shows = await res.json();
+        const data = await res.json();
+        const shows = data.upcoming || [];
         
         container.innerHTML = "";
         
