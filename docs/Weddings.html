@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weddings - Collin Freestone Entertainment</title>
+    <link rel="icon" href="data:," />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="logo">
+        <img src="assets/logooo.png" alt="Collin Freestone Entertainment Logo" id="logoimage" />
+        <img src="assets/col.png" alt="Collin Freestone Entertainment" id="headerimage" />
+      </div>
+
+      <nav class="nav-links" id="navLinks">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Weddings.html" class="active">Weddings</a></li>
+          <li><a href="CorporateEvents.html">Corporate Events</a></li>
+          <li><a href="LiveShows.html">Come See Us Live</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="login.html" class="nav-login">Login</a></li>
+        </ul>
+      </nav>
+
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" onclick="toggleMenu()">Home</a>
+      <a href="Weddings.html" onclick="toggleMenu()">Weddings</a>
+      <a href="CorporateEvents.html" onclick="toggleMenu()">Corporate Events</a>
+      <a href="LiveShows.html" onclick="toggleMenu()">Come See Us Live</a>
+      <a href="Gallery.html" onclick="toggleMenu()">Gallery</a>
+      <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+      <a href="login.html" class="mobile-login" onclick="toggleMenu()">Login</a>
+      <a href="mailto:Collin@CollinFreestoneEntertainment.com" class="email-link">
+        <i class="fas fa-envelope"></i> Collin@CollinFreestoneEntertainment.com
+      </a>
+    </div>
+
+    <!-- Hero Header -->
+    <section class="page-header">
+      <div class="page-header-content">
+        <span class="spotify-tagline"><i class="fas fa-heart"></i> Tailored Live Music</span>
+        <h1 class="page-title">Weddings</h1>
+        <p class="page-subtitle">
+          Elegant live music packages tailored to your ceremony, cocktail hour, and reception.
+          Choose from premium acts that bring the perfect atmosphere to every moment.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="events-section">
+      <div class="section-intro">
+        <p class="section-subtitle">
+          Our wedding options are designed to support seamless flow, beautiful atmosphere, and memorable guest experiences.
+        </p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="category-grid">
+        <!-- Girl and a Guy Card -->
+        <article class="category-card">
+          <div class="card-body">
+            <div class="category-badge"><i class="fas fa-music"></i> Piano & Vocal Duo</div>
+            <h3>Girl and a Guy</h3>
+            <p>
+              A refined duo featuring piano and vocals, ideal for ceremony music, cocktail hour,
+              and intimate reception sets.
+            </p>
+            <ul class="card-highlights">
+              <li><i class="fas fa-check"></i> Live piano and vocal harmony</li>
+              <li><i class="fas fa-check"></i> Custom song selections for wedding ceremonies</li>
+              <li><i class="fas fa-check"></i> Perfect for elegant receptions and rehearsal dinners</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a href="event-booking.html" class="btn btn-primary">Book Girl and a Guy</a>
+          </div>
+        </article>
+
+        <!-- Freestone Keys Card -->
+        <article class="category-card">
+          <div class="card-body">
+            <div class="category-badge"><i class="fas fa-icons"></i> Dueling Pianos</div>
+            <h3>Freestone Keys</h3>
+            <p>
+              Dueling pianos with audience requests, polished showmanship, and immersive piano-bar energy.
+            </p>
+            <ul class="card-highlights">
+              <li><i class="fas fa-check"></i> Interactive dueling piano performance</li>
+              <li><i class="fas fa-check"></i> Great for cocktail hours and receptions</li>
+              <li><i class="fas fa-check"></i> Supports requests across genres and decades</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a href="event-booking.html" class="btn btn-primary">Book Freestone Keys</a>
+          </div>
+        </article>
+
+        <!-- Live Band Karaoke Card -->
+        <article class="category-card">
+          <div class="card-body">
+            <div class="category-badge"><i class="fas fa-microphone"></i> Interactive Show</div>
+            <h3>Live Band Karaoke</h3>
+            <p>
+              Guests take the stage with a live band, creating unforgettable wedding reception moments.
+            </p>
+            <ul class="card-highlights">
+              <li><i class="fas fa-check"></i> Interactive guest-driven performances</li>
+              <li><i class="fas fa-check"></i> Perfect for high-energy receptions and after-parties</li>
+              <li><i class="fas fa-check"></i> Fully supported by our experienced band</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a href="event-booking.html" class="btn btn-primary">Book Live Band Karaoke</a>
+          </div>
+        </article>
+
+        <!-- Yoga Pants the Duo Card -->
+        <article class="category-card">
+          <div class="card-body">
+            <div class="category-badge"><i class="fas fa-drum"></i> Drums & Keys Duo</div>
+            <h3>Yoga Pants the Duo</h3>
+            <p>
+              A versatile two-piece show with live drums, keys, and vocal performance for a dynamic wedding soundtrack.
+            </p>
+            <ul class="card-highlights">
+              <li><i class="fas fa-check"></i> High-energy duo for cocktail hours and late-night sets</li>
+              <li><i class="fas fa-check"></i> Compact setup for smaller venues</li>
+              <li><i class="fas fa-check"></i> Fun, crowd-friendly performance style</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a href="event-booking.html" class="btn btn-primary">Book Yoga Pants the Duo</a>
+          </div>
+        </article>
+
+        <!-- Solo Performance Card -->
+        <article class="category-card">
+          <div class="card-body">
+            <div class="category-badge"><i class="fas fa-guitar"></i> Solo Live Act</div>
+            <h3>Solo Performance</h3>
+            <p>
+              Collin solo with keyboard, acoustic guitar, and vocals for refined ceremony and reception ambiance.
+            </p>
+            <ul class="card-highlights">
+              <li><i class="fas fa-check"></i> Solo piano, guitar, and vocal set</li>
+              <li><i class="fas fa-check"></i> Ideal for intimate ceremonies and dinner music</li>
+              <li><i class="fas fa-check"></i> Custom song choices for your wedding theme</li>
+            </ul>
+          </div>
+          <div class="card-footer">
+            <a href="event-booking.html" class="btn btn-primary">Book Solo Performance</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Booking Callout Panel -->
+      <section class="booking-panel">
+        <div class="booking-panel-content">
+          <h2>Contact Collin for wedding availability</h2>
+          <p>
+            Email us directly at 
+            <a href="mailto:Collin@CollinFreestoneEntertainment.com">Collin@CollinFreestoneEntertainment.com</a> 
+            or request a quote using the link below.
+          </p>
+          <div class="booking-panel-actions">
+            <a href="event-booking.html" class="btn btn-primary btn-lg">Request a Wedding Quote</a>
+            <a href="mailto:Collin@CollinFreestoneEntertainment.com" class="btn btn-outline btn-lg">
+              <i class="fas fa-envelope"></i> Email Collin
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="assets/footerlogo.jpg" alt="Collin Freestone Entertainment" id="footerimage" />
+          <h3>Collin Freestone Entertainment</h3>
+          <p>Top-tier live-music performances nationwide.</p>
+        </div>
+
+        <div class="footer-services">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Dueling Pianos</a></li>
+            <li><a href="#">Solo Performances</a></li>
+            <li><a href="#">Live Band Karaoke</a></li>
+            <li><a href="Weddings.html">Weddings & Corporate Events</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-legal">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-socials">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="https://instagram.com/collinfreestoneentertainment" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@collinfreestone" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://facebook.com/collinfreestoneentertainment" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="mailto:Collin@CollinFreestoneEntertainment.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Collin Freestone Entertainment. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      function toggleMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.toggle('active');
+      }
+    </script>
+  </body>
+</html>

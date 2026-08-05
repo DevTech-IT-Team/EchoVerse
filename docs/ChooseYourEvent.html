@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choose Your Event - Collin Freestone Entertainment</title>
+    <link rel="icon" href="data:," />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="navbar">
+      <div class="logo">
+        <img src="assets/logooo.png" alt="Collin Freestone Entertainment Logo" id="logoimage" />
+        <img src="assets/col.png" alt="Collin Freestone Entertainment" id="headerimage" />
+      </div>
+
+      <nav class="nav-links" id="navLinks">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="Weddings.html">Weddings</a></li>
+          <li><a href="CorporateEvents.html">Corporate Events</a></li>
+          <li><a href="LiveShows.html">Come See Us Live</a></li>
+          <li><a href="Gallery.html">Gallery</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="login.html" class="nav-login">Login</a></li>
+        </ul>
+      </nav>
+
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html" onclick="toggleMenu()">Home</a>
+      <a href="Weddings.html" onclick="toggleMenu()">Weddings</a>
+      <a href="CorporateEvents.html" onclick="toggleMenu()">Corporate Events</a>
+      <a href="LiveShows.html" onclick="toggleMenu()">Come See Us Live</a>
+      <a href="Gallery.html" onclick="toggleMenu()">Gallery</a>
+      <a href="index.html#contact" onclick="toggleMenu()">Contact</a>
+      <a href="login.html" class="mobile-login" onclick="toggleMenu()">Login</a>
+      <a href="mailto:Collin@CollinFreestoneEntertainment.com" class="email-link">
+        <i class="fas fa-envelope"></i> Collin@CollinFreestoneEntertainment.com
+      </a>
+    </div>
+
+    <!-- Hero Header -->
+    <section class="page-header">
+      <div class="page-header-content">
+        <span class="spotify-tagline"><i class="fas fa-music"></i> Live Music & Performances</span>
+        <h1 class="page-title">Choose Your Event</h1>
+        <p class="page-subtitle">
+          Pick the perfect entertainment path for your wedding, private event, or public show.
+          Explore tailored acts, high-energy setups, and seamless production.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="events-section">
+      <div class="section-intro">
+        <p class="section-subtitle">
+          Collin Freestone Entertainment offers elegant wedding music, high-energy corporate entertainment, and live public performances nationwide.
+        </p>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="category-grid">
+        <!-- Weddings Card -->
+        <article class="category-card">
+          <div class="card-body">
+            <div class="category-badge"><i class="fas fa-heart"></i> Weddings</div>
+            <h3>Elegant entertainment for your ceremony, reception, or cocktail hour.</h3>
+            <p>
+              Showcase every act in a wedding-friendly format: <strong>Girl and a Guy</strong>, <strong>Freestone Keys</strong>,
+              <strong>Live Band Karaoke</strong>, <strong>Solo Performance</strong>, <strong>Yoga Pants the Duo</strong>, and more.
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="Weddings.html" class="btn btn-primary">View Wedding Options</a>
+            <a href="event-booking.html" class="btn btn-outline">Request a Quote</a>
+          </div>
+        </article>
+
+        <!-- Corporate Events Card -->
+        <article class="category-card">
+          <div class="card-body">
+            <div class="category-badge"><i class="fas fa-briefcase"></i> Corporate & Private</div>
+            <h3>Professional entertainment built for company events and holiday parties.</h3>
+            <p>
+              Choose from our full suite of acts with tailored energy levels, audience interaction,
+              and scalable production. Optimized for smooth execution and maximum guest engagement.
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="CorporateEvents.html" class="btn btn-primary">Browse Corporate Acts</a>
+            <a href="event-booking.html" class="btn btn-outline">Book Entertainment</a>
+          </div>
+        </article>
+
+        <!-- Live Shows Card -->
+        <article class="category-card">
+          <div class="card-body">
+            <div class="category-badge"><i class="fas fa-ticket-alt"></i> Public Performances</div>
+            <h3>Experience Collin Freestone Entertainment in a live public show.</h3>
+            <p>
+              Discover upcoming public dates and venues near you. Ideal for venue managers or prospective clients who want to catch the energy live before booking.
+            </p>
+          </div>
+          <div class="card-footer">
+            <a href="LiveShows.html" class="btn btn-primary">View Live Shows</a>
+            <a href="mailto:Collin@CollinFreestoneEntertainment.com" class="btn btn-outline">Email Collin</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Direct Booking Callout Panel -->
+      <section class="booking-panel">
+        <div class="booking-panel-content">
+          <h2>Ready to turn up the volume on your event?</h2>
+          <p>
+            Email us directly at 
+            <a href="mailto:Collin@CollinFreestoneEntertainment.com">Collin@CollinFreestoneEntertainment.com</a> 
+            or launch a booking inquiry below.
+          </p>
+          <div class="booking-panel-actions">
+            <a href="event-booking.html" class="btn btn-primary btn-lg">Book Your Event</a>
+            <a href="mailto:Collin@CollinFreestoneEntertainment.com" class="btn btn-outline btn-lg">
+              <i class="fas fa-envelope"></i> Send Email
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="assets/footerlogo.jpg" alt="Collin Freestone Entertainment" id="footerimage" />
+          <h3>Collin Freestone Entertainment</h3>
+          <p>Top-tier live-music performances nationwide.</p>
+        </div>
+
+        <div class="footer-services">
+          <h4>Our Services</h4>
+          <ul>
+            <li><a href="#">Dueling Pianos</a></li>
+            <li><a href="#">Solo Performances</a></li>
+            <li><a href="#">Live Band Karaoke</a></li>
+            <li><a href="Weddings.html">Weddings & Corporate Events</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-legal">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-socials">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="https://instagram.com/collinfreestoneentertainment" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com/@collinfreestone" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://facebook.com/collinfreestoneentertainment" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="mailto:Collin@CollinFreestoneEntertainment.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Collin Freestone Entertainment. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      function toggleMenu() {
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenu.classList.toggle('active');
+      }
+    </script>
+  </body>
+</html>
