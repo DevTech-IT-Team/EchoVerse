@@ -4553,3 +4553,139 @@ body {
     text-align: center;
   }
 }
+
+/* =========================================================
+   PLANNING SECTION (EVENT TYPE CHOOSE)
+   ========================================================= */
+.planning-section {
+  padding: 5rem 7%;
+  background: linear-gradient(180deg, #121212 0%, #080808 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.planning-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.planning-section .section-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 0.8rem;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.planning-section .section-subtitle {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+.planning-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.planning-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 350px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.planning-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.planning-card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(29, 185, 84, 0.3);
+  box-shadow: 0 20px 40px rgba(29, 185, 84, 0.1);
+}
+
+.planning-card:hover::before {
+  opacity: 1;
+}
+
+.planning-card-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(29, 185, 84, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.planning-card-icon i {
+  font-size: 2rem;
+  color: var(--accent);
+  transition: all 0.3s ease;
+}
+
+.planning-card:hover .planning-card-icon {
+  background: var(--accent);
+  transform: scale(1.1);
+}
+
+.planning-card:hover .planning-card-icon i {
+  color: #000;
+}
+
+.planning-card h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  color: #fff;
+}
+
+.planning-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.planning-card-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.planning-card:hover .planning-card-link {
+  color: var(--accent-strong);
+  gap: 0.75rem;
+}

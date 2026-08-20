@@ -1,61 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Collin Freestone Entertainment</title>
 
-    <!-- Force no favicon -->
-    <link rel="icon" href="data:," />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Collin Freestone Entertainment</title>
 
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
+  <!-- Force no favicon -->
+  <link rel="icon" href="data:," />
 
-  <body>
-    <!-- HEADER -->
-    <header class="navbar">
-      <div class="logo">
-        <img
-          src="assets/logooo.png"
-          alt="Collin Freestone Entertainment"
-          id="logoimage"
-        />
-        <img
-          src="assets/col.png"
-          alt="Collin Freestone Entertainment"
-          id="headerimage"
-        />
-      </div>
-      <nav class="nav-links" id="navLinks">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="ChooseYourEvent.html">Choose Your Event</a></li>
-          <li><a href="LiveShows.html">Come See Us Live</a></li>
-          <li><a href="Gallery.html">Gallery</a></li>
-          <li><a href="Songs.html">Song List</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="login.html">Login</a></li>
-        </ul>
-      </nav>
-      <div class="hamburger" onclick="toggleMenu()">☰</div>
-    </header>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <!-- Mobile Menu (for smaller screens) -->
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#home" onclick="toggleMenu()">Home</a>
-      <a href="#about" onclick="toggleMenu()">About</a>
-      <a href="ChooseYourEvent.html" onclick="toggleMenu()">Choose Your Event</a>
-      <a href="LiveShows.html" onclick="toggleMenu()">Come See Us Live</a>
-      <a href="Gallery.html" onclick="toggleMenu()">Gallery</a>
-      <a href="Songs.html" onclick="toggleMenu()">Song List</a>
-      <a href="#contact" onclick="toggleMenu()">Contact</a>
-      <a href="login.html" class="mobile-login" onclick="toggleMenu()">Login</a>
+<body>
+  <!-- HEADER -->
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/logooo.png" alt="Collin Freestone Entertainment" id="logoimage" />
+        <img src="assets/col.png" alt="Collin Freestone Entertainment" id="headerimage" />
+      </a>
     </div>
+    <nav class="nav-links" id="navLinks">
+      <ul>
+        <li><a href="Weddings.html">Weddings</a></li>
+        <li><a href="CorporateEvents.html">Corporate Events</a></li>
+        <li><a href="LiveShows.html">Come See Us Live</a></li>
+        <li><a href="Gallery.html">Gallery</a></li>
+        <li><a href="Songs.html">Song List</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <!-- Mobile Menu (for smaller screens) -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" onclick="toggleMenu()">About</a>
+    <a href="Weddings.html" onclick="toggleMenu()">Weddings</a>
+    <a href="CorporateEvents.html" onclick="toggleMenu()">Corporate Events & Private Parties</a>
+    <a href="LiveShows.html" onclick="toggleMenu()">Come See Us Live</a>
+    <a href="Gallery.html" onclick="toggleMenu()">Gallery</a>
+    <a href="Songs.html" onclick="toggleMenu()">Song List</a>
+    <a href="#contact" onclick="toggleMenu()">Contact</a>
+    <a href="login.html" class="mobile-login" onclick="toggleMenu()">Login</a>
+  </div>
 
   <!-- HERO SECTION -->
   <section class="hero" id="home">
@@ -70,164 +62,143 @@
       <!-- <img src="assets/collinbluehat.jpeg" alt="Collin Freestone Entertainment" class="slide" />  -->
       <div class="image-overlay"></div>
 
-        <!-- Floating Music Notes -->
-        <div class="floating-notes">
-          <span class="note">♪</span>
-          <span class="note">♫</span>
-          <span class="note">♪</span>
-          <span class="note">♬</span>
-          <span class="note">♪</span>
-          <span class="note">♫</span>
-          <span class="note">♪</span>
-          <span class="note">♬</span>
-        </div>
-
-        <!-- Slide Navigation Arrows -->
-        <button class="slide-nav prev" onclick="changeSlide(-1)">‹</button>
-        <button class="slide-nav next" onclick="changeSlide(1)">›</button>
-
-        <!-- Slide Indicators -->
-        <div class="slide-indicators">
-          <span class="indicator active" onclick="goToSlide(0)"></span>
-          <span class="indicator" onclick="goToSlide(1)"></span>
-          <span class="indicator" onclick="goToSlide(2)"></span>
-          <span class="indicator" onclick="goToSlide(3)"></span>
-          <span class="indicator" onclick="goToSlide(4)"></span>
-          <span class="indicator" onclick="goToSlide(5)"></span>
-          <span class="indicator" onclick="goToSlide(6)"></span>
-          <!-- <span class="indicator" onclick="goToSlide(7)"></span> -->
-        </div>
+      <!-- Floating Music Notes -->
+      <div class="floating-notes">
+        <span class="note">♪</span>
+        <span class="note">♫</span>
+        <span class="note">♪</span>
+        <span class="note">♬</span>
+        <span class="note">♪</span>
+        <span class="note">♫</span>
+        <span class="note">♪</span>
+        <span class="note">♬</span>
       </div>
 
-      <div class="hero-overlay">
-        <div class="hero-content">
-          <h1 class="hero-title">
-            <span class="title-line gradient-text"
-              >Collin Freestone Entertainment</span
-            >
-          </h1>
-          <p class="hero-subtitle typing-text">
-            Collin Freestone Entertainment produces top-tier live-music
-            performances nationwide, blending professionalism, energy, and
-            versatility across multiple acts.
-          </p>
-          <div class="hero-buttons">
-            <a href="ChooseYourEvent.html" class="btn btn-primary">
-              <span>Explore the Shows</span>
-              <i class="fas fa-arrow-right"></i>
-            </a>
-            <!-- <a href="login.html" class="btn btn-outline">
-            <span>Login</span>
-            <i class="fas fa-user"></i>
-          </a> -->
-          </div>
-        </div>
-      </div>
-    </section>
+      <!-- Slide Navigation Arrows -->
+      <button class="slide-nav prev" onclick="changeSlide(-1)">‹</button>
+      <button class="slide-nav next" onclick="changeSlide(1)">›</button>
 
-    <!-- BOTTOM RIGHT CORNER POPUP -->
-    <div id="cornerPopup" class="corner-popup">
-      <div class="corner-popup-content">
-        <div class="corner-popup-header">
-          <span class="corner-popup-icon">?</span>
-          <span class="corner-popup-title">Upcoming Shows</span>
-          <button class="corner-popup-close" onclick="closeCornerPopup()">&times;</button>
-        </div>
-        <div class="corner-popup-body" id="popupBody">
-          <!-- Events will be loaded dynamically -->
-          <p style="font-size: 12px; color: var(--text-muted); text-align: center;">Loading upcoming shows...</p>
-        </div>
-        <div style="padding: 0 15px 15px;">
-          <a href="LiveShows.html" class="btn btn-primary btn-small corner-popup-btn" style="width: 100%; display: block; text-align: center;">
-            View All Shows
-          </a>
-        </div>
+      <!-- Slide Indicators -->
+      <div class="slide-indicators">
+        <span class="indicator active" onclick="goToSlide(0)"></span>
+        <span class="indicator" onclick="goToSlide(1)"></span>
+        <span class="indicator" onclick="goToSlide(2)"></span>
+        <span class="indicator" onclick="goToSlide(3)"></span>
+        <span class="indicator" onclick="goToSlide(4)"></span>
+        <span class="indicator" onclick="goToSlide(5)"></span>
+        <span class="indicator" onclick="goToSlide(6)"></span>
+        <!-- <span class="indicator" onclick="goToSlide(7)"></span> -->
       </div>
     </div>
 
-    <!-- ABOUT SECTION -->
-    <section class="about-section" id="about">
-      <div class="about-bg-pattern"></div>
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          <span class="title-line gradient-text">Collin Freestone Entertainment</span>
+        </h1>
+        <p class="hero-subtitle typing-text">
+          Collin Freestone Entertainment produces top-tier live-music
+          performances nationwide, blending professionalism, energy, and
+          versatility across multiple acts.
+        </p>
+        <div class="hero-buttons">
+          <a href="ChooseYourEvent.html" class="btn btn-primary">
+            <span>Explore the Shows</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <!-- <a href="login.html" class="btn btn-outline">
+            <span>Login</span>
+            <i class="fas fa-user"></i>
+          </a> -->
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="about-container">
-        <!-- Left: Image + feature chips -->
-        <div class="about-image-wrapper">
-          <div class="about-image about-slideshow">
-            <!-- Slides -->
-            <img
-              src="assets/Aboutcollin3.jpg"
-              alt="About Collin Freestone Entertainment"
-              class="about-slide active"
-            />
+  <!-- BOTTOM RIGHT CORNER POPUP -->
+  <div id="cornerPopup" class="corner-popup">
+    <div class="corner-popup-content">
+      <div class="corner-popup-header">
+        <span class="corner-popup-icon">?</span>
+        <span class="corner-popup-title">Upcoming Shows</span>
+        <button class="corner-popup-close" onclick="closeCornerPopup()">&times;</button>
+      </div>
+      <div class="corner-popup-body" id="popupBody">
+        <!-- Events will be loaded dynamically -->
+        <p style="font-size: 12px; color: var(--text-muted); text-align: center;">Loading upcoming shows...</p>
+      </div>
+      <div style="padding: 0 15px 15px;">
+        <a href="LiveShows.html" class="btn btn-primary btn-small corner-popup-btn"
+          style="width: 100%; display: block; text-align: center;">
+          View All Shows
+        </a>
+      </div>
+    </div>
+  </div>
 
-            <img
-              src="assets/Aboutcollin7.jpg"
-              alt="Collin performing live"
-              class="about-slide"
-            />
+  <!-- ABOUT SECTION -->
+  <section class="about-section" id="about">
+    <div class="about-bg-pattern"></div>
 
-            <img
-              src="assets/Aboutcollin8.jpg"
-              alt="Collin at the piano"
-              class="about-slide"
-            />
+    <div class="about-container">
+      <!-- Left: Image + feature chips -->
+      <div class="about-image-wrapper">
+        <div class="about-image about-slideshow">
+          <!-- Slides -->
+          <img src="assets/Aboutcollin3.jpg" alt="About Collin Freestone Entertainment" class="about-slide active" />
 
-            <img
-              src="assets/Aboutcollin6.jpg"
-              alt="Collin at picnic table"
-              class="about-slide"
-            />
-            <img
-              src="assets/collinbluehat.jpeg"
-              alt="Collin smiling"
-              class="about-slide"
-            />
+          <img src="assets/Aboutcollin7.jpg" alt="Collin performing live" class="about-slide" />
 
-            <!-- existing overlay + badge -->
-            <div class="image-overlay-effect"></div>
+          <img src="assets/Aboutcollin8.jpg" alt="Collin at the piano" class="about-slide" />
 
-            <div class="floating-badge">
-              <div class="floating-icon">
-                <i class="fas fa-music"></i>
-              </div>
-              <div class="floating-text">
-                <span>Live Music</span>
-                <small>Nationwide Performances</small>
-              </div>
+          <img src="assets/Aboutcollin6.jpg" alt="Collin at picnic table" class="about-slide" />
+          <img src="assets/collinbluehat.jpeg" alt="Collin smiling" class="about-slide" />
+
+          <!-- existing overlay + badge -->
+          <div class="image-overlay-effect"></div>
+
+          <div class="floating-badge">
+            <div class="floating-icon">
+              <i class="fas fa-music"></i>
             </div>
-          </div>
-
-          <div class="about-features">
-            <div class="feature-item">
-              <div class="feature-icon">
-                <i class="fas fa-microphone-alt"></i>
-              </div>
-              <h4>Dueling Pianos</h4>
-              <p>Interactive, request-driven piano-bar shows.</p>
-            </div>
-            <div class="feature-item">
-              <div class="feature-icon"><i class="fas fa-headphones"></i></div>
-              <h4>Multiple Acts</h4>
-              <p>Solo, duo, and full-production options.</p>
+            <div class="floating-text">
+              <span>Live Music</span>
+              <small>Nationwide Performances</small>
             </div>
           </div>
         </div>
 
-        <!-- Right: Text content -->
-        <div class="about-content">
-          <div class="section-label">About</div>
-
-          <h2 class="about-title">
-            <span class="title-icon">🎧</span>
-            <span class="title-text">Collin Freestone Entertainment</span>
-          </h2>
-
-          <!-- small meta pills -->
-          <div class="about-meta">
-            <span class="about-pill">Live Music Production</span>
-            <span class="about-pill">Touring Experience</span>
-            <span class="about-pill">Weddings &amp; Events</span>
+        <div class="about-features">
+          <div class="feature-item">
+            <div class="feature-icon">
+              <i class="fas fa-microphone-alt"></i>
+            </div>
+            <h4>Dueling Pianos</h4>
+            <p>Interactive, request-driven piano-bar shows.</p>
           </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-headphones"></i></div>
+            <h4>Multiple Acts</h4>
+            <p>Solo, duo, and full-production options.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Text content -->
+      <div class="about-content">
+        <div class="section-label">About</div>
+
+        <h2 class="about-title">
+          <span class="title-icon">🎧</span>
+          <span class="title-text">Collin Freestone Entertainment</span>
+        </h2>
+
+        <!-- small meta pills -->
+        <div class="about-meta">
+          <span class="about-pill">Live Music Production</span>
+          <span class="about-pill">Touring Experience</span>
+          <span class="about-pill">Weddings &amp; Events</span>
+        </div>
 
         <div class="about-text">
           <p class="about-tagline fade-in-text">
@@ -240,50 +211,83 @@
             celebrations, and clients across the United States and internationally.
           </p>
 
-            <div class="about-mission fade-in-text">
-              <h3>Our Mission</h3>
-              <p>
-                From elegant weddings to high-energy dueling-piano nights, the
-                mission is simple: to create unforgettable live-music
-                experiences that move people — one song at a time.
-              </p>
-            </div>
+          <div class="about-mission fade-in-text">
+            <h3>Our Mission</h3>
+            <p>
+              From elegant weddings to high-energy dueling-piano nights, the
+              mission is simple: to create unforgettable live-music
+              experiences that move people — one song at a time.
+            </p>
           </div>
+        </div>
 
-          <a href="event-booking.html" class="btn btn-primary about-btn">
-            <span>Book Your Event</span>
-            <i class="fas fa-arrow-right"></i>
-          </a>
+        <a href="event-booking.html" class="btn btn-primary about-btn">
+          <span>Book Your Event</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANNING SECTION -->
+  <section class="planning-section" id="planning">
+    <div class="planning-container">
+      <h2 class="section-title">What kind of event are you planning?</h2>
+      <p class="section-subtitle">Select your event type to explore customized live music options, scalable production, and act details.</p>
+      
+      <div class="planning-cards">
+        <div class="planning-card" onclick="location.href='Weddings.html'">
+          <div class="planning-card-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Weddings</h3>
+          <p>Elegant and high-energy music tailored for your ceremony, cocktail hour, and reception.</p>
+          <span class="planning-card-link">Explore Weddings <i class="fas fa-arrow-right"></i></span>
+        </div>
+
+        <div class="planning-card" onclick="location.href='CorporateEvents.html'">
+          <div class="planning-card-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <h3>Corporate Events</h3>
+          <p>Professional live entertainment optimized for galas, holiday parties, and corporate functions.</p>
+          <span class="planning-card-link">Explore Corporate <i class="fas fa-arrow-right"></i></span>
+        </div>
+
+        <div class="planning-card" onclick="location.href='LiveShows.html'">
+          <div class="planning-card-icon">
+            <i class="fas fa-music"></i>
+          </div>
+          <h3>Live Shows</h3>
+          <p>Find out where we are playing next or book a public concert, festival, or club venue.</p>
+          <span class="planning-card-link">Explore Live Shows <i class="fas fa-arrow-right"></i></span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ACTS OVERVIEW -->
-    <section class="acts-overview" id="artists">
-      <div class="acts-header">
-        <h2 class="section-title">Acts &amp; Performance Options</h2>
-        <p class="section-subtitle">
-          Collin Freestone Entertainment produces top-tier live-music
-          performances nationwide, featuring four core acts suitable for a wide
-          range of events and venues.
-        </p>
-      </div>
+  <!-- ACTS OVERVIEW -->
+  <section class="acts-overview" id="artists">
+    <div class="acts-header">
+      <h2 class="section-title">Acts &amp; Performance Options</h2>
+      <p class="section-subtitle">
+        Collin Freestone Entertainment produces top-tier live-music
+        performances nationwide, featuring four core acts suitable for a wide
+        range of events and venues.
+      </p>
+    </div>
 
-      <!-- quick links to each act section -->
-      <div class="acts-nav">
-        <a href="#girl-and-guy" class="acts-nav-item">💍🎶 Girl and a Guy</a>
-        <a href="#yoga-pants-karaoke" class="acts-nav-item"
-          >🎤🎵 Live Band Karaoke</a
-        >
-        <a href="#yoga-pants" class="acts-nav-item"
-          >🥁🎹 Yoga Pants (The Duo)</a
-        >
-        <a href="#freestone-keys" class="acts-nav-item">🎹 Freestone Keys</a>
-        <a href="#collin-solo" class="acts-nav-item">🎤🎸 Collin Solo</a>
-      </div>
-    </section>
+    <!-- quick links to each act section -->
+    <div class="acts-nav">
+      <a href="#girl-and-guy" class="acts-nav-item">💍🎶 Girl and a Guy</a>
+      <a href="#yoga-pants-karaoke" class="acts-nav-item">🎤🎵 Live Band Karaoke</a>
+      <a href="#yoga-pants" class="acts-nav-item">🥁🎹 Yoga Pants (The Duo)</a>
+      <a href="#freestone-keys" class="acts-nav-item">🎹 Freestone Keys</a>
+      <a href="#collin-solo" class="acts-nav-item">🎤🎸 Collin Solo</a>
+    </div>
+  </section>
 
-    <!-- 💍🎶 Girl and a Guy -->
+  <!-- 💍🎶 Girl and a Guy -->
 
   <section class="act-section act-alt" id="girl-and-guy">
     <div class="act-inner">
@@ -303,17 +307,17 @@
       <div class="act-content">
         <h3 class="act-title">Girl and a Guy – Featuring Collin Freestone &amp; Kaylee Leatherwood</h3>
 
-          <p class="act-text">
-            Girl and a Guy is an elegant duo featuring piano and vocal
-            performances by Collin Freestone and Kaylee Leatherwood. The act is
-            ideally suited to wedding ceremonies, cocktail hours, and upscale
-            corporate events.
-          </p>
-          <p class="act-text">
-            Repertoire can be tailored to match the tone of the occasion, from
-            contemporary ballads and classics to subtle background music that
-            complements formal gatherings.
-          </p>
+        <p class="act-text">
+          Girl and a Guy is an elegant duo featuring piano and vocal
+          performances by Collin Freestone and Kaylee Leatherwood. The act is
+          ideally suited to wedding ceremonies, cocktail hours, and upscale
+          corporate events.
+        </p>
+        <p class="act-text">
+          Repertoire can be tailored to match the tone of the occasion, from
+          contemporary ballads and classics to subtle background music that
+          complements formal gatherings.
+        </p>
 
 
         <a href="event-booking.html" class="btn btn-primary act-btn"> Book Girl and a Guy</a>
@@ -346,21 +350,21 @@
       <div class="act-content">
         <h3 class="act-title">Live Band Karaoke with Yoga Pants (The Duo)</h3>
 
-          <p class="act-text">
-            Live Band Karaoke with Yoga Pants (The Duo) turns the audience into
-            the lead singers. Guests select their favorite songs from the
-            karaoke menu and perform live with the band.
-          </p>
-          <p class="act-text">
-            This format is designed for maximum crowd participation and is ideal
-            for corporate events, parties, and venues looking for a signature
-            interactive experience.
-          </p>
-          <p class="act-text">
-            The show keeps the same upbeat, lighthearted personality as the
-            standard Yoga Pants Duo, with an added focus on guest performances
-            and shared moments on stage.
-          </p>
+        <p class="act-text">
+          Live Band Karaoke with Yoga Pants (The Duo) turns the audience into
+          the lead singers. Guests select their favorite songs from the
+          karaoke menu and perform live with the band.
+        </p>
+        <p class="act-text">
+          This format is designed for maximum crowd participation and is ideal
+          for corporate events, parties, and venues looking for a signature
+          interactive experience.
+        </p>
+        <p class="act-text">
+          The show keeps the same upbeat, lighthearted personality as the
+          standard Yoga Pants Duo, with an added focus on guest performances
+          and shared moments on stage.
+        </p>
 
         <a href="event-booking.html" class="btn btn-primary act-btn"> Book Live Band Karaoke</a>
         <a href="Songs.html" class="btn  act-btn songbtn songbtn2">Songs <i class="fas fa-arrow-right"></i>
@@ -468,14 +472,14 @@
       <div class="act-content">
         <h3 class="act-title">Collin Freestone – Solo Keyboard, Acoustic Guitar & Vocal Performances</h3>
 
-          <p class="act-text">
-            Live vocals alongside keyboard and acoustic guitar, tailored for
-            weddings, corporate functions, and private events.
-          </p>
-          <p class="act-text">
-            Includes popular covers across genres, with optional original music.
-            Can be an engaging focal point or gentle ambience.
-          </p>
+        <p class="act-text">
+          Live vocals alongside keyboard and acoustic guitar, tailored for
+          weddings, corporate functions, and private events.
+        </p>
+        <p class="act-text">
+          Includes popular covers across genres, with optional original music.
+          Can be an engaging focal point or gentle ambience.
+        </p>
 
         <a href="event-booking.html" class="btn btn-primary act-btn">Book Solo Performance</a>
         <a href="Collinfreestone.html" class="btn  act-btn songbtn2">Songs <i class="fas fa-arrow-right"></i>
@@ -496,7 +500,7 @@
 
 
 
-    <!-- SPOTLIGHT ARTIST SECTION (unchanged)
+  <!-- SPOTLIGHT ARTIST SECTION (unchanged)
   <section class="spotlight-section">
     <div class="spotlight-content">
       <div class="artist-image-container">
@@ -515,8 +519,8 @@
     </div>
   </section> -->
 
-    <!-- SPOTLIGHT ARTIST SECTION - Artist 2 -->
-    <!-- <section class="spotlight-section">
+  <!-- SPOTLIGHT ARTIST SECTION - Artist 2 -->
+  <!-- <section class="spotlight-section">
     <div class="spotlight-content row-reverse">
       <div class="artist-image-container">
         <img src="assets/artist2.jpg" alt="Featured Artist">
@@ -532,8 +536,8 @@
     </div>
   </section> -->
 
-    <!-- SPOTLIGHT ARTIST SECTION - Artist 3 -->
-    <!-- <section class="spotlight-section">
+  <!-- SPOTLIGHT ARTIST SECTION - Artist 3 -->
+  <!-- <section class="spotlight-section">
     <div class="spotlight-content">
       <div class="artist-image-container">
         <img src="assets/artist3.jpg" alt="Featured Artist">
@@ -549,12 +553,12 @@
     </div>
   </section> -->
 
-    <!-- EVENTS SECTION (kept as-is; you can edit later) -->
-    <!-- <section id="events" class="events-section">
+  <!-- EVENTS SECTION (kept as-is; you can edit later) -->
+  <!-- <section id="events" class="events-section">
     <div class="events-bg-pattern"></div> -->
 
-    <!-- EVENTS BANNER -->
-    <!-- <div class="events-banner">
+  <!-- EVENTS BANNER -->
+  <!-- <div class="events-banner">
       <div class="events-banner-overlay"></div>
       <div class="events-banner-content">
         <div class="section-label-events">Events</div>
@@ -655,8 +659,8 @@
     </div>
   </section> -->
 
-    <!-- TESTIMONIALS SECTION (unchanged) -->
-    <!-- <section class="testimonials-section">
+  <!-- TESTIMONIALS SECTION (unchanged) -->
+  <!-- <section class="testimonials-section">
     <h2 class="section-title">💬 What Our Listeners Say</h2>
     <p class="section-subtitle">Real reactions from real fans around the world.</p>
 
@@ -733,225 +737,215 @@
         </div> -->
   </section>
 
-  
-    <!-- CONTACT SECTION (kept as your original) -->
-    <section id="contact" class="contact-section">
-      <div class="contact-container">
-        <div class="contact-image">
-          <img src="assets/contact.jpg" alt="Contact Us" />
-        </div>
 
-        <div class="contact-form">
-          <h2>📩 Get in Touch</h2>
-          <p>
-            Have questions, feedback, or partnership ideas? Drop us a message
-            below and we’ll get back to you soon.
-          </p>
-
-          <form id="contactForm">
-            <input type="text" name="name" placeholder="Your Name" required />
-            <input
-              type="email"
-              name="email"
-              placeholder="Your Email"
-              required
-            />
-            <textarea
-              name="message"
-              rows="5"
-              placeholder="Your Message"
-              required
-            ></textarea>
-            <button type="submit">Send Message</button>
-          </form>
-        </div>
+  <!-- CONTACT SECTION (kept as your original) -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <div class="contact-image">
+        <img src="assets/contact.jpg" alt="Contact Us" />
       </div>
-    </section>
 
-    <footer class="footer">
-  <div class="footer-content">
-    <!-- Logo & Name -->
-    <div class="footer-logo">
-      <img src="assets/footerlogo.jpg" alt="Logo" id="footerimage" />
-      <h3>Collin Freestone Entertainment</h3>
-      <p>Top-tier live-music performances nationwide.</p>
-    </div>
+      <div class="contact-form">
+        <h2>📩 Get in Touch</h2>
+        <p>
+          Have questions, feedback, or partnership ideas? Drop us a message
+          below and we’ll get back to you soon.
+        </p>
 
-    <!-- Services -->
-    <div class="footer-services">
-      <h4>Our Services</h4>
-      <ul>
-        <li>Dueling Pianos</li>
-        <li>Solo Performances</li>
-        <li>Live Band Karaoke</li>
-        <li>Wedding & Corporate Events</li>
-        <li>Custom Live-Music Experiences</li>
-      </ul>
-    </div>
-
-    <!-- Legal Links - ADD THIS NEW SECTION -->
-    <div class="footer-legal">
-      <h4>Legal</h4>
-      <ul>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms & Conditions</a></li>
-      </ul>
-    </div>
-
-    <!-- Social Media -->
-    <div class="footer-socials">
-      <h4>Follow Us</h4>
-      <div class="social-icons">
-        <a href="https://instagram.com/collinfreestoneentertainment" target="_blank" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://youtube.com/@collinfreestone" target="_blank" aria-label="YouTube">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://facebook.com/collinfreestoneentertainment" target="_blank" aria-label="Facebook">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="mailto:collin@collinfreestoneentertainment.com" target="_blank" aria-label="Email">
-          <i class="fas fa-envelope"></i>
-        </a>
+        <form id="contactForm">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
       </div>
     </div>
+  </section>
 
-    <!-- Subscribe -->
-    <div class="footer-subscribe">
-      <h4>Subscribe</h4>
-      <p>Get the latest drops & event updates.</p>
-      <form>
-        <input type="email" placeholder="Your Email" />
-        <button type="submit">Subscribe</button>
+  <footer class="footer">
+    <div class="footer-content">
+      <!-- Logo & Name -->
+      <div class="footer-logo">
+        <img src="assets/footerlogo.jpg" alt="Logo" id="footerimage" />
+        <h3>Collin Freestone Entertainment</h3>
+        <p>Top-tier live-music performances nationwide.</p>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-services">
+        <h4>Our Services</h4>
+        <ul>
+          <li>Dueling Pianos</li>
+          <li>Solo Performances</li>
+          <li>Live Band Karaoke</li>
+          <li>Wedding & Corporate Events</li>
+          <li>Custom Live-Music Experiences</li>
+        </ul>
+      </div>
+
+      <!-- Legal Links - ADD THIS NEW SECTION -->
+      <div class="footer-legal">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Media -->
+      <div class="footer-socials">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://instagram.com/collinfreestoneentertainment" target="_blank" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://youtube.com/@collinfreestone" target="_blank" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://facebook.com/collinfreestoneentertainment" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="mailto:collin@collinfreestoneentertainment.com" target="_blank" aria-label="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Subscribe -->
+      <div class="footer-subscribe">
+        <h4>Subscribe</h4>
+        <p>Get the latest drops & event updates.</p>
+        <form>
+          <input type="email" placeholder="Your Email" />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 Collin Freestone Entertainment. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = {
+        name: this.name.value,
+        email: this.email.value,
+        message: this.message.value
+      };
+
+      const response = await fetch("https://collinfreestone.onrender.com/api/contact/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Message sent successfully!");
+        this.reset();
+      } else {
+        alert("Failed to send message. Try again.");
+      }
+    });
+  </script>
+
+  <!-- Event Booking Modal -->
+  <div id="bookingModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Book Your Event</h2>
+        <span class="close" onclick="closeBookingModal()">&times;</span>
+      </div>
+      <form id="eventBookingForm">
+        <div class="form-group">
+          <label for="bookingName">Name *</label>
+          <input type="text" id="bookingName" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="bookingEmail">Email *</label>
+          <input type="email" id="bookingEmail" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="bookingPhone">Phone</label>
+          <input type="tel" id="bookingPhone" name="phone">
+        </div>
+        <div class="form-group">
+          <label for="bookingEvent">Event *</label>
+          <input type="text" id="bookingEvent" name="eventTitle" readonly>
+        </div>
+        <div class="form-group">
+          <label for="bookingDate">Date *</label>
+          <input type="text" id="bookingDate" name="eventDate" readonly>
+        </div>
+        <div class="form-group">
+          <label for="bookingLocation">Location *</label>
+          <input type="text" id="bookingLocation" name="eventLocation" readonly>
+        </div>
+        <div class="form-group">
+          <label for="bookingGuests">Number of Guests</label>
+          <input type="number" id="bookingGuests" name="numberOfGuests" min="1" value="1">
+        </div>
+        <div class="form-group">
+          <label for="bookingRequests">Special Requests</label>
+          <textarea id="bookingRequests" name="specialRequests" rows="3"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-outline" onclick="closeBookingModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit Booking</button>
+        </div>
       </form>
     </div>
   </div>
 
-  <div class="footer-bottom">
-    <p>© 2025 Collin Freestone Entertainment. All rights reserved.</p>
-  </div>
-</footer>
+  <script>
+    // Event booking functionality
+    let eventData = {};
 
-    <!-- JS -->
-    <script src="script.js"></script>
-    <script>
-document.getElementById("contactForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
+    // Dynamic API URL
+    const API = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:")
+      ? "http://localhost:5000/api"
+      : "https://collinfreestone.onrender.com/api";
 
-    const formData = {
-        name: this.name.value,
-        email: this.email.value,
-        message: this.message.value
-    };
+    // Load shows for popup and bookings
+    async function loadPopupShows() {
+      const popupBody = document.getElementById('popupBody');
 
-    const response = await fetch("https://collinfreestone.onrender.com/api/contact/send", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
-    });
+      try {
+        const response = await fetch(`${API}/events/upcoming-shows`);
+        const data = await response.json();
+        const shows = data.upcoming || [];
 
-    const result = await response.json();
+        if (shows.length === 0) {
+          popupBody.innerHTML = '<p style="font-size: 12px; color: var(--text-muted); text-align: center;">No upcoming shows. Check back soon!</p>';
+          return;
+        }
 
-    if (result.success) {
-        alert("Message sent successfully!");
-        this.reset();
-    } else {
-        alert("Failed to send message. Try again.");
-    }
-});
-</script>
+        // Populate eventData
+        eventData = {};
+        shows.forEach(show => {
+          eventData[show._id] = {
+            title: show.title,
+            date: show.date,
+            time: show.time,
+            location: show.location
+          };
+        });
 
-<!-- Event Booking Modal -->
-<div id="bookingModal" class="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2>Book Your Event</h2>
-      <span class="close" onclick="closeBookingModal()">&times;</span>
-    </div>
-    <form id="eventBookingForm">
-      <div class="form-group">
-        <label for="bookingName">Name *</label>
-        <input type="text" id="bookingName" name="name" required>
-      </div>
-      <div class="form-group">
-        <label for="bookingEmail">Email *</label>
-        <input type="email" id="bookingEmail" name="email" required>
-      </div>
-      <div class="form-group">
-        <label for="bookingPhone">Phone</label>
-        <input type="tel" id="bookingPhone" name="phone">
-      </div>
-      <div class="form-group">
-        <label for="bookingEvent">Event *</label>
-        <input type="text" id="bookingEvent" name="eventTitle" readonly>
-      </div>
-      <div class="form-group">
-        <label for="bookingDate">Date *</label>
-        <input type="text" id="bookingDate" name="eventDate" readonly>
-      </div>
-      <div class="form-group">
-        <label for="bookingLocation">Location *</label>
-        <input type="text" id="bookingLocation" name="eventLocation" readonly>
-      </div>
-      <div class="form-group">
-        <label for="bookingGuests">Number of Guests</label>
-        <input type="number" id="bookingGuests" name="numberOfGuests" min="1" value="1">
-      </div>
-      <div class="form-group">
-        <label for="bookingRequests">Special Requests</label>
-        <textarea id="bookingRequests" name="specialRequests" rows="3"></textarea>
-      </div>
-      <div class="form-actions">
-        <button type="button" class="btn btn-outline" onclick="closeBookingModal()">Cancel</button>
-        <button type="submit" class="btn btn-primary">Submit Booking</button>
-      </div>
-    </form>
-  </div>
-</div>
+        // Populate popup (first 2 shows)
+        popupBody.innerHTML = shows.slice(0, 2).map(show => {
+          // Parse date for icon (e.g. "April 24, 2026")
+          const dateParts = show.date.split(' ');
+          const day = dateParts[1]?.replace(',', '') || '??';
+          const month = dateParts[0]?.substring(0, 3).toUpperCase() || 'EVT';
 
-<script>
-// Event booking functionality
-let eventData = {};
-
-// Dynamic API URL
-const API = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:") 
-    ? "http://localhost:5000/api" 
-    : "https://collinfreestone.onrender.com/api";
-
-// Load shows for popup and bookings
-async function loadPopupShows() {
-  const popupBody = document.getElementById('popupBody');
-  
-  try {
-    const response = await fetch(`${API}/events/upcoming-shows`);
-    const data = await response.json();
-    const shows = data.upcoming || [];
-    
-    if (shows.length === 0) {
-      popupBody.innerHTML = '<p style="font-size: 12px; color: var(--text-muted); text-align: center;">No upcoming shows. Check back soon!</p>';
-      return;
-    }
-
-    // Populate eventData
-    eventData = {};
-    shows.forEach(show => {
-      eventData[show._id] = {
-        title: show.title,
-        date: show.date,
-        time: show.time,
-        location: show.location
-      };
-    });
-
-    // Populate popup (first 2 shows)
-    popupBody.innerHTML = shows.slice(0, 2).map(show => {
-      // Parse date for icon (e.g. "April 24, 2026")
-      const dateParts = show.date.split(' ');
-      const day = dateParts[1]?.replace(',', '') || '??';
-      const month = dateParts[0]?.substring(0, 3).toUpperCase() || 'EVT';
-
-      return `
+          return `
         <div class="corner-popup-event" style="cursor: pointer;" onclick="window.location.href='UpcomingShows.html'">
           <div class="corner-event-date">
             <span class="corner-date-day">${day}</span>
@@ -963,121 +957,137 @@ async function loadPopupShows() {
           </div>
         </div>
       `;
-    }).join('');
+        }).join('');
 
-  } catch (error) {
-    console.error('Error loading popup shows:', error);
-    popupBody.innerHTML = '<p style="font-size: 12px; color: #ff4d4d; text-align: center;">Failed to load shows.</p>';
-  }
-}
-
-// Initial load
-loadPopupShows();
-
-function openBookingModal(eventId) {
-  const modal = document.getElementById('bookingModal');
-  const event = eventData[eventId];
-  
-  if (event) {
-    document.getElementById('bookingEvent').value = event.title;
-    document.getElementById('bookingDate').value = event.date;
-    document.getElementById('bookingLocation').value = event.location;
-    document.getElementById('bookingEvent').dataset.eventId = eventId;
-  }
-  
-  modal.style.display = 'block';
-  document.body.style.overflow = 'hidden';
-}
-
-function closeBookingModal() {
-  const modal = document.getElementById('bookingModal');
-  modal.style.display = 'none';
-  document.body.style.overflow = 'auto';
-  document.getElementById('eventBookingForm').reset();
-}
-
-// Handle booking form submission
-document.getElementById('eventBookingForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
-  
-  const formData = {
-    name: this.name.value,
-    email: this.email.value,
-    phone: this.phone.value,
-    eventType: 'upcoming-show',
-    eventId: this.eventTitle.dataset.eventId,
-    eventTitle: this.eventTitle.value,
-    eventDate: this.eventDate.value,
-    eventLocation: this.eventLocation.value,
-    numberOfGuests: this.numberOfGuests.value,
-    specialRequests: this.specialRequests.value
-  };
-  
-  // Use API constant defined above
-
-  try {
-    const response = await fetch(`${API}/events/book`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    });
-    
-    const result = await response.json();
-    
-    if (response.ok) {
-      alert('Booking submitted successfully! We will contact you soon.');
-      closeBookingModal();
-    } else {
-      alert('Failed to submit booking. Please try again.');
+      } catch (error) {
+        console.error('Error loading popup shows:', error);
+        popupBody.innerHTML = '<p style="font-size: 12px; color: #ff4d4d; text-align: center;">Failed to load shows.</p>';
+      }
     }
-  } catch (error) {
-    console.error('Booking error:', error);
-    alert('An error occurred. Please try again later.');
-  }
-});
 
-// Close modal when clicking outside
-window.onclick = function(event) {
-  const modal = document.getElementById('bookingModal');
-  if (event.target == modal) {
-    closeBookingModal();
-  }
-}
+    // Initial load
+    loadPopupShows();
 
-// Corner Popup Functions
-function showCornerPopup() {
-  const popup = document.getElementById('cornerPopup');
-  popup.style.display = 'block';
-}
+    function openBookingModal(eventId) {
+      const modal = document.getElementById('bookingModal');
+      const event = eventData[eventId];
 
-function closeCornerPopup() {
-  const popup = document.getElementById('cornerPopup');
-  popup.style.display = 'none';
-}
+      if (event) {
+        document.getElementById('bookingEvent').value = event.title;
+        document.getElementById('bookingDate').value = event.date;
+        document.getElementById('bookingLocation').value = event.location;
+        document.getElementById('bookingEvent').dataset.eventId = eventId;
+      }
 
-// Load corner popup events
-async function loadCornerPopupEvents() {
-  const popupBody = document.getElementById('popupBody');
-  
-  try {
-    const API = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:") 
-        ? "http://localhost:5000/api" 
-        : "https://collinfreestone.onrender.com/api";
-    
-    const response = await fetch(`${API}/events/upcoming-shows`);
-    const data = await response.json();
-    const shows = data.upcoming || [];
-    
-    // Get first 2 shows for corner popup
-    const featuredShows = shows.slice(0, 2);
-    
-    let eventsHTML = '';
-    featuredShows.forEach(show => {
-      const eventDate = new Date(show.date.includes('May') ? `May ${show.date.split(' ')[1]}, 2026` : show.date);
-      const day = eventDate.getDate();
-      const month = eventDate.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
-      
-      eventsHTML += `
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeBookingModal() {
+      const modal = document.getElementById('bookingModal');
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      document.getElementById('eventBookingForm').reset();
+    }
+
+    // Handle booking form submission
+    document.getElementById('eventBookingForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const formData = {
+        name: this.name.value,
+        email: this.email.value,
+        phone: this.phone.value,
+        eventType: 'upcoming-show',
+        eventId: this.eventTitle.dataset.eventId,
+        eventTitle: this.eventTitle.value,
+        eventDate: this.eventDate.value,
+        eventLocation: this.eventLocation.value,
+        numberOfGuests: this.numberOfGuests.value,
+        specialRequests: this.specialRequests.value
+      };
+
+      // Use API constant defined above
+
+      try {
+        const response = await fetch(`${API}/events/book`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+          alert('Booking submitted successfully! We will contact you soon.');
+          closeBookingModal();
+        } else {
+          alert('Failed to submit booking. Please try again.');
+        }
+      } catch (error) {
+        console.error('Booking error:', error);
+        alert('An error occurred. Please try again later.');
+      }
+    });
+
+    // Close modal when clicking outside
+    window.onclick = function (event) {
+      const modal = document.getElementById('bookingModal');
+      if (event.target == modal) {
+        closeBookingModal();
+      }
+    }
+
+    // Corner Popup Functions
+    function showCornerPopup() {
+      const popup = document.getElementById('cornerPopup');
+      popup.style.display = 'block';
+    }
+
+    function closeCornerPopup() {
+      const popup = document.getElementById('cornerPopup');
+      popup.style.display = 'none';
+    }
+
+    // Load corner popup events
+    async function loadCornerPopupEvents() {
+      const popupBody = document.getElementById('popupBody');
+
+      try {
+        const API = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:")
+          ? "http://localhost:5000/api"
+          : "https://collinfreestone.onrender.com/api";
+
+        const response = await fetch(`${API}/events/upcoming-shows`);
+        const data = await response.json();
+        const shows = data.upcoming || [];
+
+        // Get first 2 valid calendar shows for corner popup (exclude weekly recurring shows)
+        const validShows = shows.filter(show => {
+          if (!show.date) return false;
+          return !show.date.toLowerCase().includes('every');
+        });
+
+        const featuredShows = validShows.slice(0, 2);
+
+        let eventsHTML = '';
+        featuredShows.forEach(show => {
+          // Normalize date ranges (e.g. "August 28-29, 2026" -> "August 28, 2026")
+          let dateStr = show.date;
+          if (dateStr.includes('-')) {
+            dateStr = dateStr.replace(/-[0-9]+/, '');
+          }
+
+          const eventDate = new Date(dateStr);
+          let day = '??';
+          let month = 'EVT';
+
+          if (!isNaN(eventDate.getTime())) {
+            day = eventDate.getDate();
+            month = eventDate.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
+          }
+
+          eventsHTML += `
         <div class="corner-popup-event">
           <div class="corner-event-date">
             <span class="corner-date-day">${day}</span>
@@ -1089,42 +1099,42 @@ async function loadCornerPopupEvents() {
           </div>
         </div>
       `;
+        });
+
+        popupBody.innerHTML = eventsHTML;
+
+      } catch (error) {
+        console.error('Error loading corner popup events:', error);
+        popupBody.innerHTML = '<p style="font-size: 12px; color: var(--text-muted); text-align: center;">Failed to load events</p>';
+      }
+    }
+
+    // Show corner popup after delay
+    window.addEventListener('load', function () {
+      setTimeout(async function () {
+        await loadCornerPopupEvents();
+        showCornerPopup();
+      }, 5000); // Show after 5 seconds
     });
-    
-    popupBody.innerHTML = eventsHTML;
-    
-  } catch (error) {
-    console.error('Error loading corner popup events:', error);
-    popupBody.innerHTML = '<p style="font-size: 12px; color: var(--text-muted); text-align: center;">Failed to load events</p>';
-  }
-}
 
-// Show corner popup after delay
-window.addEventListener('load', function() {
-  setTimeout(async function() {
-    await loadCornerPopupEvents();
-    showCornerPopup();
-  }, 5000); // Show after 5 seconds
-});
+    // Auto-hide corner popup after 10 seconds
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        closeCornerPopup();
+      }, 15000); // Hide after 15 seconds total (5s delay + 10s display)
+    });
 
-// Auto-hide corner popup after 10 seconds
-window.addEventListener('load', function() {
-  setTimeout(function() {
-    closeCornerPopup();
-  }, 15000); // Hide after 15 seconds total (5s delay + 10s display)
-});
+    // Close popup when clicking outside
+    document.addEventListener('click', function (event) {
+      const popup = document.getElementById('cornerPopup');
+      if (popup && popup.style.display === 'block' &&
+        !popup.contains(event.target) &&
+        !event.target.closest('.corner-popup')) {
+        closeCornerPopup();
+      }
+    });
+  </script>
 
-// Close popup when clicking outside
-document.addEventListener('click', function(event) {
-  const popup = document.getElementById('cornerPopup');
-  if (popup && popup.style.display === 'block' && 
-      !popup.contains(event.target) && 
-      !event.target.closest('.corner-popup')) {
-    closeCornerPopup();
-  }
-});
-</script>
+</body>
 
-  </body>
 </html>
-
