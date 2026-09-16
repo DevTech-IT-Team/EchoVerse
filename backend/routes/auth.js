@@ -68,7 +68,7 @@ router.post("/login", async (req, res) => {
     if (!email || !password)
       return res.status(400).json({ message: "Email and password required" });
 
-    const user = await User.findOne({ email: email.toLowerCase() });
+    const user = await User.findOne({ email: String(email).trim().toLowerCase() });
     if (!user)
       return res.status(401).json({ message: "Invalid credentials" });
 
@@ -76,13 +76,15 @@ router.post("/login", async (req, res) => {
     if (!match)
       return res.status(401).json({ message: "Invalid credentials" });
 
-    if (loginAs === "user" && user.isAdmin) {
+    const isAdminAccount = user.isAdmin === true || user.role === "admin";
+
+    if (loginAs === "user" && isAdminAccount) {
       return res
         .status(403)
         .json({ message: "Admins cannot log in from the user portal" });
     }
 
-    if (loginAs === "admin" && !user.isAdmin) {
+    if (loginAs === "admin" && !isAdminAccount) {
       return res.status(403).json({
         message: "You are not authorized to access the admin dashboard",
       });
@@ -92,8 +94,8 @@ router.post("/login", async (req, res) => {
       {
         id: user._id,
         email: user.email,
-        role: user.role,
-        isAdmin: user.isAdmin,
+        role: isAdminAccount ? "admin" : user.role,
+        isAdmin: isAdminAccount,
       },
       process.env.JWT_SECRET || "default",
       { expiresIn: "7d" }
@@ -106,8 +108,8 @@ router.post("/login", async (req, res) => {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
-        role: user.role,
-        isAdmin: user.isAdmin,
+        role: isAdminAccount ? "admin" : user.role,
+        isAdmin: isAdminAccount,
       },
     });
   } catch (err) {

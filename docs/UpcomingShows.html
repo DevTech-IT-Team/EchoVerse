@@ -218,84 +218,148 @@
       // Dynamic Event Data Store
       let eventData = {};
 
-      // Load shows from backend
-      async function loadShows() {
+      const LOCAL_SHOWS = [
+        {
+          _id: 'dueling-pianos-sep18',
+          title: 'Dueling Pianos with Andy Salmonson',
+          date: 'September 18, 2026',
+          time: '6:00 PM - 9:00 PM',
+          location: 'Tucson, AZ',
+          description: 'Dueling pianos with Andy Salmonson.',
+          type: 'Show',
+          isFeatured: true
+        },
+        {
+          _id: 'freestone-keys-sep28',
+          title: 'Freestone Keys – Dueling Pianos with Fuoad Melki',
+          date: 'September 28, 2026',
+          time: '6:00 PM - 9:00 PM',
+          location: 'Scarpetta on the Green, Mesa, AZ',
+          description: 'Freestone Keys dueling pianos with Fuoad Melki.',
+          type: 'Show',
+          isFeatured: false
+        },
+        {
+          _id: 'yoga-pants-oct10',
+          title: 'Yoga Pants the Duo',
+          date: 'October 10, 2026',
+          time: '4:00 PM - 7:00 PM',
+          location: "Jolie's Place, Chandler, AZ – Patio",
+          description: 'Yoga Pants the Duo live on the patio.',
+          type: 'Show',
+          isFeatured: false
+        },
+        {
+          _id: 'yoga-pants-nov1',
+          title: 'Yoga Pants the Duo',
+          date: 'November 1, 2026',
+          time: '3:00 PM - 6:00 PM',
+          location: "Jolie's Place, Chandler, AZ – Patio",
+          description: 'Yoga Pants the Duo live on the patio.',
+          type: 'Show',
+          isFeatured: false
+        },
+        {
+          _id: 'collin-nikki-dutchmans',
+          title: 'Collin Freestone on keyboards with Nikki Shue',
+          date: 'Date TBA',
+          time: '6:00 PM - 9:00 PM',
+          location: "Dutchman's Country Barbecue, Apache Junction, AZ",
+          description: 'Collin Freestone on keyboards with Nikki Shue.',
+          type: 'Show',
+          isFeatured: false
+        },
+        {
+          _id: 'live-band-karaoke-jan1',
+          title: 'Live Band Karaoke with Yoga Pants the Duo',
+          date: 'January 1, 2027',
+          time: '8:00 PM - 11:00 PM',
+          location: "Fibber Magee's, Chandler, AZ",
+          description: 'Live Band Karaoke with Yoga Pants the Duo.',
+          type: 'Show',
+          isFeatured: false
+        }
+      ];
+
+      function renderShows(shows) {
         const eventsGrid = document.getElementById('eventsGrid');
-        
-        try {
-          // Use the same endpoint that admin uses to get all shows
-          // Add timestamp to prevent caching
-          const response = await fetch(`${API}/events/upcoming-shows?t=${Date.now()}`);
-          const data = await response.json();
-          const shows = data.upcoming || [];
-          
-          if (shows.length === 0) {
-            eventsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 50px; font-weight: 600;">No upcoming shows at the moment. Check back soon!</p>';
-            return;
-          }
+        if (!shows.length) {
+          eventsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 50px; font-weight: 600;">No upcoming shows at the moment. Check back soon!</p>';
+          return;
+        }
 
-          // Clear grid and populate eventData
-          eventsGrid.innerHTML = '';
-          eventData = {};
+        eventsGrid.innerHTML = '';
+        eventData = {};
 
-          shows.forEach(show => {
-            // Add to eventData for booking modal
-            eventData[show._id] = {
-              title: show.title,
-              date: show.date,
-              time: show.time,
-              location: show.location
-            };
+        shows.forEach(show => {
+          eventData[show._id] = {
+            title: show.title,
+            date: show.date,
+            time: show.time,
+            location: show.location
+          };
 
-            // Create card HTML
-            const card = document.createElement('div');
-            card.className = `event-card ${show.isFeatured ? 'highlight' : ''}`;
+          const card = document.createElement('div');
+          card.className = `event-card ${show.isFeatured ? 'highlight' : ''}`;
+          const showType = show.type || 'Show';
 
-            card.innerHTML = `
-              <div class="event-card-content">
-                <div class="event-badge-inline ${show.type.toLowerCase()}">
-                  <i class="fas fa-${show.type === 'Featured' ? 'star' : show.type === 'Weekly' ? 'redo' : 'calendar-alt'}"></i>
-                  <span>${show.type}</span>
+          card.innerHTML = `
+            <div class="event-card-content">
+              <div class="event-badge-inline ${showType.toLowerCase()}">
+                <i class="fas fa-${showType === 'Featured' ? 'star' : showType === 'Weekly' ? 'redo' : 'calendar-alt'}"></i>
+                <span>${showType}</span>
+              </div>
+              <div class="event-date-wrapper">
+                <i class="fas fa-calendar-alt"></i>
+                <h4 class="event-date">${show.date}</h4>
+              </div>
+              <h3 class="event-title">${show.title}</h3>
+              <p>${show.description || ''}</p>
+              <div class="event-details">
+                ${show.time ? `
+                <div class="event-time">
+                  <i class="fas fa-clock"></i>
+                  <span>${show.time}</span>
+                </div>` : ''}
+                <div class="event-location">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>${show.location}</span>
+                  ${show.address ? `<small style="display: block; font-size: 0.8em; color: var(--text-muted);">${show.address}</small>` : ''}
                 </div>
-                <div class="event-date-wrapper">
-                  <i class="fas fa-calendar-alt"></i>
-                  <h4 class="event-date">${show.date}</h4>
-                </div>
-                <h3 class="event-title">${show.title}</h3>
-                <p>${show.description || ''}</p>
-                <div class="event-details">
-                  ${show.time ? `
-                  <div class="event-time">
-                    <i class="fas fa-clock"></i>
-                    <span>${show.time}</span>
-                  </div>` : ''}
-                  <div class="event-location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>${show.location}</span>
-                    ${show.address ? `<small style="display: block; font-size: 0.8em; color: var(--text-muted);">${show.address}</small>` : ''}
-                  </div>
-                </div>
-                <div class="event-footer">
-                  ${show.isFeatured ? `
-                  <div class="event-note">
-                    <i class="fas fa-info-circle"></i>
-                    <span>Reservations recommended</span>
-                  </div>` : ''}
-                  <div class="event-actions">
-                    <button class="btn btn-primary btn-small" onclick="openBookingModal('${show._id}')">Book Now</button>
-                    <div class="event-arrow">
-                      <i class="fas fa-arrow-right"></i>
-                    </div>
+              </div>
+              <div class="event-footer">
+                ${show.isFeatured ? `
+                <div class="event-note">
+                  <i class="fas fa-info-circle"></i>
+                  <span>Reservations recommended</span>
+                </div>` : ''}
+                <div class="event-actions">
+                  <button class="btn btn-primary btn-small" onclick="openBookingModal('${show._id}')">Book Now</button>
+                  <div class="event-arrow">
+                    <i class="fas fa-arrow-right"></i>
                   </div>
                 </div>
               </div>
-            `;
-            eventsGrid.appendChild(card);
-          });
+            </div>
+          `;
+          eventsGrid.appendChild(card);
+        });
+      }
 
+      // Load shows from backend
+      async function loadShows() {
+        renderShows(LOCAL_SHOWS);
+
+        try {
+          const response = await fetch(`${API}/events/upcoming-shows?t=${Date.now()}`);
+          const data = await response.json();
+          const shows = data.upcoming || [];
+          const hasUpdatedList = shows.some(show => show._id === 'dueling-pianos-sep18' || (show.title && show.title.includes('Andy Salmonson')));
+          if (hasUpdatedList) {
+            renderShows(shows);
+          }
         } catch (error) {
           console.error('Error loading shows:', error);
-          eventsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; padding: 50px; color: #ff4d4d; font-weight: 600;">Failed to load shows. Please try again later.</p>';
         }
       }
 

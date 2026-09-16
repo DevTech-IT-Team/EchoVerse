@@ -34,7 +34,8 @@
       <nav class="nav-links" id="navLinks">
         <ul>
           <li><a href="#home">Home</a></li>
-          <li><a href="ChooseYourEvent.html">Choose Your Event</a></li>
+          <li><a href="Weddings.html">Weddings</a></li>
+          <li><a href="CorporateEvents.html">Corporate Events</a></li>
           <li><a href="LiveShows.html">Come See Us Live</a></li>
           <li><a href="Gallery.html">Gallery</a></li>
           <li><a href="Songs.html">Song List</a></li>
@@ -49,7 +50,8 @@
     <div class="mobile-menu" id="mobileMenu">
       <a href="#home" onclick="toggleMenu()">Home</a>
       <a href="#about" onclick="toggleMenu()">About</a>
-      <a href="ChooseYourEvent.html" onclick="toggleMenu()">Choose Your Event</a>
+      <a href="Weddings.html" onclick="toggleMenu()">Weddings</a>
+      <a href="CorporateEvents.html" onclick="toggleMenu()">Corporate Events & Private Parties</a>
       <a href="LiveShows.html" onclick="toggleMenu()">Come See Us Live</a>
       <a href="Gallery.html" onclick="toggleMenu()">Gallery</a>
       <a href="Songs.html" onclick="toggleMenu()">Song List</a>
@@ -101,26 +103,30 @@
 
       <div class="hero-overlay">
         <div class="hero-content">
-          <h1 class="hero-title">
-            <span class="title-line gradient-text"
-              >Collin Freestone Entertainment</span
-            >
-          </h1>
-          <p class="hero-subtitle typing-text">
-            Collin Freestone Entertainment produces top-tier live-music
-            performances nationwide, blending professionalism, energy, and
-            versatility across multiple acts.
-          </p>
-          <div class="hero-buttons">
-            <a href="ChooseYourEvent.html" class="btn btn-primary">
-              <span>Explore the Shows</span>
-              <i class="fas fa-arrow-right"></i>
+          <h1 class="hero-title visually-hidden">Collin Freestone Entertainment</h1>
+          <p class="hero-kicker">Start here</p>
+          <nav class="hero-options" aria-label="Choose your experience">
+            <a href="Weddings.html" class="hero-option">
+              <span class="hero-option-icon"><i class="fas fa-heart" aria-hidden="true"></i></span>
+              <strong>Weddings</strong>
+              <em>Ceremony to reception</em>
             </a>
-            <!-- <a href="login.html" class="btn btn-outline">
-            <span>Login</span>
-            <i class="fas fa-user"></i>
-          </a> -->
-          </div>
+            <a href="CorporateEvents.html" class="hero-option">
+              <span class="hero-option-icon"><i class="fas fa-briefcase" aria-hidden="true"></i></span>
+              <strong>Corporate &amp; Private</strong>
+              <em>Events and parties</em>
+            </a>
+            <a href="LiveShows.html" class="hero-option hero-option-featured">
+              <span class="hero-option-icon"><i class="fas fa-ticket-alt" aria-hidden="true"></i></span>
+              <strong>Come See Us Live</strong>
+              <em>Upcoming public shows</em>
+            </a>
+            <a href="Gallery.html" class="hero-option">
+              <span class="hero-option-icon"><i class="fas fa-images" aria-hidden="true"></i></span>
+              <strong>Gallery</strong>
+              <em>Photos and videos</em>
+            </a>
+          </nav>
         </div>
       </div>
     </section>
@@ -129,7 +135,6 @@
     <div id="cornerPopup" class="corner-popup">
       <div class="corner-popup-content">
         <div class="corner-popup-header">
-          <span class="corner-popup-icon">?</span>
           <span class="corner-popup-title">Upcoming Shows</span>
           <button class="corner-popup-close" onclick="closeCornerPopup()">&times;</button>
         </div>
@@ -273,10 +278,10 @@
       <div class="acts-nav">
         <a href="#girl-and-guy" class="acts-nav-item">💍🎶 Girl and a Guy</a>
         <a href="#yoga-pants-karaoke" class="acts-nav-item"
-          >🎤🎵 Live Band Karaoke</a
+          >🎤🎵 Live Band Karaoke with Yoga Pants the Duo</a
         >
         <a href="#yoga-pants" class="acts-nav-item"
-          >🥁🎹 Yoga Pants (The Duo)</a
+          >🥁🎹 Yoga Pants the Duo</a
         >
         <a href="#freestone-keys" class="acts-nav-item">🎹 Freestone Keys</a>
         <a href="#collin-solo" class="acts-nav-item">🎤🎸 Collin Solo</a>
@@ -344,10 +349,10 @@
       </div>
 
       <div class="act-content">
-        <h3 class="act-title">Live Band Karaoke with Yoga Pants (The Duo)</h3>
+        <h3 class="act-title">Live Band Karaoke with Yoga Pants the Duo</h3>
 
           <p class="act-text">
-            Live Band Karaoke with Yoga Pants (The Duo) turns the audience into
+            Live Band Karaoke with Yoga Pants the Duo turns the audience into
             the lead singers. Guests select their favorite songs from the
             karaoke menu and perform live with the band.
           </p>
@@ -357,12 +362,11 @@
             interactive experience.
           </p>
           <p class="act-text">
-            The show keeps the same upbeat, lighthearted personality as the
-            standard Yoga Pants Duo, with an added focus on guest performances
-            and shared moments on stage.
+            Yoga Pants the Duo can also be booked separately as an interactive,
+            all-request duo.
           </p>
 
-        <a href="event-booking.html" class="btn btn-primary act-btn"> Book Live Band Karaoke</a>
+        <a href="event-booking.html" class="btn btn-primary act-btn">Book This Show</a>
         <a href="Songs.html" class="btn  act-btn songbtn songbtn2">Songs <i class="fas fa-arrow-right"></i>
         </a>
 
@@ -387,18 +391,18 @@
       </div>
 
       <div class="act-content">
-        <h3 class="act-title">Yoga Pants (The Duo)</h3>
+        <h3 class="act-title">Yoga Pants the Duo</h3>
         <p class="act-text">
-          Yoga Pants (The Duo) is a high-energy two-piece show combining live drums, keys, and lead vocals. Each
+          Yoga Pants the Duo is a high-energy two-piece show combining live drums, keys, and lead vocals. Each
           performance is built around audience interaction, humor, and a request-driven song list.
         </p>
         <p class="act-text">
-          The Duo format is ideal for venues, private parties, and events that want a compact, high-impact live show
-          with a flexible setup.
+          Yoga Pants the Duo can also be booked separately as an interactive, all-request duo — ideal for venues,
+          private parties, and events that want a compact, high-impact live show with a flexible setup.
         </p>
         <p class="act-tagline">Bringing the Piano Bar to You.</p>
 
-        <a href="event-booking.html" class="btn btn-primary act-btn">Book Yoga Pants (The Duo)</a>
+        <a href="event-booking.html" class="btn btn-primary act-btn">Book Yoga Pants the Duo</a>
         <a href="Yogapants.html" class="btn  act-btn songbtn songbtn2">Songs <i class="fas fa-arrow-right"></i>
         </a>
 
@@ -919,55 +923,104 @@ const API = (window.location.hostname === "localhost" || window.location.hostnam
     ? "http://localhost:5000/api" 
     : "https://collinfreestone.onrender.com/api";
 
+const LOCAL_SHOWS = [
+  {
+    _id: 'dueling-pianos-sep18',
+    title: 'Dueling Pianos with Andy Salmonson',
+    date: 'September 18, 2026',
+    time: '6:00 PM - 9:00 PM',
+    location: 'Tucson, AZ'
+  },
+  {
+    _id: 'freestone-keys-sep28',
+    title: 'Freestone Keys – Dueling Pianos with Fuoad Melki',
+    date: 'September 28, 2026',
+    time: '6:00 PM - 9:00 PM',
+    location: 'Scarpetta on the Green, Mesa, AZ'
+  },
+  {
+    _id: 'yoga-pants-oct10',
+    title: 'Yoga Pants the Duo',
+    date: 'October 10, 2026',
+    time: '4:00 PM - 7:00 PM',
+    location: "Jolie's Place, Chandler, AZ – Patio"
+  },
+  {
+    _id: 'yoga-pants-nov1',
+    title: 'Yoga Pants the Duo',
+    date: 'November 1, 2026',
+    time: '3:00 PM - 6:00 PM',
+    location: "Jolie's Place, Chandler, AZ – Patio"
+  },
+  {
+    _id: 'collin-nikki-dutchmans',
+    title: 'Collin Freestone on keyboards with Nikki Shue',
+    date: 'Date TBA',
+    time: '6:00 PM - 9:00 PM',
+    location: "Dutchman's Country Barbecue, Apache Junction, AZ"
+  },
+  {
+    _id: 'live-band-karaoke-jan1',
+    title: 'Live Band Karaoke with Yoga Pants the Duo',
+    date: 'January 1, 2027',
+    time: '8:00 PM - 11:00 PM',
+    location: "Fibber Magee's, Chandler, AZ"
+  }
+];
+
+function renderPopupShows(shows) {
+  const popupBody = document.getElementById('popupBody');
+  if (!popupBody) return;
+
+  if (!shows.length) {
+    popupBody.innerHTML = '<p style="font-size: 12px; color: var(--text-muted); text-align: center;">No upcoming shows. Check back soon!</p>';
+    return;
+  }
+
+  eventData = {};
+  shows.forEach(show => {
+    eventData[show._id] = {
+      title: show.title,
+      date: show.date,
+      time: show.time,
+      location: show.location
+    };
+  });
+
+  popupBody.innerHTML = shows.slice(0, 2).map(show => {
+    const dateParts = (show.date || '').split(' ');
+    const day = dateParts[1] ? dateParts[1].replace(',', '') : (show.date === 'Date TBA' ? 'TBA' : '??');
+    const month = dateParts[0] ? dateParts[0].substring(0, 3).toUpperCase() : 'EVT';
+
+    return `
+      <div class="corner-popup-event" style="cursor: pointer;" onclick="window.location.href='LiveShows.html'">
+        <div class="corner-event-date">
+          <span class="corner-date-day">${day}</span>
+          <span class="corner-date-month">${month}</span>
+        </div>
+        <div class="corner-event-info">
+          <h4>${show.title}</h4>
+          <p>${show.location}</p>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
 // Load shows for popup and bookings
 async function loadPopupShows() {
-  const popupBody = document.getElementById('popupBody');
-  
+  renderPopupShows(LOCAL_SHOWS);
+
   try {
     const response = await fetch(`${API}/events/upcoming-shows`);
     const data = await response.json();
     const shows = data.upcoming || [];
-    
-    if (shows.length === 0) {
-      popupBody.innerHTML = '<p style="font-size: 12px; color: var(--text-muted); text-align: center;">No upcoming shows. Check back soon!</p>';
-      return;
+    const hasUpdatedList = shows.some(show => show._id === 'dueling-pianos-sep18' || (show.title && show.title.includes('Andy Salmonson')));
+    if (hasUpdatedList) {
+      renderPopupShows(shows);
     }
-
-    // Populate eventData
-    eventData = {};
-    shows.forEach(show => {
-      eventData[show._id] = {
-        title: show.title,
-        date: show.date,
-        time: show.time,
-        location: show.location
-      };
-    });
-
-    // Populate popup (first 2 shows)
-    popupBody.innerHTML = shows.slice(0, 2).map(show => {
-      // Parse date for icon (e.g. "April 24, 2026")
-      const dateParts = show.date.split(' ');
-      const day = dateParts[1]?.replace(',', '') || '??';
-      const month = dateParts[0]?.substring(0, 3).toUpperCase() || 'EVT';
-
-      return `
-        <div class="corner-popup-event" style="cursor: pointer;" onclick="window.location.href='UpcomingShows.html'">
-          <div class="corner-event-date">
-            <span class="corner-date-day">${day}</span>
-            <span class="corner-date-month">${month}</span>
-          </div>
-          <div class="corner-event-info">
-            <h4>${show.title}</h4>
-            <p>${show.location}</p>
-          </div>
-        </div>
-      `;
-    }).join('');
-
   } catch (error) {
     console.error('Error loading popup shows:', error);
-    popupBody.innerHTML = '<p style="font-size: 12px; color: #ff4d4d; text-align: center;">Failed to load shows.</p>';
   }
 }
 
@@ -1057,46 +1110,7 @@ function closeCornerPopup() {
 
 // Load corner popup events
 async function loadCornerPopupEvents() {
-  const popupBody = document.getElementById('popupBody');
-  
-  try {
-    const API = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1" || window.location.protocol === "file:") 
-        ? "http://localhost:5000/api" 
-        : "https://collinfreestone.onrender.com/api";
-    
-    const response = await fetch(`${API}/events/upcoming-shows`);
-    const data = await response.json();
-    const shows = data.upcoming || [];
-    
-    // Get first 2 shows for corner popup
-    const featuredShows = shows.slice(0, 2);
-    
-    let eventsHTML = '';
-    featuredShows.forEach(show => {
-      const eventDate = new Date(show.date.includes('May') ? `May ${show.date.split(' ')[1]}, 2026` : show.date);
-      const day = eventDate.getDate();
-      const month = eventDate.toLocaleDateString('en-US', { month: 'short' }).toUpperCase();
-      
-      eventsHTML += `
-        <div class="corner-popup-event">
-          <div class="corner-event-date">
-            <span class="corner-date-day">${day}</span>
-            <span class="corner-date-month">${month}</span>
-          </div>
-          <div class="corner-event-info">
-            <h4>${show.title}</h4>
-            <p>${show.location}</p>
-          </div>
-        </div>
-      `;
-    });
-    
-    popupBody.innerHTML = eventsHTML;
-    
-  } catch (error) {
-    console.error('Error loading corner popup events:', error);
-    popupBody.innerHTML = '<p style="font-size: 12px; color: var(--text-muted); text-align: center;">Failed to load events</p>';
-  }
+  await loadPopupShows();
 }
 
 // Show corner popup after delay
