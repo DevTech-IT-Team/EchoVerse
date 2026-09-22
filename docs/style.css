@@ -2923,6 +2923,46 @@ body {
   border: none;
 }
 
+.drive-video {
+  cursor: pointer;
+  background-color: #000000;
+}
+
+.drive-poster {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.drive-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 62px;
+  height: 62px;
+  border: none;
+  border-radius: 50%;
+  background-color: #1db954;
+  color: #ffffff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.drive-play:hover {
+  background-color: #1ed760;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
 .video-title {
   padding: 20px;
   color: #ffffff;
