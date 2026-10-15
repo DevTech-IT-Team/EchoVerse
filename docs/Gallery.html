@@ -137,9 +137,10 @@
       <div class="video-card">
         <div class="video-thumbnail">
           <iframe
-            src="https://www.youtube-nocookie.com/embed/TVu6h25iOyk?rel=0&controls=0&modestbranding=1&iv_load_policy=3"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen title="Video 1"></iframe>
+            src="https://www.youtube.com/embed/TVu6h25iOyk?rel=0&modestbranding=1"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen title="Live Band Karaoke with Yoga Pants the Duo"></iframe>
         </div>
         <div class="video-title">Live Band Karaoke with Yoga Pants the Duo
         </div>
@@ -149,8 +150,9 @@
       <div class="video-card">
         <div class="video-thumbnail">
           <iframe src="https://www.youtube.com/embed/MWUrFhRSrIc?rel=0&modestbranding=1"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen title="Video 2"></iframe>
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen title="Live Band Karaoke with Yoga Pants the Duo"></iframe>
         </div>
         <div class="video-title">Live Band Karaoke with Yoga Pants the Duo
         </div>
@@ -160,8 +162,9 @@
       <div class="video-card">
         <div class="video-thumbnail">
           <iframe src="https://www.youtube.com/embed/hrh3PVh9G-M?rel=0&modestbranding=1"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen title="Video 3"></iframe>
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen title="Freestone Keys – Dueling Pianos"></iframe>
         </div>
         <div class="video-title">Freestone Keys – Dueling Pianos</div>
       </div>
@@ -356,25 +359,25 @@
     <script src="script.js"></script>
 
     <script>
-        // Drive videos stay as a poster + play button until clicked, so the page
-        // never loads sixteen Google Drive players at once.
+        // Clicking a Drive video opens it in a new tab directly in Google Drive,
+        // which avoids third-party cookie blocks, 401 Unauthorized errors,
+        // and playback quota restrictions inside embedded iframes.
         document.querySelectorAll('.drive-video').forEach(holder => {
             const id = holder.dataset.driveId;
             const title = holder.dataset.title || 'Video';
+            const driveUrl = `https://drive.google.com/file/d/${id}/view`;
 
             holder.innerHTML = `
-                <img class="drive-poster" src="https://drive.google.com/thumbnail?id=${id}&sz=w800" alt=""
-                    loading="lazy" onerror="this.remove()">
-                <button type="button" class="drive-play" aria-label="Play ${title}">
-                    <i class="fas fa-play"></i>
-                </button>`;
-
-            holder.querySelector('.drive-play').addEventListener('click', () => {
-                holder.innerHTML = `
-                    <iframe src="https://drive.google.com/file/d/${id}/preview"
-                        allow="autoplay; encrypted-media; picture-in-picture"
-                        allowfullscreen title="${title}"></iframe>`;
-            });
+                <a href="${driveUrl}" target="_blank" rel="noopener noreferrer" class="drive-video-link" aria-label="Watch ${title} on Google Drive">
+                    <img class="drive-poster" src="https://drive.google.com/thumbnail?id=${id}&sz=w800" alt="${title}"
+                        loading="lazy" onerror="this.remove()">
+                    <span class="drive-play" aria-hidden="true">
+                        <i class="fas fa-play"></i>
+                    </span>
+                    <span class="drive-badge">
+                        <i class="fab fa-google-drive"></i> Watch Video
+                    </span>
+                </a>`;
         });
     </script>
 

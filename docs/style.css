@@ -2924,8 +2924,20 @@ body {
 }
 
 .drive-video {
+  position: relative;
   cursor: pointer;
   background-color: #000000;
+}
+
+.drive-video-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  z-index: 1;
 }
 
 .drive-poster {
@@ -2936,6 +2948,11 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s ease;
+}
+
+.drive-video:hover .drive-poster {
+  transform: scale(1.04);
 }
 
 .drive-play {
@@ -2955,12 +2972,40 @@ body {
   align-items: center;
   justify-content: center;
   padding-left: 4px;
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  z-index: 2;
 }
 
-.drive-play:hover {
+.drive-video:hover .drive-play {
   background-color: #1ed760;
-  transform: translate(-50%, -50%) scale(1.1);
+  transform: translate(-50%, -50%) scale(1.12);
+  box-shadow: 0 6px 20px rgba(29, 185, 84, 0.45);
+}
+
+.drive-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  backdrop-filter: blur(4px);
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.drive-video:hover .drive-badge {
+  background-color: #1db954;
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
 .video-title {
