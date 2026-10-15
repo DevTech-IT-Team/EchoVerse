@@ -82,42 +82,6 @@ router.get("/upcoming-shows", async (req, res) => {
 // Static data store (in production, this would be a database)
 let staticShows = [
     {
-        _id: 'dueling-pianos-sep18',
-        title: 'Dueling Pianos with Andy Salmonson',
-        date: 'September 18, 2026',
-        time: '6:00 PM - 9:00 PM',
-        location: 'Tucson, AZ',
-        description: 'Dueling pianos with Andy Salmonson.',
-        image: 'assets/Freestone Keys flier .jpg',
-        type: 'Show',
-        isFeatured: true,
-        order: 1
-    },
-    {
-        _id: 'freestone-keys-sep28',
-        title: 'Freestone Keys – Dueling Pianos with Fuoad Melki',
-        date: 'September 28, 2026',
-        time: '6:00 PM - 9:00 PM',
-        location: 'Scarpetta on the Green, Mesa, AZ',
-        description: 'Freestone Keys dueling pianos with Fuoad Melki.',
-        image: 'assets/Freestone Keys flier .jpg',
-        type: 'Show',
-        isFeatured: false,
-        order: 2
-    },
-    {
-        _id: 'yoga-pants-oct10',
-        title: 'Yoga Pants the Duo',
-        date: 'October 10, 2026',
-        time: '4:00 PM - 7:00 PM',
-        location: "Jolie's Place, Chandler, AZ – Patio",
-        description: 'Yoga Pants the Duo live on the patio.',
-        image: 'assets/yogapantsnew2.png',
-        type: 'Show',
-        isFeatured: false,
-        order: 3
-    },
-    {
         _id: 'yoga-pants-nov1',
         title: 'Yoga Pants the Duo',
         date: 'November 1, 2026',
@@ -125,21 +89,33 @@ let staticShows = [
         location: "Jolie's Place, Chandler, AZ – Patio",
         description: 'Yoga Pants the Duo live on the patio.',
         image: 'assets/yogapantsnew2.png',
-        type: 'Show',
-        isFeatured: false,
-        order: 4
+        type: 'Featured',
+        isFeatured: true,
+        order: 1
     },
     {
-        _id: 'collin-nikki-dutchmans',
+        _id: 'collin-nikki-nov20',
         title: 'Collin Freestone on keyboards with Nikki Shue',
-        date: 'Date TBA',
+        date: 'November 20, 2026',
         time: '6:00 PM - 9:00 PM',
         location: "Dutchman's Country Barbecue, Apache Junction, AZ",
         description: 'Collin Freestone on keyboards with Nikki Shue.',
         image: 'assets/Collinblue.png',
         type: 'Show',
         isFeatured: false,
-        order: 5
+        order: 2
+    },
+    {
+        _id: 'freestone-keys-dec12',
+        title: 'Freestone Keys – Dueling Pianos with Fuoad Melki',
+        date: 'December 12, 2026',
+        time: '6:00 PM - 9:00 PM',
+        location: 'Scarpetta on the Green, Mesa, AZ',
+        description: 'Freestone Keys dueling pianos with Fuoad Melki.',
+        image: 'assets/Freestone Keys flier .jpg',
+        type: 'Show',
+        isFeatured: false,
+        order: 3
     },
     {
         _id: 'live-band-karaoke-jan1',
@@ -151,7 +127,19 @@ let staticShows = [
         image: 'assets/yogapantsnew2.png',
         type: 'Show',
         isFeatured: false,
-        order: 6
+        order: 4
+    },
+    {
+        _id: 'dueling-pianos-tba',
+        title: 'Dueling Pianos with Andy Salmonson',
+        date: 'Date TBA',
+        time: '6:00 PM - 9:00 PM',
+        location: 'Tucson, AZ',
+        description: 'Dueling pianos with Andy Salmonson.',
+        image: 'assets/Freestone Keys flier .jpg',
+        type: 'Show',
+        isFeatured: false,
+        order: 5
     }
 ];
 

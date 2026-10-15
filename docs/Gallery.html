@@ -359,66 +359,20 @@
     <script src="script.js"></script>
 
     <script>
-        // In-page video playback: clicking a card loads the player directly on the page.
-        // It automatically restores any previously active video so multiple audio streams do not overlap.
-        let activeHolder = null;
-
-        function renderThumbnail(holder) {
+        // Directly embed video players with lazy loading so visitors can play in exactly 1 CLICK.
+        document.querySelectorAll('.drive-video').forEach(holder => {
             const id = holder.dataset.driveId;
             const title = holder.dataset.title || 'Video';
 
             holder.innerHTML = `
-                <img class="drive-poster" src="https://drive.google.com/thumbnail?id=${id}&sz=w800" alt="${title}"
-                    loading="lazy" onerror="this.remove()">
-                <button type="button" class="drive-play" aria-label="Play ${title}">
-                    <i class="fas fa-play"></i>
-                </button>`;
-
-            const playBtn = holder.querySelector('.drive-play');
-            const startVideo = (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-
-                // Stop any other currently playing video on the page
-                if (activeHolder && activeHolder !== holder) {
-                    renderThumbnail(activeHolder);
-                }
-                activeHolder = holder;
-
-                holder.innerHTML = `
-                    <iframe src="https://drive.google.com/file/d/${id}/preview"
-                        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                        allowfullscreen title="${title}"></iframe>
-                    <div class="drive-player-controls">
-                        <a href="https://drive.google.com/file/d/${id}/view" target="_blank" rel="noopener noreferrer" 
-                           class="drive-ctrl-btn" title="Open in Google Drive">
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                        <button type="button" class="drive-ctrl-btn drive-close-btn" title="Close video">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>`;
-
-                const closeBtn = holder.querySelector('.drive-close-btn');
-                if (closeBtn) {
-                    closeBtn.addEventListener('click', (ev) => {
-                        ev.stopPropagation();
-                        renderThumbnail(holder);
-                        if (activeHolder === holder) activeHolder = null;
-                    });
-                }
-            };
-
-            playBtn.addEventListener('click', startVideo);
-            holder.addEventListener('click', (e) => {
-                if (!holder.querySelector('iframe')) {
-                    startVideo(e);
-                }
-            });
-        }
-
-        document.querySelectorAll('.drive-video').forEach(holder => {
-            renderThumbnail(holder);
+                <iframe src="https://drive.google.com/file/d/${id}/preview"
+                    loading="lazy"
+                    allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                    allowfullscreen title="${title}"></iframe>
+                <a href="https://drive.google.com/file/d/${id}/view" target="_blank" rel="noopener noreferrer" 
+                   class="drive-direct-link" title="Open full screen in Google Drive">
+                    <i class="fas fa-external-link-alt"></i>
+                </a>`;
         });
     </script>
 
